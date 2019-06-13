@@ -1,0 +1,50 @@
+@import "../style-variables";
+
+.nav{
+  font-family: $font-fam;
+  color: $white;
+  background: $blue;
+  font-size: 1.5rem;
+  padding: 2em 0em;
+  .nav-top {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.logo-area{
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .logo-text{
+    padding-top: .25em;
+    .down-logo{
+      color: $grey-text;
+      font-size: .75rem;
+      text-align: center;
+    }
+  }
+}
+
+.search-area{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .search-input{}
+  .search-advanced{
+    //margin-left: -50%;
+  }
+  .search-button{
+    background-color: $orange;
+  }
+}
+
+.profile-area{
+  //margin-right: auto;
+  .fa-user-tie{
+    padding-left: 1em;
+  }
+}
