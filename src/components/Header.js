@@ -9,7 +9,7 @@ export default function Header(){
             <div className="nav-top">
 
                 <div className="logo-area">
-                    <img src={Logo} alt="Logo"/>
+                    <img src={Logo} alt="Logo" className="logo"/>
                     <div className="logo-text">
                         <div>DUPLICAGENT</div>
                         <div className="down-logo">Management Solutions</div>
@@ -18,17 +18,32 @@ export default function Header(){
 
                 <div className="search-area">
                     <input type="text" placeholder=" search for clients, key words, general inquiry..." className="search-input"/>
-                    <button className="search-advanced">ADVANCED</button>
-                    <button className="search-button">
-                        <FontAwesomeIcon icon="search" pull="left"/>
-                    </button>
+                    <div className="search-buttons">
+                        <button className="search-advanced">ADVANCED</button>
+                        <button className="search-button">
+                            <FontAwesomeIcon icon="search" pull="left"/>
+                        </button>
+                    </div>
+
                 </div>
 
                 <div className="profile-area">
                     <FontAwesomeIcon icon="user-tie"/>
-                    <div>A. Miller</div>
-                </div>
 
+                    <div className="user-name">A. Miller</div>
+                </div>
+            </div>
+
+            <div className="nav-bot">
+                <div className="current-route">
+                    Current Route
+                </div>
+                <div className="four-fa-fas">
+                    <FontAwesomeIcon className="a-fa" icon="home"/>
+                    <FontAwesomeIcon className="a-fa" icon="cloud-upload-alt"/>
+                    <FontAwesomeIcon className="a-fa" icon="comment"/>
+                    <FontAwesomeIcon className="a-fa" icon="exclamation-triangle"/>
+                </div>
             </div>
         </nav>
     )
