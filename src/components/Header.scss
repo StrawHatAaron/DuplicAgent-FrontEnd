@@ -1,92 +1,30 @@
 @import "../style-variables";
-$top-side-width: 15%;
-$top-side-padding: 2em;
 
-.nav{
-  font-family: $font-fam;
-  color: $white;
-  background: $blue;
-  font-size: 1.5rem;
-  padding: 2em 0em;
-  height: 3.35em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  .nav-top {
-    padding-bottom: .75em;
-    display: flex;
-    justify-content: center;
-    .logo-area{
-      width: $top-side-width;
-      padding-left:$top-side-padding;
-      margin-right: auto;
-      display: flex;
-      align-items: center;
-      .logo{}
-      .logo-text{
-        padding-top: .25em;
-        .down-logo{
-          color: $grey-text;
-          font-size: .75rem;
-          text-align: center;
-        }
-      }
-    }
-
-    .search-area{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      .search-input{
-        width: 55em;
-        height:2.5em;
-        border: none;
-      }
-      .search-buttons{
-        display: flex;
-        margin-left: -10.5%;
-        .search-advanced{
-          background: Transparent;
-          border: none;
-          color: $orange;
-        }
-        .search-button{
-          background-color: $orange;
-          height:2.7em;
-          margin-right: -.1em;
-          color: $white;
-          border:none;
-        }
-      }
-    }
-
-    .profile-area{
-      width: $top-side-width;
-      padding-right: $top-side-padding;
-      margin-left: auto;
-      text-align: end;
-      .fa-user-tie{
-        padding-right: 1.5em;
-      }
-    }
-  }
-
-  .nav-bot{
+.document-look{
+  background: $white-backing;
+  .nav-static{
+    background: $white;
+    margin: 0em 10em;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .5em 0;
-    background-color: $white;
-    color: $blue;
-    .current-route{
-      margin-right: auto;
-      padding-left: $top-side-padding;
+
+    .static-bar{
+      font-size: 1.3rem;
+      color: $grey-text;
+      padding: 2em 3em;
     }
-    .four-fa-fas{
-      margin-left: auto;
-      padding-right: $top-side-padding;
-      .a-fa{
-        padding:0em .5em;
-      }
+    .sign-in{
+      font-size: 1rem;
+      color: $light-blue;
+      height: 2.5em;
+      margin: 1em;
+      padding: .5em 2.4em;
+      background: transparent;
+      border-color: $light-blue;
     }
   }
+
+
+
 }

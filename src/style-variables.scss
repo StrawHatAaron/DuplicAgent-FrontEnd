@@ -1,12 +1,23 @@
+//colors
 $blue :#003142;
+$light-blue: #54B0F2;
 $orange: #DE6D43;
 $white: #FFFFFF;
+$white-backing: #F5F5F5;
 $soft-white: #C4C4C4;
 $grey-backing: #D3D3D3;
 $grey-text: #868585;
+
+  //font type
 $font-fam: Skia;
+
+//header
+$top-side-width: 15%;
+$top-side-padding: 2em;
+
 
 body{
   margin: 0;
   background: $grey-backing;
+  font-family: $font-fam;
 }

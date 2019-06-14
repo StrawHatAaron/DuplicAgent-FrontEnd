@@ -1,0 +1,19 @@
+@import "../style-variables";
+
+.logo-area{
+  width: $top-side-width;
+  padding-left:$top-side-padding;
+  width: 20%;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  .logo{}
+  .logo-text{
+    padding-top: .25em;
+    .down-logo{
+      color: $grey-text;
+      font-size: .75rem;
+      text-align: center;
+    }
+  }
+}

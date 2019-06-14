@@ -1,50 +1,31 @@
 import React from 'react'
-import Logo from '../img/logo-sizes/60.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Header.scss'
+import Logo from './Logo'
 
 export default function Header(){
-    return (
-        <nav className="nav">
-            <div className="nav-top">
 
-                <div className="logo-area">
-                    <img src={Logo} alt="Logo" className="logo"/>
-                    <div className="logo-text">
-                        <div>DUPLICAGENT</div>
-                        <div className="down-logo">Management Solutions</div>
-                    </div>
-                </div>
-
-                <div className="search-area">
-                    <input type="text" placeholder=" search for clients, key words, general inquiry..." className="search-input"/>
-                    <div className="search-buttons">
-                        <button className="search-advanced">ADVANCED</button>
-                        <button className="search-button">
-                            <FontAwesomeIcon icon="search" pull="left"/>
-                        </button>
-                    </div>
-
-                </div>
-
-                <div className="profile-area">
-                    <FontAwesomeIcon icon="user-tie"/>
-
-                    <div className="user-name">A. Miller</div>
-                </div>
+    const staticText = [{word:'Contact Us'},{word:'Partners & Affiliate Companies'}];
+    const staticBar = staticText.map((c) => {
+        return(
+            <div className="static-bar">
+                {c.word}
             </div>
+        )
+    });
 
-            <div className="nav-bot">
-                <div className="current-route">
-                    Current Route
-                </div>
-                <div className="four-fa-fas">
-                    <FontAwesomeIcon className="a-fa" icon="home"/>
-                    <FontAwesomeIcon className="a-fa" icon="cloud-upload-alt"/>
-                    <FontAwesomeIcon className="a-fa" icon="comment"/>
-                    <FontAwesomeIcon className="a-fa" icon="exclamation-triangle"/>
-                </div>
-            </div>
-        </nav>
+    return(
+        <div className="document-look">
+            <nav className="nav-static">
+                <Logo/>
+                {staticBar}
+                <button className="sign-in">
+                    Sign in
+                </button>
+            </nav>
+
+            <body className="">
+
+            </body>
+        </div>
     )
 }
