@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.scss'
-import Logo from './Logo'
+import Logo from '../Logo'
 
 export default function Header(){
 
@@ -14,18 +14,12 @@ export default function Header(){
     });
 
     return(
-        <div className="document-look">
-            <nav className="nav-static">
-                <Logo/>
-                {staticBar}
-                <button className="sign-in">
-                    Sign in
-                </button>
-            </nav>
-
-            <body className="">
-
-            </body>
-        </div>
+        <nav className="nav-static">
+            <Logo/>
+            {staticBar}
+            <button className="sign-in">
+                Sign in
+            </button>
+        </nav>
     )
 }
