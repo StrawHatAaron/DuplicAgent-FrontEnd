@@ -6,9 +6,10 @@
   .landing-body{
     background: white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr 1fr;
     height: 50em;
     .landing-part-1{
+      padding:3em;
       .drive-force{
         color: $grey-text;
         font-size: 1.5rem;

@@ -17,14 +17,22 @@
   }
   .learn-more{
     color: $light-blue;
-    margin: .75em;
+    margin: 2em;
+    border-bottom: 1px solid $orange;
+    padding-bottom:20px;
   }
-  hr{
-    margin: .5em;
-    border-color: $orange;
-  }
-  .text-field input{
-    width: 80%;
-    border-color:$light-blue;
+  .flex-form{
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    align-items: flex-start;
+    .account-help-link{
+      align-self: center;
+      margin: 2em 1em;
+      color: $light-blue;
+    }
+    .terms-accept{
+      color: $grey-text;
+    }
   }
 }
