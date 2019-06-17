@@ -9,6 +9,7 @@ export default function Header(){
     const faContent = faFas.map((c) => {
        return(
            <FontAwesomeIcon className="four-fa-fas" icon={c.fa}/>
+           
        )
     });
 
@@ -19,7 +20,9 @@ export default function Header(){
                 <div className="search-area">
                     <input type="text" placeholder=" search for clients, key words, general inquiry..." className="search-input"/>
                     <div className="search-buttons">
-                        <button className="search-advanced">ADVANCED</button>
+                        <button className="search-advanced">
+                        ADVANCED
+                        </button>
                         <button className="search-button">
                             <FontAwesomeIcon icon="search" pull="left"/>
                         </button>

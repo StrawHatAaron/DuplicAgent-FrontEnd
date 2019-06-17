@@ -7,7 +7,6 @@
     background: white;
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr;
-    height: 50em;
     .landing-part-1{
       padding:3em;
       .drive-force{
@@ -19,22 +18,49 @@
         padding-left:1em;
         font-size: 2.5rem;
       }
-      .explain{
-        color: $grey-text;
+      .sm-col-flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
+        .suc-man{
+          margin-top:2em;
+          font-size:1.35rem;
+        }
+        .explain{
+          margin: 2em 3em;
+          color: $grey-text;
+          text-align: center;
+          font-size: 1.15rem;
+          line-height: 1.75em;
+        }
+        .learn{
+          font-size: 1rem;
+          color: $light-blue;
+          height: 2.5em;
+          margin: .5em 9em;
+          padding: .5em 2.4em;
+          background: transparent;
+          border-color: $light-blue;
+        }
       }
-      .learn{
-        font-size: 1rem;
-        color: $light-blue;
-        height: 2.5em;
-        margin: 1em;
-        padding: .5em 2.4em;
-        background: transparent;
-        border-color: $light-blue;
-      }
-    }
-    .landing-part-2{
 
+      .landing-row1-col2{
+        
+      }
+
+      .small-grid-part-2{
+        margin: 50em;
+        .bigger-text{
+          font-size: 1.25rem;
+          .cust-type{
+            color: $light-blue;
+          }
+        }
+        .link-learn{
+            color: $light-blue;
+        }
+      }
     }
   }
 }

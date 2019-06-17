@@ -6,7 +6,6 @@ import {withStyles, makeStyles,} from '@material-ui/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
-import DeleteIcon from '@material-ui/icons/Delete';
 
 const CssTextField = withStyles({
     root: {
@@ -47,6 +46,7 @@ const buttonStyle = makeStyles(theme => ({
     },
     rightIcon: {
         fontSize: 20,
+        marginLeft:'.2em'
     },
 }));
 
@@ -92,15 +92,13 @@ export default function Signin() {
                     label="Password"
                     name="password"
                     autoComplete="current-password"/>
-
                 <FormControlLabel
                     value="end"
                     control={<CustomCheckbox
-                        onChange={handleChange('checkedA')}
+                        onChange={handleChange('checkedA')} 
                         checked={state.checkedA}/>}
-                    label="End"
-                    labelPlacement="end"
-                />
+                    label="Remember Me"
+                    labelPlacement="end"/>
 
                 <Button variant="contained" color="secondary" className={classes.button}>
                     Sign in
