@@ -100,7 +100,10 @@ export default function Signin() {
                     label="Remember Me"
                     labelPlacement="end"/>
 
-                <Button variant="contained" color="secondary" className={classes.button}>
+                <Button 
+                    variant="contained" 
+                    color="secondary" 
+                    className={classes.button}>
                     Sign in
                     <LockIcon className={classes.rightIcon} />
                 </Button>
@@ -114,6 +117,10 @@ export default function Signin() {
                     DUPLICAGENT Terms of Service, DUPLICAGENT Terms of use
                     and have read and acknowledged our Privacy Statement.
                 </div>
+
+                <div>
+                Awesome Customer Support    
+                 </div>
             </div>
         </div>
     )

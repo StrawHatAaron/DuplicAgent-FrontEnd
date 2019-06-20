@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.scss'
 import Logo from '../Logo'
+import SharpButton from './SharpButton';
 
 export default function Header(){
 
@@ -17,9 +18,7 @@ export default function Header(){
         <nav className="nav-static">
             <Logo/>
             {staticBar}
-            <button className="sign-in">
-                Sign in
-            </button>
+            <SharpButton word='Sign in'/>
         </nav>
     )
 }
