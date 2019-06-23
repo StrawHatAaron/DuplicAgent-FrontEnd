@@ -2,29 +2,13 @@ import React from "react";
 import './Signin.scss'
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import {withStyles, makeStyles,} from '@material-ui/styles';
+import {withStyles,} from '@material-ui/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
+import SharpTextField from '../SharpTextField'
+import * as Constants from '../../Constants'
 
-const CssTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {
-            color: '#DE6D43',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#54B0F2',
-            },
-            '&:hover fieldset': {
-                borderColor: '#003142',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: '#DE6D43',
-            },
-        },
-    },
-})(TextField);
 
 const checkBoxStyles = theme => ({
     root: {
@@ -36,19 +20,7 @@ const checkBoxStyles = theme => ({
 });
 const CustomCheckbox = withStyles(checkBoxStyles)(Checkbox);
 
-const buttonStyle = makeStyles(theme => ({
-    button: {
-        width: '100%',
-        background:'#54B0F2',
-        '&:hover':{
-            background: '#DE6D43'
-        }
-    },
-    rightIcon: {
-        fontSize: 20,
-        marginLeft:'.2em'
-    },
-}));
+
 
 export default function Signin() {
     const [state, setState] = React.useState({
@@ -59,7 +31,8 @@ export default function Signin() {
         setState({ ...state, [name]: event.target.checked });
     };
 
-    const classes = buttonStyle();
+    const buttonStyle = Constants.ButtonStyle();
+    // const classes = Constants.
 
     return(
         <div className="sign-section">
@@ -74,20 +47,12 @@ export default function Signin() {
                 Learn More
             </div>
             <div className="flex-form">
-                <CssTextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
+                <SharpTextField
                     id="email"
                     label="Email Address"
                     name="email"
                     autoComplete="email"/>
-                <CssTextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
+                <SharpTextField
                     id="password"
                     label="Password"
                     name="password"
@@ -100,12 +65,13 @@ export default function Signin() {
                     label="Remember Me"
                     labelPlacement="end"/>
 
+
                 <Button 
                     variant="contained" 
                     color="secondary" 
-                    className={classes.button}>
+                    className={buttonStyle.button}>
                     Sign in
-                    <LockIcon className={classes.rightIcon} />
+                    <LockIcon className={buttonStyle.rightIcon}/>
                 </Button>
 
                 <div className="account-help-link">
@@ -119,8 +85,8 @@ export default function Signin() {
                 </div>
 
                 <div>
-                Awesome Customer Support    
-                 </div>
+                    Awesome Customer Support    
+                </div>
             </div>
         </div>
     )

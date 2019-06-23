@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
-import Logo from './Logo'
+import Logo from '../Logo'
 
 export default function Header(){
 

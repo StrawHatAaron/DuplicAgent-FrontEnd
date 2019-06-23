@@ -1,4 +1,4 @@
-@import '../../constant-styles';
+@import '../constant-styles';
 .the-big-div{
   margin: 0 5em;
   border: 1px solid #868585;
@@ -69,7 +69,7 @@
       }
     }
     .falcon9-box{
-      background: url("../../img/falcon9.jpg");
+      background: url("../img/falcon9.jpg");
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -105,9 +105,106 @@
     }
     .row-5{
       display: flex;
-      flex:1;
       text-align: center;
       justify-content: center;
+      padding: 1.75em;
+      .row-5-col-1{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        hr{
+          flex:1;
+          margin: 0;
+          align-self: stretch;
+          margin-top:1em;
+        }
+        .contact-us{
+          width:0em;
+          font-size: 2em;
+          color:$grey-text;
+        }
+      }
+      .row-5-col-2{}
+      hr { 
+        flex: 2;
+        border: 3em;
+        height: 1px;
+        background: $orange;
+        margin-top: 1em;
+        top: 1px;
+      }
+      div{
+        flex:1;
+      }
+    }
+    .row-6{
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .row-7{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 1.75em;
+      .affiliates-comps{
+        width:0em;
+        font-size: 2em;
+        color:$grey-text;
+      }      
+      .row-7-col-1{}
+      .row-7-col-2{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        hr{
+          flex:1;
+          margin: 0;
+          align-self: stretch;
+          margin-top:1em;
+        }
+
+      }
+      hr { 
+        flex: 1;
+        border: 3em;
+        height: 1px;
+        background: $orange;
+        margin-top: 1em;
+        top: 1px;
+      }
+      div{
+        flex:1;
+      }
+    }
+
+    .row-8{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1;
+      text-align: center;
+      .affiliates{
+        margin: 1em;
+        padding: 1em 0em;
+        border: 1px solid #868585;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-size: 2em;
+      }
+    }
+
+    .row-9{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 1.75em;
+      
+      hr{
+        flex:1;
+        margin: 0;
+        align-self: stretch;
+        margin-top:1em;
+        background: $orange;  
+      }
     }
   }
 }

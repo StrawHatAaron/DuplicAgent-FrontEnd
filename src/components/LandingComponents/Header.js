@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.scss'
 import Logo from '../Logo'
-import SharpButton from './SharpButton';
+import SharpButton from '../SharpButton';
 
 export default function Header(){
 
