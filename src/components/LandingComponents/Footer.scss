@@ -1,0 +1,15 @@
+@import '../../constant-styles.scss';
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+    grid-template-rows: 1;
+    text-align: center;
+    padding: 1em;
+    background: $grey-text;
+    color: $white;
+    .col-1{
+        text-align: start;
+        padding-left: .5em;
+    }   
+}

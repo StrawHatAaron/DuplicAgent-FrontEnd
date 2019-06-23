@@ -1,14 +1,15 @@
 import React from 'react'
 import './Home.scss'
 import Header from '../components/LandingComponents/Header'
+import Footer from '../components/LandingComponents/Footer'
 import Signin from "../components/LandingComponents/Signin"
 import ContactUs from "../components/ContactUs"
 import SharpButton from '../components/SharpButton'
 import GuysWalking from '../img/guys-walking.png'
 import BaretapsLogo from '../img/baretaps_logo.png'
-import SacStateLogo from '../img/sac_state_logo.jpeg'
+import SacStateLogo from '../img/sac_state_logo.png'
 import EmpireWeLogo from '../img/empire_west_logo.jpeg'
-import * as Things from '../ConstantImages'
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 
 const customerTypeInfo = [
@@ -41,9 +42,9 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
 
 
 const affiliatesInfo = [
-    {name:'Baretaps', class:'bare', img:{BaretapsLogo}},
-    {name:'CSU Sacramento', class:'sac', img:{SacStateLogo}},
-    {name:'Empire West Insurance', class:'empire', img:{EmpireWeLogo}}]
+    {name:'Baretaps', class:'bare'},
+    {name:'CSU Sacramento', class:'sac'},
+    {name:'Empire West Insurance', class:'empire'}]
 const affiliatesContent = affiliatesInfo.map((c) => {
     var imgSrc
     switch(c.name){
@@ -160,7 +161,7 @@ export default function Home(){
                     <hr/>
                 </div>
                 
-
+                <Footer/>
 
             </body>
         </div>

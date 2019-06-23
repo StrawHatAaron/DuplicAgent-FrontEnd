@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/styles';
 import * as Constants from '../Constants'
-import SendIcon from '@material-ui/icons/Send'
+
 
 export default function SharpButton(props){
 
