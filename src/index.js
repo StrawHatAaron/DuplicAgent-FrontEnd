@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fab, faInstagram, faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons'
 import { faSearch, faUserTie, faHome, faCloudUploadAlt, faComment, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faSearch, faUserTie, faHome, faCloudUploadAlt, faComment, faExclamationTriangle);
+library.add(fab, faSearch, faUserTie, faHome, faCloudUploadAlt, 
+            faComment, faExclamationTriangle, faInstagram, 
+            faFacebook, faGoogle);
 dom.watch();
 ReactDOM.render(<App />, document.getElementById('root'));
 

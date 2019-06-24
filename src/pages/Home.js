@@ -42,13 +42,13 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
 
 
 const affiliatesInfo = [
-    {name:'Baretaps', class:'bare'},
+    {name:'Baretaps Tech.', class:'bare'},
     {name:'CSU Sacramento', class:'sac'},
     {name:'Empire West Insurance', class:'empire'}]
 const affiliatesContent = affiliatesInfo.map((c) => {
     var imgSrc
     switch(c.name){
-        case 'Baretaps':
+        case 'Baretaps Tech.':
         imgSrc = BaretapsLogo
         break;
         case 'CSU Sacramento':
@@ -123,8 +123,13 @@ export default function Home(){
                 </div>
                 
                 <div className="row-4"> 
-                    <div className='row-4-row-1'>Awesome Customer Support </div>
-                    <div className='row-4-row-2'>Automated management systems can be comfusing. We have great people ready to help whenever you need it.</div>
+                    <div className='row-4-row-1'>
+                        Awesome Customer Support 
+                    </div>
+                    <div className='row-4-row-2'>
+                        Automated management systems can be comfusing. We have
+                        great people ready to help whenever you need it.
+                    </div>
                     <div className='row-4-row-3'>
                         <SharpButton word="Find out more"/>    
                     </div>

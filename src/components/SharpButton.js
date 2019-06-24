@@ -8,14 +8,14 @@ export default function SharpButton(props){
 
     const buttonStyle = makeStyles(theme => ({
         button: {
-            width: '30%',
+            width:'15em',
             background: Constants.white,
             border:'2px solid #54B0F2',
             color:Constants.lightBlue,
             borderRadius:'0px',
             margin:'.5em 7em',
             fontFamily:Constants.fontFam,
-            width:'15em',
+
             '&:hover':{
                 background: '#FEFEFE'
             }
