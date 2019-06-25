@@ -2,6 +2,36 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
 import Logo from '../Logo'
+import {Dropbox} from 'dropbox'
+
+
+const dbx = new Dropbox({
+    accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
+    fetch
+})
+const fileListElem = document.querySelector('.js-file-list')
+
+const state = {
+  files: []
+}
+
+const init = () => {
+  dbx.filesListFolder({
+    path: ''
+  }).then(res => console.log(res))
+}
+
+const updateFiles = files => {
+  state.files = [...state.files, ...files]
+  renderFiles()
+}
+
+const renderFiles = () => {
+  
+}
+
+init()
+
 
 export default function Header(){
 
@@ -41,6 +71,7 @@ export default function Header(){
                     {faContent}
                 </div>
             </div>
+            
         </nav>
     )
 }

@@ -15,7 +15,7 @@ export default function SharpButton(props){
             borderRadius:'0px',
             margin:'.5em 7em',
             fontFamily:Constants.fontFam,
-
+            justifyContent: 'center',
             '&:hover':{
                 background: '#FEFEFE'
             }

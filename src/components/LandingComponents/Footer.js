@@ -25,25 +25,33 @@ export default function Footer(){
                 (916) 660-6991 <br/>
                 hello@duplicagent.com <br/>
             </div>
-            <div className='col-2 footer-row'>
+            {/* <div className='col-2 footer-row'>
                 <img
                     src={ACORDLogo}
                     alt="NOT CERTIFIED WITH Association for Cooperative Operations Research and Development."/>
-            </div>
+            </div> */}
             <div className='col-3 footer-row'>
-                @2019 Duplicagent, LLC - Copyright - All Rights Reserved
-            </div>
-            <div className='col-4 footer-row'>
-                Follow Us <br/> 
-                <div className="icon-sect">
-                {iconContent}    
-                </div>
-            </div>
-            <div className='col-5 footer-row'>
+                @2019 Duplicagent, LLC - Copyright <br/>
+                All Rights Reserved <hr/>
                 Privacy Statement <br/>
                 Terms of Use <br/>
                 Terms of Service
             </div>
+            <div className='col-4 footer-row'>
+                
+                <div className="icon-sect">
+                Follow Us 
+                {iconContent}    
+                </div>
+                <img
+                    src={ACORDLogo}
+                    alt="NOT CERTIFIED WITH Association for Cooperative Operations Research and Development."/>
+            </div>
+            {/* <div className='col-5 footer-row'>
+                Privacy Statement <br/>
+                Terms of Use <br/>
+                Terms of Service
+            </div> */}
         </footer>
     )
 }

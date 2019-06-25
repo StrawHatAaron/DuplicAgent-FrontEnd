@@ -1,21 +1,20 @@
 import React from 'react'
 import './Home.scss'
-import Header from '../components/LandingComponents/Header'
-import Footer from '../components/LandingComponents/Footer'
-import Signin from "../components/LandingComponents/Signin"
-import ContactUs from "../components/ContactUs"
-import SharpButton from '../components/SharpButton'
-import GuysWalking from '../img/guys-walking.png'
-import BaretapsLogo from '../img/baretaps_logo.png'
-import SacStateLogo from '../img/sac_state_logo.png'
-import EmpireWeLogo from '../img/empire_west_logo.jpeg'
-import ButtonBase from '@material-ui/core/ButtonBase';
+import Header from '../../components/LandingComponents/Header'
+import Footer from '../../components/LandingComponents/Footer'
+import Signin from "../../components/LandingComponents/Signin"
+import ContactUs from "../../components/ContactUs"
+import SharpButton from '../../components/SharpButton'
+import GuysWalking from '../../img/guys-walking.png'
+import BaretapsLogo from '../../img/baretaps_logo.png'
+import SacStateLogo from '../../img/sac_state_logo.png'
+import EmpireWeLogo from '../../img/empire_west_logo.jpeg'
 
 
 const customerTypeInfo = [
-    {grammar:"I'M AN", custType:'AGENCY', do:'Looking for an outscourcing system'},
-    {grammar:"I'M A", custType:'FREELANCER', do:'Looking for a partner relationship'},
-    {grammar:"I'M A", custType:'BUSINESS', do:'Looking for development help'}]
+    {grammar:"I'M AN ", custType:'AGENCY', do:'Looking for an outscourcing system'},
+    {grammar:"I'M A ", custType:'FREELANCER', do:'Looking for a partner relationship'},
+    {grammar:"I'M A ", custType:'BUSINESS', do:'Looking for development help'}]
 const customerTypeContent = customerTypeInfo.map((c, index) => {
     var Vert= 'na';
     if (index < 2){
@@ -24,18 +23,16 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
         // VertHr = <hr width='1' size='100'/>
     }
     return(
-        <div className='row-2-boxes'>
-            <div className={Vert}>
-                    <div className='bigger-text'>
-                    {c.grammar} <div className='cust-type'>{c.custType}</div>
-                    </div>
-                    <br/>
-                    {c.do}
-                    <br/>
-                    <a className='link-learn' href='#'>
-                        Learn More
-                    </a>
+        <div className={`row-2-boxes ${Vert}`}>
+            <div className='bigger-text'>
+                {c.grammar} <div className='cust-type'>{c.custType}</div>
             </div>
+            <br/>
+            {c.do}
+            <br/>
+            <a className='link-learn' href='hi'>
+                Learn More
+            </a>
         </div>
     )
 });
@@ -76,13 +73,13 @@ const imgStyle = {
 }
 
 export default function Home(){
-
     return(
         <div className="the-big-div">
             <Header/>
             <body className="landing-body">
-                <div className='row1'>
-                    <div className="landing-row1-col1">
+
+                <div className='row-1'>
+                    <div className="row-1_col1">
                         <div className="drive-force">
                             a Driving Force
                         </div>
@@ -96,18 +93,26 @@ export default function Home(){
                             <div className="explain">
                                 Improve efficiency and productivity through a customizable platform tailored to your business. Utilize a software system to focus spceifically on the tasks that will help your business reach its full potiential.
                             </div>
-                            <SharpButton word="Learn More"/>
+                            <div className="button-wrapper" style={{justifyContent: 'center', textAlign:'center'}}>
+                                <SharpButton word="Learn More" />
+                            </div>
+                            
                         </div>
                     </div>
     
-                    <div className="landing-row1-col2">
+                    <div className="row-1_col2">
                         <img style={imgStyle} 
                             src={GuysWalking} 
                             alt='people walking' 
                             className='guys-walking'/>
                     </div>
-                    <Signin/>
+
+                    <div className="row-1_col3">
+                        <Signin/>
+                    </div>
                 </div>
+
+
 
 
                 <div className='row-2'>
@@ -115,7 +120,7 @@ export default function Home(){
                 </div>
 
 
-                <div className="falcon9-box">
+                <div className="row-3">
                     <div className="elon-quote">
                         Make America Great Again
                         <br/>-Donald Trump
@@ -153,7 +158,7 @@ export default function Home(){
                 
                 <div className="row-7">
                     <hr className="hr-1"/>
-                    <div className='affiliates-comps'>Partners & Affiliate Companies</div>
+                    <div className='affiliates-comps'>Supporters & Affiliate Companies</div>
                     <hr className="hr-2"/>
                 </div>
 
