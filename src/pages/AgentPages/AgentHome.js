@@ -1,60 +1,58 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
+import { stat } from 'fs';
+
 
 
 export default function AgentHome(){
+
     const dbx = new Dropbox({
         accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
         fetch
     })
-    
-    const fileListElem = document.querySelector('.js-file-list')
 
-    const [state, setState] = useState({
-        files: []
+    var [files, setFiles] = useState({
+        data: []
     })
 
-    
-    const init = () => {                
-        dbx.filesListFolder({
-            path: ''
-        }).then(res => {
-            updateFiles(res.entries)
-        })
-    }
-    
-    const updateFiles = files => {
-      setState([...state.files, ...files]) 
-      renderFiles()
-    }
-    
-    const renderFiles = () => {
-        setState(state.files.sort((a, b) => {
-            // sort alphabetically, folders first
-            if ((a['.tag'] === 'folder' || b['.tag'] === 'folder')
-                && !(a['.tag'] === b['.tag'])) {
-                return a['.tag'] === 'folder' ? -1 : 1
-            } else {
-                return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
-            }
+    useEffect(() => {
+        let mounted = true
+
+        const getFiles = async () => {  
+            const response = await dbx.filesListFolder({  
+                path: '',   
+                limit: 4  
             })
-            .map(file => {
-            const type = file['.tag']
-            return (<li class={`dbx-list-item ${type}`} >`{file.name}</li>)
-        }).join(''))
-    }
+            if (mounted){
+                // console.log(response)
+                setFiles({
+                    data: response
+                })
+                console.log(files)
+            }   
+        }
+        getFiles()
+        return () => {
+            mounted = false;
+        }
+    }, [])
+
+
+    
+
+  
+      
+    console.log("how many times")
+    
     
     return(
         <body>
             <AgentHeader/>
 
-            
+            <div>hello</div>            
 
-            {init()}
-
-            <div>{state.files}</div>
-            {console.log("hello world")}
+            {/* <div>{files.map((c) => {return(<div>lol</div>)})}</div> */}
 
         </body>
     )
