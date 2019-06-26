@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
-import { stat } from 'fs';
+import { stat, watchFile } from 'fs';
 
 
 
@@ -17,33 +17,22 @@ export default function AgentHome(){
     })
 
     useEffect(() => {
-        let mounted = true
 
         const getFiles = async () => {  
             const response = await dbx.filesListFolder({  
                 path: '',   
                 limit: 4  
             })
-            if (mounted){
-                // console.log(response)
-                setFiles({
-                    data: response
-                })
-                console.log(files)
-            }   
+            
+            setFiles(response)
+            console.log(response)
+            
         }
         getFiles()
-        return () => {
-            mounted = false;
-        }
+        return () => {}
     }, [])
 
 
-    
-
-  
-      
-    console.log("how many times")
     
     
     return(
