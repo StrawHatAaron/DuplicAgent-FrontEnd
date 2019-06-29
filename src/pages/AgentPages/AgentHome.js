@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
-
+import './AgentHome.scss'
+import GridChooser from '../../components/AgentComponents/GridChooser';
 
 
 export default function AgentHome(){
@@ -54,8 +55,17 @@ export default function AgentHome(){
         <div>
             <AgentHeader/>
             <body>
+                <div className="home-div">
+                    <div className="welcome">
+                        Welcome, Jack!
+                    </div>
+                    <hr/>
+                    <GridChooser/>
+                </div>
+
                 <ul>
                     {displayCustomers}
+
                 </ul>
             </body>
             

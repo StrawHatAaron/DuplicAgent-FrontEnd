@@ -1,0 +1,22 @@
+@import '../../constant-styles.scss';
+
+.home-div{
+    background: $white;
+    margin: 3em 6em;
+    height: 100em;
+    border: 1px solid $border-color;
+    text-align: center;
+    .welcome{
+        font-size: 2.2rem;
+        margin-top: 1.5em;
+    }
+    hr { 
+        border: 3em;
+        height: 1px;
+        background: $orange;
+        margin: 2em 10em;
+        top: 1px;
+    }
+
+
+}
