@@ -23,17 +23,17 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
         // VertHr = <hr width='1' size='100'/>
     }
     return(
-        <div className={`row-2-boxes ${Vert}`}>
-            <div className='bigger-text'>
-                {c.grammar} <div className='cust-type'>{c.custType}</div>
+            <div className={`row-2-boxes ${Vert}`}>
+                <div className='bigger-text'>
+                    {c.grammar} <div className='cust-type'>{c.custType}</div>
+                </div>
+                <br/>
+                {c.do}
+                <br/>
+                <a className='link-learn' href='hi'>
+                    Learn More
+                </a>
             </div>
-            <br/>
-            {c.do}
-            <br/>
-            <a className='link-learn' href='hi'>
-                Learn More
-            </a>
-        </div>
     )
 });
 
@@ -71,6 +71,11 @@ const affiliatesContent = affiliatesInfo.map((c) => {
 const imgStyle = {
     width: '50%'
 }
+
+
+
+
+
 
 export default function Home(){
     return(

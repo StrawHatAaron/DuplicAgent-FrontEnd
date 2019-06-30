@@ -60,7 +60,7 @@ export default function AgentHome(){
                         Welcome, Jack!
                     </div>
                     <hr/>
-                    <GridChooser/>
+                    <GridChooser/>  
                 </div>
 
                 <ul>

@@ -18,9 +18,6 @@ const homeContent = homeInfo.map((info) => {
             <div className="explanation">
                 {info.explanation}
             </div>
-            
-            
-            
         </div>
     )
 })
