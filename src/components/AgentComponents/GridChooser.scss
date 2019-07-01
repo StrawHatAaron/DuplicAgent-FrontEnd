@@ -3,7 +3,9 @@
 .grid-choose{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     
+
     a:visited, .section > .title{
         color: $blue;
     }
