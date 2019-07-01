@@ -3,7 +3,78 @@ import {Dropbox} from 'dropbox'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
 import './AgentHome.scss'
 import GridChooser from '../../components/AgentComponents/GridChooser';
+import {Switch, Route} from 'react-router-dom'
 
+
+const newBizInfo = [{
+    title:'New Client', 
+    icon:'', 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+},{
+    title:'Existing Client', 
+    icon:'', 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+},{
+    title:'Current Submissions', 
+    icon:'', 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+}]
+
+
+var homeInfo = [{
+    title:'New Business', 
+    icon:'', 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+},{
+    title:'Renewals', 
+    icon:'', 
+    explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...'
+},{
+    title:'Accounting', 
+    icon:'', 
+    explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...'
+},{
+    title:'Service', 
+    icon:'', 
+    explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...'
+},{
+    title:'Resources', 
+    icon:'', 
+    explanation:'Admin support tools, statistics and marketing materials, important agency files...'
+},{
+    title:'Calendar', 
+    icon:'', 
+    explanation:'View or set new reminders, events, meetings, and keep track of important personal & business dates... '
+},{
+    title:'Surplus Lines Taxes', 
+    icon:'', 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+},{
+    title:'Agency Support', 
+    icon:'', 
+    explanation:'Customer support and contact information, live chat, questions and concerns, general help...'
+}]
+
+const routes =[
+    {
+      path: "/Home",
+      props: homeInfo
+    },
+    // {
+    //   path: "/tacos",
+    //   component: Tacos,
+    //   routes: [
+    //     {
+    //       path: "/tacos/bus",
+    //       component: Bus
+    //     },
+    //     {
+    //       path: "/tacos/cart",
+    //       component: Cart
+    //     }
+    //   ]
+    // }
+  ];
 
 export default function AgentHome(){
 
@@ -51,6 +122,9 @@ export default function AgentHome(){
         )
     })
 
+
+    
+
     return(
         <div>
             <AgentHeader/>
@@ -60,7 +134,24 @@ export default function AgentHome(){
                         Welcome, Jack!
                     </div>
                     <hr/>
-                    <GridChooser/>  
+                    <Switch>
+                        
+                        {/* {routes.map((c) => {
+                            <Route exact path='/' render={(props) => (
+                                <GridChooser {...props} info={c.homeInfo} />
+                            )}/>
+                        })} */}
+
+
+                        <Route exact path='/' render={(props) => (
+                            <GridChooser {...props} info={homeInfo} />
+                        )}/>
+
+                        <Route exact path='/' render={(props) => (
+                            <GridChooser {...props} info={homeInfo} />
+                        )}/>
+
+                    </Switch>
                 </div>
 
                 <ul>
