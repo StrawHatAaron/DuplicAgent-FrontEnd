@@ -1,6 +1,8 @@
 import React from 'react'
+import NewBusinessImg from '../../img/routing/NewBusisnessImg.png'
+import './TopAgent.scss'
 
-export const simpleComponent = (headline) => {
+export function simple(headline) {
     return(
         <div className="welcome">
             {headline}
@@ -9,10 +11,26 @@ export const simpleComponent = (headline) => {
     )
 }
 
-export const topClientComponent = () => {
+export function simpleWithLocation(headline, location){
+    return(
+        <div>
+            <div className="img-location">
+                <img src={NewBusinessImg}/> 
+                <div className="txt-location">
+                    {location}
+                </div>
+                
+            </div>
+            {simple(headline)}
+        </div>
+    )
+}
+
+export function topClient() {
     return(
         <div className="top-client">
             
         </div>
     )
 }
+

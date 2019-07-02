@@ -1,0 +1,13 @@
+@import '../../constant-styles.scss';
+
+.img-location{
+    display:flex;
+    justify-content: flex-start;
+    align-content: center;
+    padding-top: 3em;
+    padding-left: 1em;
+    .txt-location{
+        font-size: 1.9rem;
+        padding-top: .35em;
+    }
+}

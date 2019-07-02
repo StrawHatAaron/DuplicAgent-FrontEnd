@@ -1,6 +1,4 @@
-import * as TopAgentComponents from '../components/AgentComponents/TopAgent'
-//Images
-import NewBusiness from '../img/routing/NewBusisnessImg.png'
+import NewBusinessImg from '../img/routing/NewBusisnessImg.png'
 import RenewalsImg from '../img/routing/RenewalsImg.png'
 import AccountingImg from '../img/routing/AccountingImg.png'
 import ServiceImg from '../img/routing/ServiceImg.png'
@@ -23,50 +21,42 @@ import AdditionalDetailsImg from '../img/routing/AdditionalDetailsImg.png'
 export const homeInfo = [{
     title:'New Business', 
     path:'/NewBusiness',
-    icon:NewBusiness,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:NewBusinessImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Renewals',
     path:'/Renewals', 
-    icon:RenewalsImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:RenewalsImg, 
     explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...'
 },{
     title:'Accounting',
     path:'/Accounting', 
-    icon:AccountingImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:AccountingImg, 
     explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...'
 },{
     title:'Service',
     path:'/Service', 
-    icon:ServiceImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:ServiceImg, 
     explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...'
 },{
     title:'Resources', 
     path:'/Resources',
-    icon:ResourcesImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:ResourcesImg, 
     explanation:'Admin support tools, statistics and marketing materials, important agency files...'
 },{
     title:'Calendar',
     path:'/Calendar', 
-    icon:CalendarImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:CalendarImg, 
     explanation:'View or set new reminders, events, meetings, and keep track of important personal & business dates... '
 },{
     title:'Surplus Lines Taxes',
     path:'/SurplusLinesTaxes', 
     icon:SurplusLinesTaxesImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Agency Support',
     path:'/AgencySupport', 
-    icon:AgencySupportImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:AgencySupportImg, 
     explanation:'Customer support and contact information, live chat, questions and concerns, general help...'
 }]
 
@@ -74,20 +64,17 @@ export const homeInfo = [{
 export const newBizInfo = [{
     title:'New Client',
     path:`${homeInfo[0].path}/NewClient`, 
-    icon:NewClientImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:NewClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Existing Client',
     path:`${homeInfo[0].path}/ExistingClient`, 
-    icon:ExistingClientImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:ExistingClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Current Submissions',
     path:`${homeInfo[0].path}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 }]
 
@@ -97,19 +84,16 @@ export const existingClientInfo =[{
     title:'Acords',
     path:`${newBizInfo[1].path}/Acords`, 
     icon:AcordsImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Files',
     path:`${newBizInfo[1].path}/Files`, 
     icon:FilesImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Policies',
     path:`${newBizInfo[1].path}/Policies`, 
-    icon:PoliciesImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Accounting',
@@ -120,18 +104,15 @@ export const existingClientInfo =[{
     title:'Claims',
     path:`${newBizInfo[1].path}/Claims`, 
     icon:ClaimsImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Quotes',
     path:`${newBizInfo[1].path}/Quotes`, 
-    icon:QuotesImg,
-    component:TopAgentComponents.simpleComponent("Welcome"), 
+    icon:QuotesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Additional Details',
     path:`${newBizInfo[1].path}/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
-    component:TopAgentComponents.simpleComponent("Welcome"),
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },]
