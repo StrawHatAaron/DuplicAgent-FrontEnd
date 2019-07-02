@@ -3,9 +3,9 @@
 .home-div{
     background: $white;
     margin: 3em 6em;
-    height: 100em;
     border: 1px solid $border-color;
     text-align: center;
+    
     .welcome{
         font-size: 2.2rem;
         margin-top: 1.5em;
@@ -18,5 +18,8 @@
         top: 1px;
     }
 
-
+    //below is the client component
+    .topClientComponent{
+        
+    }
 }

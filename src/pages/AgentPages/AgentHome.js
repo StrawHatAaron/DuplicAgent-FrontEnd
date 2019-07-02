@@ -23,12 +23,17 @@ const componentRoutes = [{
     component: ExistingClient
     }]
 
+
+
 function RoutePropSubRoute(route){
     return(
         <Route 
             exact path={route.path} 
             render={props => (
-            <GridChooser {...props} info={route.info} />
+                <div>
+                    {route.component}
+                    <GridChooser {...props} info={route.info} />
+                </div>
         )}/>
     )
 }
@@ -42,18 +47,12 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
             <AgentHeader/>
             <body>
                 <div className="home-div">
-                    <div className="welcome">
-                        Welcome, Jack!
-                    </div>
-                    <hr/>
-                    
-                        {propRoutes.map((route, i) => (
-                            <RoutePropSubRoute key={i} {...route} />
-                        ))}
-                        <Route
-                            exact path={componentRoutes[0].path}
-                            component={componentRoutes[0].component} /> 
-                    
+                    {propRoutes.map((route, i) => (
+                        <RoutePropSubRoute key={i} {...route} />
+                    ))}
+                    <Route
+                        exact path={componentRoutes[0].path}
+                        component={componentRoutes[0].component} /> 
                 </div>
 
             </body>

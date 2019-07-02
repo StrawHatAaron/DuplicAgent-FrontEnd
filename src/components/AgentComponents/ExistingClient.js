@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
+import './ExistingClient.scss'
 
-export default function ExisitingClient(){
+export default function ExistingClient(){
     
     const dbx = new Dropbox({
         accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
@@ -47,10 +48,13 @@ export default function ExisitingClient(){
         )
     })
     return(
-        
-        <ul>
-            Hello?????
-            {displayCustomers}
-        </ul>
+        <div className="existing-client">
+            <div className="headline">
+                Select from existing clients:
+            </div>
+            <ul className="list">
+                {displayCustomers}
+            </ul>
+        </div>
     )
 }

@@ -6,6 +6,9 @@ export default function GridChooser(props){
     const homeContent = props.info.map((info) => {
         return(
             <Link to={info.path.replace(/\s/g, "")} className="section">
+                <img
+                    src={info.icon}
+                    alt={info.title}/>
                 <div className="title">
                     {info.title}
                 </div>
