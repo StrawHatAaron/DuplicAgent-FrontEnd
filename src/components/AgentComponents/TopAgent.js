@@ -11,11 +11,11 @@ export function simple(headline) {
     )
 }
 
-export function simpleWithLocation(headline, location){
+export function simpleWithLocation(headline, location, image){
     return(
         <div>
             <div className="img-location">
-                <img src={NewBusinessImg}/> 
+                <img src={image}/> 
                 <div className="txt-location">
                     {location}
                 </div>

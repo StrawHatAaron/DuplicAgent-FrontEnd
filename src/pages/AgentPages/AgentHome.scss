@@ -1,21 +1,28 @@
 @import '../../constant-styles.scss';
 
-.home-div{
-    background: $white;
-    margin: 3em 6em;
-    border: 1px solid $border-color;
-    text-align: center;
-    
-    .welcome{
-        font-size: 2.2rem;
-        margin-top: 1.5em;
-    }
-    hr { 
-        border: 3em;
-        height: 1px;
-        background: $orange;
-        margin: 2em 1.5em;
-        width: 95%;
-        top: 1px;
+body{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+    .home-div{
+        flex: 1 0 auto;
+        background: $white;
+        margin: 3em 6em;
+        border: 1px solid $border-color;
+        text-align: center;
+        
+        
+        .welcome{
+            font-size: 2.2rem;
+            margin-top: 1.5em;
+        }
+        hr { 
+            border: 3em;
+            height: 1px;
+            background: $orange;
+            margin: 2em 1.5em;
+            width: 95%;
+            top: 1px;
+        }
     }
 }

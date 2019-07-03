@@ -1,0 +1,22 @@
+footer{
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    .left-side{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        .container{
+            margin: 1em;
+        }
+    }
+    .right-side{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 5em;
+    }
+}
