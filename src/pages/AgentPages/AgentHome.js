@@ -8,6 +8,29 @@ import ExistingClient from '../../components/AgentComponents/ExistingClient'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter';
 
+const componentRoutes = [{
+        path: RouteConstants.newBizInfo[0]['path'],
+        component: ExistingClient,
+        topComponent: TopAgent.simpleWithLocation(
+            "Enter new client information:", 
+            "New Client",
+            RouteConstants.newBizInfo[0]['icon'])
+    },{
+        path: RouteConstants.newBizInfo[1]['path'],
+        component: ExistingClient,
+        topComponent: TopAgent.simpleWithLocation(
+            "Select from existing clients:", 
+            "Existing Client",
+            RouteConstants.newBizInfo[1]['icon'])
+    },{
+        path: RouteConstants.newBizInfo[2]['path'],
+        component: ExistingClient,
+        topComponent: TopAgent.simpleWithLocation(
+            "", 
+            "Current Submissions",
+            RouteConstants.newBizInfo[2]['icon'])
+    }]
+
 const propRoutes =[{
         //home 
         path: "/",
@@ -17,7 +40,10 @@ const propRoutes =[{
         //New Business
         path: RouteConstants.homeInfo[0]['path'],
         info: RouteConstants.newBizInfo,
-        topComponent: TopAgent.simpleWithLocation("What are you looking to do?", "New Business")
+        topComponent: TopAgent.simpleWithLocation(
+            "What are you looking to do?", 
+            "New Business",
+            RouteConstants.homeInfo[0]['icon'])
     },{
         //Client Page
         path: RouteConstants.newBizInfo[1]['path']+"/CustomerId",
@@ -37,16 +63,6 @@ function RoutePropComponent(route){
         )}/>
     )
 }
-
-const componentRoutes = [{
-        path: RouteConstants.newBizInfo[1]['path'],
-        component: ExistingClient,
-        topComponent: TopAgent.simpleWithLocation(
-            "Select from existing clients:", 
-            RouteConstants.newBizInfo[1]['icon'])
-    },]
-
-
 
 export default function AgentHome(){
 
