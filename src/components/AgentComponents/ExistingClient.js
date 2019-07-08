@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
-import {Route} from 'react-router-dom'
-import { request } from 'http';
 
 
 export default function ExistingClient(){
@@ -21,7 +19,7 @@ export default function ExistingClient(){
         async function fetchDpx() {  
             const response = await dbx.filesListFolder({  
                 path: '',   
-                limit: 2     
+                limit: 100     
             })
             setFiles([{
                 entries: response.entries,
@@ -35,31 +33,26 @@ export default function ExistingClient(){
 
     const updateDisplayedCustomers = files[fileIndex].entries.map((file) => {
         const tagType = file['.tag']
-        console.log("-----------")
-        console.log("the file index:"+fileIndex)
-        console.log(files)
-        console.log(file)
-        console.log("-----------")
         const urlBaseLength = document.URL.split("/")[0].length +
                 document.URL.split("/")[2].length
         const initRoutingPath = document.URL.substring(urlBaseLength+2, document.URL.length)
         const fileName = (""+file.name).replace(/\s/g, '_')
         return (
             <li key={file.id}>
-            <a href={initRoutingPath + "/" + fileName}>
-                {file.name}
-            </a>
+                <a href={initRoutingPath + "/" + fileName}>
+                    {file.name}
+                </a>
             </li>
         )
     })
 
-    async function showNextCustomerSet(cursor){
+    async function showSet(cursor, newFileIndex){
         const response =  await dbx.filesListFolderContinue({cursor})
         setFiles([...files,{
             entries: response.entries,
             cursor: response.cursor
         }])
-        setFileIndex(fileIndex+1)
+        setFileIndex(newFileIndex)
         console.log(files.cursor)
     }
 
@@ -67,16 +60,17 @@ export default function ExistingClient(){
     return(
         <div className="existing-client">
             <div className="headline">
-                Select from existing clients:
+                Clients
             </div>
             <ul className="list">
                 {updateDisplayedCustomers}
             </ul>
-            <button onClick={() => {
-                console.log(files)
-                showNextCustomerSet(files[fileIndex].cursor)
-                }}> prev </button>
-            <button onClick={() => showNextCustomerSet(files[fileIndex].cursor)}> next </button>
+            <button onClick={() => showSet(files[fileIndex].cursor, fileIndex-1)}> 
+                prev 
+            </button>
+            <button onClick={() => showSet(files[fileIndex].cursor, fileIndex+1)}> 
+                next 
+            </button>
         </div>
     )
 }

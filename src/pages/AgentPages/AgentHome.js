@@ -16,6 +16,7 @@ const componentRoutes = [{
             "New Client",
             RouteConstants.newBizInfo[0]['icon'])
     },{
+        //Existing Client
         path: RouteConstants.newBizInfo[1]['path'],
         component: ExistingClient,
         topComponent: TopAgent.simpleWithLocation(

@@ -11,3 +11,9 @@
         margin-top: .55em;
     }
 }
+
+.top-client{
+    margin:2em;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
