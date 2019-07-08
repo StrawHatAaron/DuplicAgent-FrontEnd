@@ -13,11 +13,9 @@ export default function ExistingClient(){
         fetch
     })
 
-    var fileIndex = 0
-
     var [files, setFiles] = useState([{
-        entries:[],
-        cursor:''
+        entries:['Loading...'],
+        cursor:'NA'
     }])
     useEffect(() => {
         async function fetchDpx() {  
@@ -25,7 +23,7 @@ export default function ExistingClient(){
                 path: '',   
                 limit: 2     
             })
-            setFiles([...files, {
+            setFiles([{
                 entries: response.entries,
                 cursor: response.cursor
             }])
@@ -33,37 +31,35 @@ export default function ExistingClient(){
         fetchDpx()
     }, [])
 
-    const updateDisplayedCustomers = files[0].entries.map((file) => {
+    var [fileIndex, setFileIndex] = useState(0)
+
+    const updateDisplayedCustomers = files[fileIndex].entries.map((file) => {
         const tagType = file['.tag']
+        console.log("-----------")
+        console.log("the file index:"+fileIndex)
         console.log(files)
+        console.log(file)
+        console.log("-----------")
         const urlBaseLength = document.URL.split("/")[0].length +
                 document.URL.split("/")[2].length
         const initRoutingPath = document.URL.substring(urlBaseLength+2, document.URL.length)
         const fileName = (""+file.name).replace(/\s/g, '_')
-        // console.log(urlBaseLength)
-        // console.log(document.URL.split("/"))
-        // console.log(document.URL.substring(urlBaseLength+2, document.URL.length))
         return (
             <li key={file.id}>
-            {/* <Router 
-                exact path={initRoutingPath+file.name.replace(/\s/g, '')}> */}
             <a href={initRoutingPath + "/" + fileName}>
                 {file.name}
             </a>
-            {/* </Router> */}
             </li>
         )
     })
 
     async function showNextCustomerSet(cursor){
         const response =  await dbx.filesListFolderContinue({cursor})
-        setFiles([
-            ...files,
-            {
+        setFiles([...files,{
             entries: response.entries,
-            cursor: [...files.cursor, response.cursor]
+            cursor: response.cursor
         }])
-        fileIndex+=1
+        setFileIndex(fileIndex+1)
         console.log(files.cursor)
     }
 
@@ -76,8 +72,11 @@ export default function ExistingClient(){
             <ul className="list">
                 {updateDisplayedCustomers}
             </ul>
-            <button onClick={() => showNextCustomerSet(files.cursor)}> prev </button>
-            <button onClick={() => showNextCustomerSet(files.cursor)}> next </button>
+            <button onClick={() => {
+                console.log(files)
+                showNextCustomerSet(files[fileIndex].cursor)
+                }}> prev </button>
+            <button onClick={() => showNextCustomerSet(files[fileIndex].cursor)}> next </button>
         </div>
     )
 }
