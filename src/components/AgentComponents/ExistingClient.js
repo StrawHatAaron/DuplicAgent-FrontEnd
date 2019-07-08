@@ -2,55 +2,40 @@ import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
 import {Route} from 'react-router-dom'
+import { request } from 'http';
+
 
 export default function ExistingClient(){
     
     const dbx = new Dropbox({
-        accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
+        // accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
+        accessToken: '1h4MKn2TgCAAAAAAAAABYwuiXzG-l9ibyJrPECgCr7Dhe5z2awWbNTK0xjJN37OE',
         fetch
     })
 
-    var [files, setFiles] = useState([{},])
-    useEffect(() => {
-        // const getMoreFiles = async (cursor, callback) => {  
-        //     // request further files from where the previous call finished  
-        //     const response = await dbx.filesListFolderContinue({ cursor })
-        //     // if a callback is provided we call it  
-        //     if (callback) callback(response)
-        //     if (response.has_more) {  
-        //       // if there are more files, call getMoreFiles recursively,  
-        //       // providing the same callback.  
-        //       await getMoreFiles(response.cursor, callback)  
-        //     }  
-        // }
+    var fileIndex = 0
 
+    var [files, setFiles] = useState({
+        entries:[],
+        cursor:''
+    })
+    useEffect(() => {
         async function fetchDpx() {  
             const response = await dbx.filesListFolder({  
                 path: '',   
-                limit: 5     
+                limit: 2     
             })
-
-            // We can perform a custom action with received files  
-            // processFiles(response.entries)
-            // if (response.has_more) {  
-            //     // provide a callback for the newly received entries   
-            //     // to be processed  
-            //     console.log('has more')
-            //     getMoreFiles(response.cursor, more => more.entries)  
-            // } 
-            //note need to wait for DOM to refresh so 
-            //logging it here will not show a change
-
-            setFiles(response.entries)
-        }    
+            setFiles({
+                entries: response.entries,
+                cursor: response.cursor
+            })
+        }
         fetchDpx()
     }, [])
 
-
-    const displayCustomers = files.map((file) => {
-        var tagType = file['.tag']
-        // console.log(tagType)
-
+    const updateDisplayedCustomers = files.entries.map((file) => {
+        const tagType = file['.tag']
+        console.log(files)
         const urlBaseLength = document.URL.split("/")[0].length +
                 document.URL.split("/")[2].length
         const initRoutingPath = document.URL.substring(urlBaseLength+2, document.URL.length)
@@ -70,6 +55,17 @@ export default function ExistingClient(){
         )
     })
 
+    async function showNextCustomerSet(cursor){
+        const response =  await dbx.filesListFolderContinue({cursor})
+        setFiles([
+            ...files,
+            {
+            entries: response.entries,
+            cursor: [...files.cursor, response.cursor]
+        }])
+        fileIndex+=1
+        console.log(files.cursor)
+    }
 
 
     return(
@@ -78,8 +74,10 @@ export default function ExistingClient(){
                 Select from existing clients:
             </div>
             <ul className="list">
-                {displayCustomers}
+                {updateDisplayedCustomers}
             </ul>
+            <button onClick={() => showNextCustomerSet(files.cursor)}> prev </button>
+            <button onClick={() => showNextCustomerSet(files.cursor)}> next </button>
         </div>
     )
 }
