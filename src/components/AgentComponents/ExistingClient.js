@@ -15,25 +15,25 @@ export default function ExistingClient(){
 
     var fileIndex = 0
 
-    var [files, setFiles] = useState({
+    var [files, setFiles] = useState([{
         entries:[],
         cursor:''
-    })
+    }])
     useEffect(() => {
         async function fetchDpx() {  
             const response = await dbx.filesListFolder({  
                 path: '',   
                 limit: 2     
             })
-            setFiles({
+            setFiles([...files, {
                 entries: response.entries,
                 cursor: response.cursor
-            })
+            }])
         }
         fetchDpx()
     }, [])
 
-    const updateDisplayedCustomers = files.entries.map((file) => {
+    const updateDisplayedCustomers = files[0].entries.map((file) => {
         const tagType = file['.tag']
         console.log(files)
         const urlBaseLength = document.URL.split("/")[0].length +
