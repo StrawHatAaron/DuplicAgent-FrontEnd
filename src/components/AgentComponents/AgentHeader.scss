@@ -16,16 +16,18 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      min-width: 15em;
       .search-input{
         width: 55em;
-        height:2.5em;
+        height: 2.5em;
         border: none;
+        
       }
       .search-buttons{
         display: flex;
         margin-left: -10.5%;
         .search-advanced{
-          background: Transparent;
+          background: white;
           border: none;
           color: $orange;
         }
@@ -40,6 +42,7 @@
     }
     .profile-area{
       width: $top-side-width;
+      padding-left: 10px;
       padding-right: $top-side-padding;
       margin-left: auto;
       text-align: end;
@@ -55,9 +58,11 @@
     padding: .6em 0;
     background-color: $white;
     color: $blue;
-    .current-route{
+    .current-route{ 
+      
       margin-right: auto;
       padding-left: $top-side-padding;
+      padding-right: 10px;
     }
     .four-fa-fas{
       margin-left: auto;

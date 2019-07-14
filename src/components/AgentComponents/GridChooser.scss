@@ -1,7 +1,10 @@
 .grid-choose{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+    
+
     .section{
+        
         padding: 2em;
         margin: 1em;
         border: 1px solid #C4C4C4;
@@ -15,4 +18,12 @@
             font-size: .7rem;
         }
     }
+}
+
+
+@media all and (max-width: 600px){
+    
+    
+    
+
 }

@@ -17,10 +17,7 @@ const homeContent = homeInfo.map((info) => {
             </div>
             <div className="explanation">
                 {info.explanation}
-            </div>
-            
-            
-            
+            </div>  
         </div>
     )
 })
@@ -32,3 +29,4 @@ export default function GridChooser(){
         </div>
     )
 }
+

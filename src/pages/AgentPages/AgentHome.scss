@@ -17,6 +17,18 @@
         margin: 2em 10em;
         top: 1px;
     }
+}
 
+
+/* Phone devices */
+
+@media all and (max-width: 600px){
+    
+    .home-div{
+        background: $orange;
+        
+        
+    }
+    
 
 }
