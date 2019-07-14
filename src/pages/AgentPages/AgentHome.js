@@ -5,12 +5,14 @@ import GridChooser from '../../components/AgentComponents/GridChooser';
 import {Route} from 'react-router-dom'
 import * as RouteConstants from '../../utils/RouteConstants'
 import ExistingClient from '../../components/AgentComponents/ExistingClient'
+import NewClient from '../../components/AgentComponents/NewClient'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter';
 
 const componentRoutes = [{
+        //New Client
         path: RouteConstants.newBizInfo[0]['path'],
-        component: ExistingClient,
+        component: NewClient,
         topComponent: TopAgent.simpleWithLocation(
             "Enter new client information:", 
             "New Client",
@@ -24,6 +26,7 @@ const componentRoutes = [{
             "Existing Client",
             RouteConstants.newBizInfo[1]['icon'])
     },{
+        //Current Submissions
         path: RouteConstants.newBizInfo[2]['path'],
         component: ExistingClient,
         topComponent: TopAgent.simpleWithLocation(
@@ -46,10 +49,10 @@ const propRoutes =[{
             "New Business",
             RouteConstants.homeInfo[0]['icon'])
     },{
-        //Client Page
-        path: RouteConstants.newBizInfo[1]['path']+"/CustomerId",
+        //Client Page - Chose Existing Client
+        path: RouteConstants.choseClientInfo[0]['path'],
         info: RouteConstants.existingClientInfo,
-        topComponent: TopAgent.simple("hello")
+        topComponent: TopAgent.client()
     }];
 
 function RoutePropComponent(route){

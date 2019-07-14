@@ -78,41 +78,49 @@ export const newBizInfo = [{
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 }]
 
+//For when choosing a client from dropbox
+//NewBusiness/ExistingClient/
+export const choseClientInfo = [{
+    title:'Client Name!',
+    path:`${newBizInfo[1].path}/*`,
+    icon:'',
+    explanation:"Just chose a client now display the client page"
+}]
 
 //still need to incorporate the clients name in here
 export const existingClientInfo =[{
     title:'Acords',
-    path:`${newBizInfo[1].path}/Acords`, 
+    path:`${newBizInfo[1].path}/*/Acords`, 
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Files',
-    path:`${newBizInfo[1].path}/Files`, 
+    path:`${newBizInfo[1].path}/*/Files`, 
     icon:FilesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Policies',
-    path:`${newBizInfo[1].path}/Policies`, 
+    path:`${newBizInfo[1].path}/*/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Accounting',
-    path:`${newBizInfo[1].path}/Accounting`, 
+    path:`${newBizInfo[1].path}/*/Accounting`, 
     icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Claims',
-    path:`${newBizInfo[1].path}/Claims`, 
+    path:`${newBizInfo[1].path}/*/Claims`, 
     icon:ClaimsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Quotes',
-    path:`${newBizInfo[1].path}/Quotes`, 
+    path:`${newBizInfo[1].path}/*/Quotes`, 
     icon:QuotesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Additional Details',
-    path:`${newBizInfo[1].path}/AdditionalDetails`, 
+    path:`${newBizInfo[1].path}/*/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },]
