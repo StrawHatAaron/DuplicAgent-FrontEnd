@@ -59,7 +59,19 @@
       margin-right: auto;
       padding-left: $top-side-padding;
     }
+
+    .active{
+      color:$orange;
+    }
+    
+
     .four-fa-fas{
+      
+      
+      // a:visited{
+      //   color: $blue;
+      // }
+
       margin-left: auto;
       padding-right: $top-side-padding;
       .a-fa{

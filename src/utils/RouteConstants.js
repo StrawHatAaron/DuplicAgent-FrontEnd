@@ -17,6 +17,29 @@ import ClaimsImg from '../img/routing/ClaimsImg.png'
 import QuotesImg from '../img/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../img/routing/AdditionalDetailsImg.png'
 
+
+
+
+
+//header for all the routes in the App 
+// -- Using faFa Icons
+export const agentHeaderInfo = [{    
+    title:"Upload Document",
+    path:"/UploadDocument",
+    icon:"cloud-upload-alt",
+    explanation:"Choose where to upload a Document!"
+},{
+    title:"Chat",
+    path:"/Chat",
+    icon:"comment",
+    explanation:"Send Message",
+},{
+    title:"Notifications",
+    path:"/Notifications",
+    icon:"exclamation-triangle",
+    explanation:"Dashboard Alerts",   
+}]
+
 //home page for the Agent or Broker
 export const homeInfo = [{
     title:'New Business', 

@@ -17,7 +17,7 @@ export default function NewClient(){
                     <SharpTextField id="first-name" label="First Name" autoComplete="given-name"/>
                     <SharpTextField id="last-name" label="Last Name" autoComplete="family-name"/>
                     <SharpTextField id="email" label="Email" autoComplete="email"/>
-                    <SharpTextField id="" label="FEIN #" autoComplete=""/>
+                    <SharpTextField id="" label="FEIN #" autoComplete="na"/>
                 </div>
                 <div className="c">
                     <SharpTextField id="phone" label="Phone #" autoComplete="tel"/>
@@ -41,6 +41,7 @@ export default function NewClient(){
                     <SharpTextField id="zip" label="Zip Code" autoComplete="ship-zip"/>
                 </div>
             </div>
+            
             <SharpButton className="button" word="Next"/>
         </div>
     )

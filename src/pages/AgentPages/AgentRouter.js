@@ -8,8 +8,11 @@ import ExistingClient from '../../components/AgentComponents/ExistingClient'
 import NewClient from '../../components/AgentComponents/NewClient'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 const componentRoutes = [{
+    //New Client Business Routes
         //New Client
         path: RouteConstants.newBizInfo[0]['path'],
         component: NewClient,
@@ -33,7 +36,9 @@ const componentRoutes = [{
             "", 
             "Current Submissions",
             RouteConstants.newBizInfo[2]['icon'])
-    }]
+    },]
+    
+
 
 const propRoutes =[{
         //home 
@@ -53,7 +58,11 @@ const propRoutes =[{
         path: RouteConstants.choseClientInfo[0]['path'],
         info: RouteConstants.existingClientInfo,
         topComponent: TopAgent.client()
-    }];
+    },
+    // {
+    //     path:
+    // }
+];
 
 function RoutePropComponent(route){
     return(
@@ -76,9 +85,12 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
         <body>
             <AgentHeader/>
             <div className="home-div">
+                {/* MAP Grid Navigation Components */}
                 {propRoutes.map((route, i) => (
                     <RoutePropComponent key={i} {...route} />
                 ))}
+
+                {/* some routes ends */}
                 {componentRoutes.map((route, i) => (
                     <Route
                     exact path={route.path}
@@ -89,6 +101,19 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                        </div> 
                     )}/>
                 ))}
+                
+                {/* some routes for the header */}
+                {RouteConstants.agentHeaderInfo.map((headerInfo) => (
+                    <Route
+                        exact path={headerInfo.path}
+                        component={() => (
+                        <div>
+                            {TopAgent.simple(headerInfo.title)} 
+                        </div> 
+                    )}/>
+                ))}
+
+
 
                 {/* <Route
                     exact path={componentRoutes[0].path}

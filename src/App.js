@@ -1,14 +1,14 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom'
 // import Home from "./pages/LandingPages/Home"
-import AgentHome from './pages/AgentPages/AgentHome'
+import AgentRouter from './pages/AgentPages/AgentRouter'
 
 
 function App() {
   return (
     <BrowserRouter className="App">
       {/* <Home/> */}
-      <AgentHome/>
+      <AgentRouter/>
     </BrowserRouter>
   );
 }
