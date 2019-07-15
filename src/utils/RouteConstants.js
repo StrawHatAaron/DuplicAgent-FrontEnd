@@ -17,133 +17,141 @@ import ClaimsImg from '../img/routing/ClaimsImg.png'
 import QuotesImg from '../img/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../img/routing/AdditionalDetailsImg.png'
 
+//* this section holds many constants that will be re-used inside embedded routes */
+const newBiz =  "/NewBusiness"
+const newClient = newBiz + "/NewClient"
 
 
+//the strings for design types in the main route file
+const grid = "grid"
+const simple = "simple"
+const clientHome = "client"
 
 
-//header for all the routes in the App 
-// -- Using faFa Icons
-export const agentHeaderInfo = [{    
+//*** */the constants are written in the following structure***
+// title: The title that will display where the user is,
+// path: The path the will show exactly where the use it - needs to work with state in the futue,
+// icon:cool little icon that wil show where the user is,
+//explanation:a little thing to tell the user where they are - think I might turn this into help
+//design: the string that is check when these routes are mapped. That way each one displays as it should 
+export const Routes = [{    
+    //header for all the routes in the App 
+    // -- Using faFa Icons
     title:"Upload Document",
     path:"/UploadDocument",
     icon:"cloud-upload-alt",
-    explanation:"Choose where to upload a Document!"
-},{
-    title:"Chat",
+    explanation:"Choose where to upload a Document!",
+    design:""
+},{ title:"Chat",
     path:"/Chat",
     icon:"comment",
     explanation:"Send Message",
-},{
-    title:"Notifications",
+    design:""
+},{ title:"Notifications",
     path:"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
-}]
-
-//home page for the Agent or Broker
-export const homeInfo = [{
+    design:""
+},{
+    //home page for the Agent or Broker
     title:'New Business', 
     path:'/NewBusiness',
     icon:NewBusinessImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Renewals',
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{title:'Renewals',
     path:'/Renewals', 
     icon:RenewalsImg, 
-    explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...'
-},{
-    title:'Accounting',
+    explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...',
+    design:""
+},{ title:'Accounting',
     path:'/Accounting', 
     icon:AccountingImg, 
-    explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...'
-},{
-    title:'Service',
+    explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...',
+    design:""
+},{ title:'Service',
     path:'/Service', 
     icon:ServiceImg, 
-    explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...'
-},{
-    title:'Resources', 
+    explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...',
+    design:""
+},{ title:'Resources', 
     path:'/Resources',
     icon:ResourcesImg, 
-    explanation:'Admin support tools, statistics and marketing materials, important agency files...'
-},{
-    title:'Calendar',
+    explanation:'Admin support tools, statistics and marketing materials, important agency files...',
+    design:""
+},{ title:'Calendar',
     path:'/Calendar', 
     icon:CalendarImg, 
     explanation:'View or set new reminders, events, meetings, and keep track of important personal & business dates... '
-},{
-    title:'Surplus Lines Taxes',
+},{ title:'Surplus Lines Taxes',
     path:'/SurplusLinesTaxes', 
     icon:SurplusLinesTaxesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Agency Support',
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Agency Support',
     path:'/AgencySupport', 
     icon:AgencySupportImg, 
-    explanation:'Customer support and contact information, live chat, questions and concerns, general help...'
-}]
-
-//NEW Business ROUTES
-export const newBizInfo = [{
-    title:'New Client',
-    path:`${homeInfo[0].path}/NewClient`, 
-    icon:NewClientImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Customer support and contact information, live chat, questions and concerns, general help...',
+    design:""
 },{
-    title:'Existing Client',
-    path:`${homeInfo[0].path}/ExistingClient`, 
+    //NEW Business ROUTES
+    title:'New Client',
+    path:`${newBiz}/NewClient`, 
+    icon:NewClientImg, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Existing Client',
+    path:`${newBiz}/ExistingClient`, 
     icon:ExistingClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Current Submissions',
-    path:`${homeInfo[0].path}/CurrentSubmissions`, 
+},{ title:'Current Submissions',
+    path:`${newBiz}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-}]
-
-//For when choosing a client from dropbox
-//NewBusiness/ExistingClient/
-export const choseClientInfo = [{
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{
+    //For when choosing a client from dropbox - home page for a client maybe?
+    //NewBusiness/ExistingClient/
     title:'Client Name!',
-    path:`${newBizInfo[1].path}/*`,
+    path:`${newClient}/*`,
     icon:'',
-    explanation:"Just chose a client now display the client page"
-}]
-
-//still need to incorporate the clients name in here
-export const existingClientInfo =[{
+    explanation:"Just chose a client now display the client page",
+    design:""
+},{
+    //still need to incorporate the clients name in here
     title:'Acords',
-    path:`${newBizInfo[1].path}/*/Acords`, 
+    path:`${newClient}/*/Acords`, 
     icon:AcordsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Files',
-    path:`${newBizInfo[1].path}/*/Files`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Files',
+    path:`${newClient}/*/Files`, 
     icon:FilesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Policies',
-    path:`${newBizInfo[1].path}/*/Policies`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Policies',
+    path:`${newClient}/*/Policies`, 
     icon:PoliciesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Accounting',
-    path:`${newBizInfo[1].path}/*/Accounting`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Accounting',
+    path:`${newClient}/*/Accounting`, 
     icon:ClientAccountingImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Claims',
-    path:`${newBizInfo[1].path}/*/Claims`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Claims',
+    path:`${newClient}/*/Claims`, 
     icon:ClaimsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Quotes',
-    path:`${newBizInfo[1].path}/*/Quotes`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Quotes',
+    path:`${newClient}/*/Quotes`, 
     icon:QuotesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
-},{
-    title:'Additional Details',
-    path:`${newBizInfo[1].path}/*/AdditionalDetails`, 
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
+},{ title:'Additional Details',
+    path:`${newClient}/*/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    design:""
 },]
