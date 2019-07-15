@@ -8,7 +8,6 @@ import ExistingClient from '../../components/AgentComponents/ExistingClient'
 import NewClient from '../../components/AgentComponents/NewClient'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const componentRoutes = [{

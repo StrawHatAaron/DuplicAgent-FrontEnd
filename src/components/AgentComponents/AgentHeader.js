@@ -10,13 +10,11 @@ export default function Header(){
 
     const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
-        <a className="wrap-anchor">
            <NavLink 
                 to={info.path}
                 activeStyle={{color: Constants.orange}}>
             <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
             </NavLink>
-        </a>
        )
     });
 
@@ -45,13 +43,11 @@ export default function Header(){
                     Current Route
                 </div>
                 <div className="four-fa-fas">
-                    <a className="wrap-anchor">
-                        <NavLink 
-                        exact to="/"
-                        activeStyle={{color: Constants.orange}}>
-                            <FontAwesomeIcon className="four-fa-fas" icon="home"/>
-                        </NavLink>
-                    </a>
+                    <NavLink 
+                    exact to="/"
+                    activeStyle={{color: Constants.orange}}>
+                        <FontAwesomeIcon className="four-fa-fas" icon="home"/>
+                    </NavLink>
                     {faContent}
                 </div>
             </div>

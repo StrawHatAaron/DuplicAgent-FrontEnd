@@ -17,19 +17,6 @@ import ClaimsImg from '../img/routing/ClaimsImg.png'
 import QuotesImg from '../img/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../img/routing/AdditionalDetailsImg.png'
 
-//* this section holds many constants that will be re-used inside embedded routes */
-const newBiz =  "/NewBusiness"
-const newClient = newBiz + "/NewClient"
-
-
-//the strings for design types in the main route file
-//- think that this should possibly changed into components
-const grid = "grid"
-const simple = "simple"
-const clientHome = "client"
-const form = "form"
-const dropbox = "dropbox"
-
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
 // path: The path the will show exactly where the use it - needs to work with state in the futue,
@@ -120,7 +107,7 @@ export const newBizInfo = [{
 //NewBusiness/ExistingClient/
 export const choseClientInfo = [{
     title:'Client Name!',
-    path:`${newBizInfo[1].path}/:id`,
+    path:`${newBizInfo[1].path}/*`,
     icon:'',
     explanation:"Just chose a client now display the client page"
 }]
