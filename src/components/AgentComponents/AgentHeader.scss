@@ -65,7 +65,7 @@
       padding-right: 10px;
     }
 
-    a:visited { text-decoration: none; color:$blue; }
+    a:visited, a:hover, a:active, a:link{ text-decoration: none; color:$blue; }
 
     .four-fa-fas{      
       margin-left: auto;
