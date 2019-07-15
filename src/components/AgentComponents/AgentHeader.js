@@ -25,7 +25,7 @@ export default function Header(){
             <div className="nav-top">
                 <Logo/>
                 <div className="search-area">
-                    <input type="text" placeholder=" search for clients, key words, general inquiry..." className="search-input"/>
+                    <input type="text" placeholder=" Search for clients, key words, general inquiry..." className="search-input"/>
                     <div className="search-buttons">
                         <button className="search-advanced">
                         ADVANCED

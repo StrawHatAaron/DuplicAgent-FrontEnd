@@ -7,7 +7,7 @@ body{
     .home-div{
         flex: 1 0 auto;
         background: $white;
-        margin: 3em 6em;
+        margin: 3em 1em;
         border: 1px solid $border-color;
         text-align: center;
         
@@ -24,5 +24,24 @@ body{
             width: 95%;
             top: 1px;
         }
+    }
+    hr { 
+        border: 3em;
+        height: 1px;
+        background: $orange;
+        margin: 2em 10em;
+        top: 1px;
+    }
+}
+
+
+/* Phone devices */
+
+@media all and (max-width: 800px){
+    
+    .home-div{
+        margin: 1em;
+        background:$orange;
+        
     }
 }

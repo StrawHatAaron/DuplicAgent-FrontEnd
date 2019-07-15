@@ -3,11 +3,14 @@
 .logo-area{
   width: $top-side-width;
   padding-left:$top-side-padding;
-  width: 20%;
+  padding-right: 20px;
+  width: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
-  .logo{}
+  .logo{
+    
+  }
   .logo-text{
     padding-top: .25em;
     .down-logo{
