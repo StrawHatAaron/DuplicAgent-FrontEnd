@@ -89,7 +89,6 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                 {propRoutes.map((route, i) => (
                     <RoutePropComponent key={i} {...route} />
                 ))}
-
                 {/* some routes ends */}
                 {componentRoutes.map((route, i) => (
                     <Route
@@ -101,7 +100,6 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                        </div> 
                     )}/>
                 ))}
-                
                 {/* some routes for the header */}
                 {RouteConstants.agentHeaderInfo.map((headerInfo) => (
                     <Route
@@ -112,12 +110,6 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                         </div> 
                     )}/>
                 ))}
-
-
-
-                {/* <Route
-                    exact path={componentRoutes[0].path}
-                    component={componentRoutes[0].component} />  */}
             </div>
             <AgentFooter/>
         </body>
