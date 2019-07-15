@@ -11,7 +11,6 @@ export default function Header(){
     const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
         <a className="wrap-anchor">
-        {/* welp? */}
            <NavLink 
                 to={info.path}
                 activeStyle={{color: Constants.orange}}>

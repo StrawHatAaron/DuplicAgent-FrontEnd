@@ -59,9 +59,6 @@ const propRoutes =[{
         info: RouteConstants.existingClientInfo,
         topComponent: TopAgent.client()
     },
-    // {
-    //     path:
-    // }
 ];
 
 function RoutePropComponent(route){
@@ -113,11 +110,6 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                     )}/>
                 ))}
 
-
-
-                {/* <Route
-                    exact path={componentRoutes[0].path}
-                    component={componentRoutes[0].component} />  */}
             </div>
             <AgentFooter/>
         </body>
