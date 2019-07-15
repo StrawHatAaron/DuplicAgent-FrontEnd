@@ -8,18 +8,17 @@ import {NavLink} from 'react-router-dom'
 
 export default function Header(){
 
-    const faContent = RouteConstants.Routes.map((info, i) => {
+    const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
-            <>{i < 3  &&
-                <a className="wrap-anchor">
-                    <NavLink 
-                        to={info.path}
-                        activeStyle={{color: Constants.orange}}>
-                    <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
-                    </NavLink>
-                </a>
-            }</>
-          )
+        <a className="wrap-anchor">
+        {/* welp? */}
+           <NavLink 
+                to={info.path}
+                activeStyle={{color: Constants.orange}}>
+            <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
+            </NavLink>
+        </a>
+       )
     });
 
     return (
