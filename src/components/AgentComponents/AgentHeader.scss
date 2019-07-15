@@ -60,18 +60,9 @@
       padding-left: $top-side-padding;
     }
 
-    .active{
-      color:$orange;
-    }
-    
+    a:visited { text-decoration: none; color:$blue; }
 
-    .four-fa-fas{
-      
-      
-      // a:visited{
-      //   color: $blue;
-      // }
-
+    .four-fa-fas{      
       margin-left: auto;
       padding-right: $top-side-padding;
       .a-fa{

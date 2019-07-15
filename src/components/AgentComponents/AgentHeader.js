@@ -3,20 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
 import Logo from '../Logo'
 import * as RouteConstants from '../../utils/RouteConstants'
-import {Route} from 'react-router-dom'
-import * as TopAgentComponents from './TopAgent'
+import * as Constants from '../../Constants'
 import {NavLink} from 'react-router-dom'
 
 export default function Header(){
 
     const faContent = RouteConstants.agentHeaderInfo.map((info) => {
        return(
+        <a className="wrap-anchor">
            <NavLink 
-                activeClassName="active"
-                to={info.path}>
-                
-                   <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
+                to={info.path}
+                activeStyle={{color: Constants.orange}}>
+            <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
             </NavLink>
+        </a>
        )
     });
 
@@ -45,11 +45,13 @@ export default function Header(){
                     Current Route
                 </div>
                 <div className="four-fa-fas">
-                    <NavLink 
-                    activeClassName="active"
-                    exact to="/">
-                        <FontAwesomeIcon className="four-fa-fas" icon="home"/>
-                    </NavLink>
+                    <a className="wrap-anchor">
+                        <NavLink 
+                        exact to="/"
+                        activeStyle={{color: Constants.orange}}>
+                            <FontAwesomeIcon className="four-fa-fas" icon="home"/>
+                        </NavLink>
+                    </a>
                     {faContent}
                 </div>
             </div>
