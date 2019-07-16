@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
 import Logo from '../Logo'
 import * as RouteConstants from '../../utils/RouteConstants'
-import * as Constants from '../../Constants'
+import * as Constants from '../../utils/Constants'
 import {NavLink} from 'react-router-dom'
 
 export default function Header(){

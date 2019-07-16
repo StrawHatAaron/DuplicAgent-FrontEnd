@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/styles';
-import * as Constants from '../Constants'
+import * as Constants from '../utils/Constants'
 
 
 export default function SharpButton(props){

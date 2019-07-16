@@ -1,4 +1,4 @@
-import LogoImg from "../img/logo-sizes/60.png";
+import LogoImg from "../media/logo-sizes/60.png";
 import React from "react";
 import './Logo.scss'
 
