@@ -22,8 +22,7 @@ import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
 // path: The path the will show exactly where the use it - needs to work with state in the futue,
 // icon:cool little icon that wil show where the user is,
 //explanation:a little thing to tell the user where they are - think I might turn this into help
-//design: the string that is check when these routes are mapped. That way each one displays as it should 
-//header for all the routes in the App 
+
 // -- Using faFa Icons
 export const agentHeaderInfo = [{    
     title:"Upload Document",

@@ -8,10 +8,13 @@ import { faSearch, faUserTie, faHome, faCloudUploadAlt, faComment,
     faExclamationTriangle} 
     from '@fortawesome/free-solid-svg-icons'
 
+//watch for any svg icons from fontawesome
 library.add(fab, faSearch, faUserTie, faHome, faCloudUploadAlt, 
             faComment, faExclamationTriangle, faInstagram, 
             faFacebook, faGoogle);
 dom.watch();
+
+//render the entire App!
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

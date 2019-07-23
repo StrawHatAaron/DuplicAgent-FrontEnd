@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import AgentRouter from './pages/AgentPages/AgentRouter'
 
 
@@ -7,10 +7,10 @@ import AgentRouter from './pages/AgentPages/AgentRouter'
 
 function App() {
   return (
-    <BrowserRouter className="App">
+    <HashRouter className="App">
       {/* <Home/> */}
       <AgentRouter/>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
