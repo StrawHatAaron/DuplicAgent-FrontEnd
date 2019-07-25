@@ -11,7 +11,7 @@ import AgentFooter from '../../components/AgentComponents/AgentFooter';
 
 
 const componentRoutes = [{
-    //New Client Business Routes
+    //******** */New Client Business Routes*************
         //New Client
         path: RouteConstants.newBizInfo[0]['path'],
         component: NewClient,
@@ -36,7 +36,7 @@ const componentRoutes = [{
             "Current Submissions",
             RouteConstants.newBizInfo[2]['icon'])
     },]
-    
+
 
 
 const propRoutes =[{
@@ -60,6 +60,7 @@ const propRoutes =[{
     },
 ];
 
+
 function RoutePropComponent(route){
     return(
         <Route 
@@ -73,18 +74,47 @@ function RoutePropComponent(route){
     )
 }
 
-export default function AgentHome(){
+//go through all the existingClientInfo and store 
+//the needed components it needs to show
+const existingClientRoutes = RouteConstants.existingClientInfo.map((info, i) => {
+    var content = {
+        path: info.path,
+        topComponent: TopAgent.simpleWithLocation(
+            "ummmmmm....",
+            info.title,
+            info.icon
+        ),
+        botComponent:ExistingClient
+    }
+    return content
+})
 
-console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
+export default function AgentHome(){
 
     return(
         <body>
             <AgentHeader/>
             <div className="home-div">
+
+                {/* some routes for the header */}
+                {RouteConstants.agentHeaderInfo.map((headerInfo) => (
+                    <Route
+                        exact path={headerInfo.path}
+                        component={() => (
+                        <div>
+                            {TopAgent.simple(headerInfo.title)} 
+                        </div> 
+                    )}/>
+                ))}
+
+
+
                 {/* MAP Grid Navigation Components */}
                 {propRoutes.map((route, i) => (
                     <RoutePropComponent key={i} {...route} />
                 ))}
+
+
 
                 {/* some routes ends */}
                 {componentRoutes.map((route, i) => (
@@ -97,16 +127,19 @@ console.log(RouteConstants.newBizInfo[1]['path']+"CustomerId")
                        </div> 
                     )}/>
                 ))}
-                
-                {/* some routes for the header */}
-                {RouteConstants.agentHeaderInfo.map((headerInfo) => (
+
+
+                {console.log(existingClientRoutes)}
+
+                {existingClientRoutes.map((routes) => (
                     <Route
-                        exact path={headerInfo.path}
-                        component={() => (
-                        <div>
-                            {TopAgent.simple(headerInfo.title)} 
-                        </div> 
-                    )}/>
+                        exact path={routes.path}
+                        render={() => (
+                            <> 
+                                {routes.topComponent}
+                                <routes.botComponent/>
+                            </>
+                        )}/>
                 ))}
 
             </div>

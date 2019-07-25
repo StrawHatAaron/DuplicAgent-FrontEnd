@@ -3,6 +3,8 @@ import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
 import {Link} from 'react-router-dom'
 
+//This file will pull from dropbox or the server so that we
+//can get the clients that have been made by an agent.
 
 export default function ExistingClient(){
     
@@ -35,8 +37,12 @@ export default function ExistingClient(){
     const updateDisplayedCustomers = files[fileIndex].entries.map((file) => {
         const urlBaseLength = document.URL.split("/")[0].length +
                 document.URL.split("/")[2].length
-        const initRoutingPath = document.URL.substring(urlBaseLength+2, document.URL.length)
+        const initRoutingPath = document.URL.substring(urlBaseLength+4, document.URL.length)
         const fileName = (""+file.name).replace(/\s/g, '_')
+
+        // console.log(initRoutingPath)
+        // console.log(fileName)
+
         return (
             <li key={file.id}>
                 <Link to={initRoutingPath + "/" + fileName}>
