@@ -1,65 +1,24 @@
 import React from 'react'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
 import './AgentHome.scss'
-import GridChooser from '../../components/AgentComponents/GridChooser';
+import GridChooser from '../../components/AgentComponents/GridChooser'
 import {Route} from 'react-router-dom'
 import * as RouteConstants from '../../utils/RouteConstants'
-import ExistingClient from '../../components/AgentComponents/ExistingClient'
-import NewClient from '../../components/AgentComponents/NewClient'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
-import AgentFooter from '../../components/AgentComponents/AgentFooter';
+import AgentFooter from '../../components/AgentComponents/AgentFooter'
 
+const gridRouteInfo = [RouteConstants.homeInfo,
+    RouteConstants.newBizInfo,
+    RouteConstants.existingClientInfo]
 
-const componentRoutes = [{
-    //******** */New Client Business Routes*************
-        //New Client
-        path: RouteConstants.newBizInfo[0]['path'],
-        component: NewClient,
-        topComponent: TopAgent.simpleWithLocation(
-            "Enter new client information:", 
-            "New Client",
-            RouteConstants.newBizInfo[0]['icon'])
-    },{
-        //Existing Client
-        path: RouteConstants.newBizInfo[1]['path'],
-        component: ExistingClient,
-        topComponent: TopAgent.simpleWithLocation(
-            "Select from existing clients:", 
-            "Existing Client",
-            RouteConstants.newBizInfo[1]['icon'])
-    },{
-        //Current Submissions
-        path: RouteConstants.newBizInfo[2]['path'],
-        component: ExistingClient,
-        topComponent: TopAgent.simpleWithLocation(
-            "", 
-            "Current Submissions",
-            RouteConstants.newBizInfo[2]['icon'])
-    },]
-
-
-
-const propRoutes =[{
-        //home 
-        path: "/",
-        info: RouteConstants.homeInfo,
-        topComponent: TopAgent.simple("Welcome, Jack!")
-    },{
-        //New Business
-        path: RouteConstants.homeInfo[0]['path'],
-        info: RouteConstants.newBizInfo,
-        topComponent: TopAgent.simpleWithLocation(
-            "What are you looking to do?", 
-            "New Business",
-            RouteConstants.homeInfo[0]['icon'])
-    },{
-        //Client Page - Chose Existing Client
-        path: RouteConstants.choseClientInfo[0]['path'],
-        info: RouteConstants.existingClientInfo,
-        topComponent: TopAgent.client()
-    },
-];
-
+const gridRoutes = RouteConstants.gridRouteInfo.map((info, i) => {
+    const content = {
+        path: info.path,
+        topComponent: info.topComponent,
+        info:gridRouteInfo[i]
+    }
+    return content
+})
 
 function RoutePropComponent(route){
     return(
@@ -70,24 +29,13 @@ function RoutePropComponent(route){
                     {route.topComponent}
                     <GridChooser {...props} info={route.info} />
                 </div>
-        )}/>
+            )}
+        />
     )
 }
 
-//go through all the existingClientInfo and store 
-//the needed components it needs to show
-const existingClientRoutes = RouteConstants.existingClientInfo.map((info, i) => {
-    var content = {
-        path: info.path,
-        topComponent: TopAgent.simpleWithLocation(
-            "ummmmmm....",
-            info.title,
-            info.icon
-        ),
-        botComponent:ExistingClient
-    }
-    return content
-})
+
+
 
 export default function AgentHome(){
 
@@ -97,6 +45,8 @@ export default function AgentHome(){
             <div className="home-div">
 
                 {/* some routes for the header */}
+                {/* does not hold home because that is a grid
+                display */}
                 {RouteConstants.agentHeaderInfo.map((headerInfo) => (
                     <Route
                         exact path={headerInfo.path}
@@ -110,36 +60,48 @@ export default function AgentHome(){
 
 
                 {/* MAP Grid Navigation Components */}
-                {propRoutes.map((route, i) => (
-                    <RoutePropComponent key={i} {...route} />
+                {gridRoutes.map((route, i) => (
+                    <RoutePropComponent key={"grid-route"+i} {...route} />
                 ))}
 
 
 
-                {/* some routes ends */}
-                {componentRoutes.map((route, i) => (
+
+
+                {RouteConstants.newBizInfo.map((route, i) => (
                     <Route
-                    exact path={route.path}
-                    component={() => (
-                       <div>
-                            {route.topComponent}
-                            <route.component/>
-                       </div> 
-                    )}/>
+                        exact path={route.path}
+                        component={() => (
+                            <>
+                                {TopAgent.simpleWithLocation(
+                                    route.explanation, 
+                                    route.title,
+                                    route.icon)}
+                                <route.botComponent/>
+                            </> 
+                        )}
+                    />
                 ))}
 
 
-                {console.log(existingClientRoutes)}
 
-                {existingClientRoutes.map((routes) => (
+
+
+                {/* //go through all the existingClientInfo and store 
+                //the needed components it needs to show */}
+                {RouteConstants.existingClientInfo.map((route) => (
                     <Route
-                        exact path={routes.path}
+                        exact path={route.path}
                         render={() => (
                             <> 
-                                {routes.topComponent}
-                                <routes.botComponent/>
+                                {TopAgent.simpleWithLocation(
+                                    route.explanation, 
+                                    route.title,
+                                    route.icon)}
+                                <route.botComponent/>
                             </>
-                        )}/>
+                        )}
+                    />
                 ))}
 
             </div>

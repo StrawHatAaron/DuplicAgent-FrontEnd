@@ -1,3 +1,4 @@
+//imported icons
 import NewBusinessImg from '../media/routing/NewBusisnessImg.png'
 import RenewalsImg from '../media/routing/RenewalsImg.png'
 import AccountingImg from '../media/routing/AccountingImg.png'
@@ -16,6 +17,12 @@ import ClientAccountingImg from '../media/routing/AccountingImg.png'
 import ClaimsImg from '../media/routing/ClaimsImg.png'
 import QuotesImg from '../media/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
+
+//imported components
+import NewClient from '../components/AgentComponents/NewClient'
+import ExistingClient from '../components/AgentComponents/ExistingClient'
+import * as TopAgent from '../components/AgentComponents/TopAgent'
+
 
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
@@ -89,63 +96,85 @@ export const newBizInfo = [{
     title:'New Client',
     path:`${homeInfo[0].path}/NewClient`, 
     icon:NewClientImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent: NewClient
 },{
     title:'Existing Client',
     path:`${homeInfo[0].path}/ExistingClient`, 
     icon:ExistingClientImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent: ExistingClient
 },{
     title:'Current Submissions',
     path:`${homeInfo[0].path}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent: ExistingClient
 }]
 
-//For when choosing a client from dropbox
-//NewBusiness/ExistingClient/
-export const choseClientInfo = [{
+//Routes that are for displaying navigation with grid components
+export const gridRouteInfo = [{
+    title:'Home',
+    path:'/', 
+    icon:'home', 
+    topComponent: TopAgent.simple('Home'),
+},{
+    title:'New Business',
+    path:'/NewBusiness', 
+    icon:AdditionalDetailsImg, 
+    topComponent: TopAgent.simple('New Biz'),
+},{
     title:'Client Name!',
-    path:`${newBizInfo[1].path}/*`,
+    path:`/NewBusiness/ExistingClient/:id`,
     icon:'',
-    explanation:"Just chose a client now display the client page"
+    topComponent: TopAgent.simple("Client Name"),
 }]
 
 //still need to incorporate the clients name in here
 export const existingClientInfo =[{
     title:'Acords',
-    path:`${choseClientInfo[0].path}/Acords`, 
+    path:`${gridRouteInfo[2].path}/Acords`, 
     icon:AcordsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Files',
-    path:`${choseClientInfo[0].path}/Files`, 
+    path:`${gridRouteInfo[2].path}/Files`, 
     icon:FilesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Policies',
-    path:`${choseClientInfo[0].path}/Policies`, 
+    path:`${gridRouteInfo[2].path}/Policies`, 
     icon:PoliciesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Accounting',
-    path:`${choseClientInfo[0].path}/Accounting`, 
+    path:`${gridRouteInfo[2].path}/Accounting`, 
     icon:ClientAccountingImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Claims',
-    path:`${choseClientInfo[0].path}/Claims`, 
+    path:`${gridRouteInfo[2].path}/Claims`, 
     icon:ClaimsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Quotes',
-    path:`${choseClientInfo[0].path}/Quotes`, 
+    path:`${gridRouteInfo[2].path}/Quotes`, 
     icon:QuotesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },{
     title:'Additional Details',
-    path:`${choseClientInfo[0].path}/AdditionalDetails`, 
+    path:`${gridRouteInfo[2].path}/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
+    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    botComponent:ExistingClient
 },]
+
+
+
 
