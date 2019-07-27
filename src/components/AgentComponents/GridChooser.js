@@ -4,22 +4,26 @@ import {Link} from 'react-router-dom'
 
 export default function GridChooser(props){
 
-    const slashSplit = document.URL.split("#/")
-    const begURL = slashSplit[slashSplit.length-1]
+    
+    
+
+    if(props.storeData==='Client Name'){
+        console.log("storeData:"+props.storeData)
+        console.log("title:"+props.title)
+        window.localStorage.setItem(
+            props.storeData, 
+            "Aaron Miller")
+            console.log("Storing Client Data")    
+    }   
+    
+
+    
 
     const homeContent = props.info.map((info) => {
         
-        const endPathSplit = info.path.split("/")
-
-        console.log(endPathSplit)
-
-        const endURL = endPathSplit[endPathSplit.length-1]
-
         return(
             <Link to={info.path} 
             className="section">
-            {/* {console.log("begURL:" + begURL )}
-            {console.log("endURL:" + endURL)} */}
                 <img
                     src={info.icon}
                     alt={info.title}/>

@@ -24,6 +24,11 @@ import ExistingClient from '../components/AgentComponents/ExistingClient'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
 
 
+//constant paths that help keep the app more organized because
+//there is lots of reused paths
+const clientIdPath = "/NewBusiness/ExistingClient/:id"
+
+
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
 // path: The path the will show exactly where the use it - needs to work with state in the futue,
@@ -112,64 +117,48 @@ export const newBizInfo = [{
     botComponent: ExistingClient
 }]
 
-//Routes that are for displaying navigation with grid components
-export const gridRouteInfo = [{
-    title:'Home',
-    path:'/', 
-    icon:'home', 
-    topComponent: TopAgent.simple('Home'),
-},{
-    title:'New Business',
-    path:'/NewBusiness', 
-    icon:AdditionalDetailsImg, 
-    topComponent: TopAgent.simple('New Biz'),
-},{
-    title:'Client Name!',
-    path:`/NewBusiness/ExistingClient/:id`,
-    icon:'',
-    topComponent: TopAgent.simple("Client Name"),
-}]
+
 
 //still need to incorporate the clients name in here
 export const existingClientInfo =[{
     title:'Acords',
-    path:`${gridRouteInfo[2].path}/Acords`, 
+    path:`${clientIdPath}/Acords`, 
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Files',
-    path:`${gridRouteInfo[2].path}/Files`, 
+    path:`${clientIdPath}/Files`, 
     icon:FilesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Policies',
-    path:`${gridRouteInfo[2].path}/Policies`, 
+    path:`${clientIdPath}/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Accounting',
-    path:`${gridRouteInfo[2].path}/Accounting`, 
+    path:`${clientIdPath}/Accounting`, 
     icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Claims',
-    path:`${gridRouteInfo[2].path}/Claims`, 
+    path:`${clientIdPath}/Claims`, 
     icon:ClaimsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Quotes',
-    path:`${gridRouteInfo[2].path}/Quotes`, 
+    path:`${clientIdPath}/Quotes`, 
     icon:QuotesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Additional Details',
-    path:`${gridRouteInfo[2].path}/AdditionalDetails`, 
+    path:`${clientIdPath}/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
@@ -178,3 +167,27 @@ export const existingClientInfo =[{
 
 
 
+//Routes that are for displaying navigation with grid components
+export var gridRouteInfo = [{
+    title:'Home',
+    path:'/', 
+    icon:'home', 
+    topComponent: TopAgent.simple('Home'),
+    storeData:'',
+    info: homeInfo
+},{
+    title:'New Business',
+    path:'/NewBusiness', 
+    icon:AdditionalDetailsImg, 
+    topComponent: TopAgent.simple('New Biz'),
+    storeData:'',
+    info: newBizInfo
+},{
+    title:'Client Name!',
+    path:clientIdPath,
+    icon:'',
+    topComponent: TopAgent.client(
+        window.localStorage.getItem("Client Name")),
+    storeData:'Client Name',
+    info:existingClientInfo
+}]

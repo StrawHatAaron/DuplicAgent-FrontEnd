@@ -7,38 +7,26 @@ import * as RouteConstants from '../../utils/RouteConstants'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter'
 
-const gridRouteInfo = [RouteConstants.homeInfo,
-    RouteConstants.newBizInfo,
-    RouteConstants.existingClientInfo]
-
-const gridRoutes = RouteConstants.gridRouteInfo.map((info, i) => {
-    const content = {
-        path: info.path,
-        topComponent: info.topComponent,
-        info:gridRouteInfo[i]
-    }
-    return content
-})
-
-function RoutePropComponent(route){
+function RouteGridComponents(route){
     return(
         <Route 
             exact path={route.path} 
             render={props => (
-                <div>
+                <>
                     {route.topComponent}
-                    <GridChooser {...props} info={route.info} />
-                </div>
+                    <GridChooser 
+                        {...props} 
+                        title={route.title}
+                        info={route.info}
+                        storeData={route.storeData}/>
+                </>
             )}
         />
     )
 }
 
 
-
-
 export default function AgentHome(){
-
     return(
         <body>
             <AgentHeader/>
@@ -51,22 +39,15 @@ export default function AgentHome(){
                     <Route
                         exact path={headerInfo.path}
                         component={() => (
-                        <div>
+                        <>
                             {TopAgent.simple(headerInfo.title)} 
-                        </div> 
+                        </> 
                     )}/>
                 ))}
 
-
-
-                {/* MAP Grid Navigation Components */}
-                {gridRoutes.map((route, i) => (
-                    <RoutePropComponent key={"grid-route"+i} {...route} />
+                {RouteConstants.gridRouteInfo.map((route, index) => (
+                    <RouteGridComponents key={"grid-route"+index} {...route} />
                 ))}
-
-
-
-
 
                 {RouteConstants.newBizInfo.map((route, i) => (
                     <Route
@@ -84,9 +65,6 @@ export default function AgentHome(){
                 ))}
 
 
-
-
-
                 {/* //go through all the existingClientInfo and store 
                 //the needed components it needs to show */}
                 {RouteConstants.existingClientInfo.map((route) => (
@@ -94,6 +72,9 @@ export default function AgentHome(){
                         exact path={route.path}
                         render={() => (
                             <> 
+                                {TopAgent.simple(
+                                    window.localStorage.getItem('Client Name') + "Hello?"
+                                )}
                                 {TopAgent.simpleWithLocation(
                                     route.explanation, 
                                     route.title,

@@ -3,8 +3,10 @@ import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
 import {Link} from 'react-router-dom'
 
-//This file will pull from dropbox or the server so that we
-//can get the clients that have been made by an agent.
+//This file will pull from Dropbox or the Django Server so that we
+//can get the following:
+//1. the clients that have been made by an agent.
+//2. the files of a client
 
 export default function ExistingClient(){
     
