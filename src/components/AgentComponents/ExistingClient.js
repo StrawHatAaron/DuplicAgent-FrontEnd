@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
-import {Link} from 'react-router-dom'
+import {Link, Switch, Route} from 'react-router-dom'
 
 //This file will pull from Dropbox or the Django Server so that we
 //can get the following:
 //1. the clients that have been made by an agent.
 //2. the files of a client
+
+//dbx folder naming scheme
+//Client ID + Name
 
 export default function ExistingClient(){
     
@@ -26,7 +29,7 @@ export default function ExistingClient(){
     useEffect(() => {
         async function fetchDpx() {  
             const response = await dbx.filesListFolder({  
-                path: '',   
+                path: '/Customer 1',   
                 limit: 100     
             })
             setFiles([{
@@ -76,6 +79,7 @@ export default function ExistingClient(){
             <ul className="list">
                 {updateDisplayedCustomers}
             </ul>
+            <Route path=""/>
             <button onClick={() => showSet(files[fileIndex].cursor, fileIndex-1)}> 
                 prev 
             </button>
