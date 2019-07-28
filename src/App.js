@@ -9,7 +9,7 @@ function App() {
   return (
     <HashRouter className="App">
       {/* <Home/> */}
-      <AgentRouter/>
+      <AgentRouter />
     </HashRouter>
   );
 }

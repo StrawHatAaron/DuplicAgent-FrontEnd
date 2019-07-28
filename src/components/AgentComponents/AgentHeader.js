@@ -10,7 +10,8 @@ export default function Header(){
 
     const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
-           <NavLink 
+           <NavLink
+                key={"bot-navbar-right-routes"+i} 
                 to={info.path}
                 activeStyle={{color: Constants.orange}}>
             <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>

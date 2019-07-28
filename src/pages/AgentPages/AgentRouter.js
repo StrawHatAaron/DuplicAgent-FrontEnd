@@ -7,9 +7,20 @@ import * as RouteConstants from '../../utils/RouteConstants'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter'
 
+//You will see ALOT of key={} in this file because 
+//the virtual DOM to React component Reconciliation
+//for more refer to these
+//https://reactjs.org/docs/reconciliation.html
+//https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js/43892905#43892905
+
+
+
+//Advanced Routing where props are being passed
+//into the GridChooser file
 function RouteGridComponents(route){
     return(
-        <Route 
+        <Route
+            key={"top-grid-route"+route.title+route.path} 
             exact path={route.path} 
             render={props => (
                 <>
@@ -26,17 +37,18 @@ function RouteGridComponents(route){
 }
 
 
-export default function AgentHome(){
+export default function AgentRouter(){
     return(
-        <body>
+        <>
             <AgentHeader/>
             <div className="home-div">
 
                 {/* some routes for the header */}
                 {/* does not hold home because that is a grid
                 display */}
-                {RouteConstants.agentHeaderInfo.map((headerInfo) => (
+                {RouteConstants.agentHeaderInfo.map((headerInfo, i) => (
                     <Route
+                        key={"agentHeaderInfo"+i}
                         exact path={headerInfo.path}
                         component={() => (
                         <>
@@ -51,6 +63,7 @@ export default function AgentHome(){
 
                 {RouteConstants.newBizInfo.map((route, i) => (
                     <Route
+                        key={"newBizInfo"+i}
                         exact path={route.path}
                         component={() => (
                             <>
@@ -67,8 +80,9 @@ export default function AgentHome(){
 
                 {/* //go through all the existingClientInfo and store 
                 //the needed components it needs to show */}
-                {RouteConstants.existingClientInfo.map((route) => (
+                {RouteConstants.existingClientInfo.map((route, i) => (
                     <Route
+                        key={"existingClientInfo"+i}
                         exact path={route.path}
                         render={() => (
                             <> 
@@ -79,7 +93,9 @@ export default function AgentHome(){
                                     route.explanation, 
                                     route.title,
                                     route.icon)}
-                                <route.botComponent/>
+                                <route.botComponent 
+                                    key={"ExistingClient"+i} 
+                                    title={route.title}/>
                             </>
                         )}
                     />
@@ -87,6 +103,6 @@ export default function AgentHome(){
 
             </div>
             <AgentFooter/>
-        </body>
+        </>
     )
 }
