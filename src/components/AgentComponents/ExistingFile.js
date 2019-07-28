@@ -11,7 +11,7 @@ import {Link, Switch, Route} from 'react-router-dom'
 //dbx folder naming scheme
 //Client ID + Name
 
-export default function ExistingClient(){
+export default function ExistingFile(){
     
     console.log()
 
@@ -53,8 +53,8 @@ export default function ExistingClient(){
 
         return (
             <li key={file.id}>
-                <Link to={initRoutingPath + fileName + '/'}>
-                    {file.name}
+                <Link to={initRoutingPath + fileName}>
+                    {file.name+" this is pretty cool"}
                 </Link>
             </li>
         )
@@ -79,10 +79,6 @@ export default function ExistingClient(){
             <ul className="list">
                 {updateDisplayedCustomers}
             </ul>
-            <Switch>
-                
-                <Route path=""/>
-            </Switch>
             <button onClick={() => showSet(files[fileIndex].cursor, fileIndex-1)}> 
                 prev 
             </button>

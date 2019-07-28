@@ -1,11 +1,9 @@
 import React from 'react'
 import './GridChooser.scss'
-import {Link} from 'react-router-dom'
+import {Link, Switch, Route} from 'react-router-dom'
+import ExistingFile from './ExistingFile';
 
 export default function GridChooser(props){
-
-    
-    
 
     if(props.storeData==='Client Name'){
         console.log("storeData:"+props.storeData)
@@ -16,16 +14,16 @@ export default function GridChooser(props){
             console.log("Storing Client Data")    
     }   
     
-
-    
-
     const homeContent = props.info.map((info, i) => {
-        
+        // console.log("pathname: " + window.location.hash)
+        var url = window.location.hash.replace('#', '')
+        // console.log(url)
         return(
             <Link
                 key={info.path+i} 
-                to={info.path} 
+                to={url + info.title.replace(/\s/g, '') + '/'} 
                 className="section">
+
                 <img
                     src={info.icon}
                     alt={info.title}/>
@@ -38,9 +36,19 @@ export default function GridChooser(props){
             </Link>
         )
     })
+
+
     return(
         <div className="grid-choose">
             {homeContent}
+            <Switch>
+                {props.info.map((info, i) => (
+                <Route 
+                    key={info.title+i}
+                    path={`/NewBusiness/ExistingClient/:clientId/${info.title.replace(/\s/g, '')}`}
+                    component={ExistingFile}/>
+                ))}
+            </Switch>
         </div>
     )
 }

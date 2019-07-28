@@ -46,8 +46,7 @@ export default function AgentRouter(){
             <div className="home-div">
 
                 {/* some routes for the header */}
-                {/* does not hold home because that is a grid
-                display */}
+                {/* does not hold home because that is a grid display */}
                 {RouteConstants.agentHeaderInfo.map((headerInfo, i) => (
                     <Route
                         key={"agentHeaderInfo"+i}
