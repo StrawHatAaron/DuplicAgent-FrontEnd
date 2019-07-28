@@ -130,7 +130,7 @@ export const existingClientInfo =[{
     title:'Files',
     path:`${clientIdPath}/Files`, 
     icon:FilesImg, 
-    explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
+    explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
     botComponent:ExistingClient
 },{
     title:'Policies',

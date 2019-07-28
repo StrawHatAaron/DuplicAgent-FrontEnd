@@ -7,6 +7,8 @@ import * as RouteConstants from '../../utils/RouteConstants'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter'
 
+//NOTE-- This file is heavily tied with RouteConstants.js
+//------------------------------------------------------------------------------
 //You will see ALOT of key={} in this file because 
 //the virtual DOM to React component Reconciliation
 //for more refer to these
@@ -57,9 +59,13 @@ export default function AgentRouter(){
                     )}/>
                 ))}
 
+                {/* Little more complex... Uses the above method
+                "RouteGridComponents" to provide all main clicking
+                navigation for the user */}
                 {RouteConstants.gridRouteInfo.map((route, index) => (
                     <RouteGridComponents key={"grid-route"+index} {...route} />
                 ))}
+
 
                 {RouteConstants.newBizInfo.map((route, i) => (
                     <Route
