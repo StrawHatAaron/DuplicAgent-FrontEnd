@@ -47,7 +47,7 @@ export default function ExistingFile(){
                 document.URL.split("/")[2].length
         const initRoutingPath = document.URL.substring(urlBaseLength+4, document.URL.length)
         const fileName = (""+file.name).replace(/\s/g, '_')
-
+        
         // console.log(initRoutingPath)
         // console.log(fileName)
 

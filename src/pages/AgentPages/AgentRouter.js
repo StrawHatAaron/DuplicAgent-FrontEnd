@@ -85,7 +85,7 @@ export default function AgentRouter(){
 
                 {/* //go through all the existingClientInfo and store 
                 //the needed components it needs to show */}
-                {RouteConstants.existingClientInfo.map((route, i) => (
+                {/* {RouteConstants.existingClientInfo.map((route, i) => (
                     <Route
                         key={"existingClientInfo"+i}
                         exact path={route.path}
@@ -104,7 +104,7 @@ export default function AgentRouter(){
                             </>
                         )}
                     />
-                ))}
+                ))} */}
 
             </div>
             <AgentFooter/>

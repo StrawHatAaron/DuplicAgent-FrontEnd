@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {Dropbox} from 'dropbox'
 import './ExistingClient.scss'
 import {Link, Switch, Route} from 'react-router-dom'
+import { Agent } from 'http'; 
+import * as RouteConstants from '../../utils/RouteConstants'
+import * as TopAgent from '../../components/AgentComponents/TopAgent'
 
 //This file will pull from Dropbox or the Django Server so that we
 //can get the following:
@@ -41,20 +44,15 @@ export default function ExistingClient(){
     }, [])
 
     var [fileIndex, setFileIndex] = useState(0)
+    const urlBaseLength = document.URL.split("/")[0].length + document.URL.split("/")[2].length
+    const initRoutingPath = document.URL.substring(urlBaseLength+4, document.URL.length)
 
-    const updateDisplayedCustomers = files[fileIndex].entries.map((file) => {
-        const urlBaseLength = document.URL.split("/")[0].length +
-                document.URL.split("/")[2].length
-        const initRoutingPath = document.URL.substring(urlBaseLength+4, document.URL.length)
-        const fileName = (""+file.name).replace(/\s/g, '_')
-
-        // console.log(initRoutingPath)
-        // console.log(fileName)
-
+    const updateDisplayedCustomers = files[fileIndex].entries.map((file) => { 
+        // const fileName = (""+file.name).replace(/\s/g, '_')
         return (
             <li key={file.id}>
-                <Link to={initRoutingPath + fileName + '/'}>
-                    {file.name}
+                <Link to={initRoutingPath + (""+file.name).replace(/\s/g, '_') + '/'}>
+                    {file.name + 'UMMMMTHIS?????'}
                 </Link>
             </li>
         )
@@ -80,8 +78,13 @@ export default function ExistingClient(){
                 {updateDisplayedCustomers}
             </ul>
             <Switch>
-                
-                <Route path=""/>
+ 
+                {files[fileIndex].entries.map((file, i) => (
+                    <Route 
+                        path={initRoutingPath + (""+file.name).replace(/\s/g, '_') + '/'}
+                        component={TopAgent.simple("ummm")}
+                        />    
+                ))}
             </Switch>
             <button onClick={() => showSet(files[fileIndex].cursor, fileIndex-1)}> 
                 prev 
