@@ -21,6 +21,7 @@ import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
 //imported components
 import NewClient from '../components/AgentComponents/NewClient'
 import ExistingClient from '../components/AgentComponents/ExistingClient'
+import Todos from '../components/AgentComponents/Todos'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
 
 
@@ -137,31 +138,31 @@ export const existingClientInfo =[{
     path:`${clientIdPath}/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    botComponent:NewClient
 },{
     title:'Accounting',
     path:`${clientIdPath}/Accounting`, 
     icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    botComponent:Todos
 },{
     title:'Claims',
     path:`${clientIdPath}/Claims`, 
     icon:ClaimsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    botComponent:Todos
 },{
     title:'Quotes',
     path:`${clientIdPath}/Quotes`, 
     icon:QuotesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    botComponent:Todos
 },{
     title:'Additional Details',
     path:`${clientIdPath}/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    botComponent:Todos
 },]
 
 

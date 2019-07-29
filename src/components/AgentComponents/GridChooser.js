@@ -1,17 +1,12 @@
 import React from 'react'
 import './GridChooser.scss'
 import {Link, Switch, Route} from 'react-router-dom'
-import ExistingFile from './ExistingFile';
 import * as TopAgent from '../AgentComponents/TopAgent'
 
 export default function GridChooser(props){
 
     if(props.storeData==='Client Name'){
-        console.log("storeData:"+props.storeData)
-        console.log("title:"+props.title)
-        window.localStorage.setItem(
-            props.storeData, 
-            "Aaron Miller")
+        window.localStorage.setItem(props.storeData, "Aaron Miller")
             console.log("Storing Client Data")    
     }   
     
@@ -42,27 +37,6 @@ export default function GridChooser(props){
     return(
         <div className="grid-choose">
             {homeContent}
-            <Switch>
-                {props.info.map((route, i) => (
-                <Route 
-                    key={route.title+i}
-                    path={`/NewBusiness/ExistingClient/:clientId/${route.title.replace(/\s/g, '')}`}
-                    component={() => (
-                        <> 
-                            {TopAgent.simple(
-                                window.localStorage.getItem('Client Name') + "Hello?"
-                            )}
-                            {TopAgent.simpleWithLocation(
-                                route.explanation, 
-                                route.title,
-                                route.icon)}
-                            <route.botComponent 
-                                key={"ExistingClient"+i} 
-                                title={route.title}/>
-                        </>
-                    )}/>
-                ))}
-            </Switch>
         </div>
     )
 }

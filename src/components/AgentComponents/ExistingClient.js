@@ -14,13 +14,12 @@ import * as TopAgent from '../../components/AgentComponents/TopAgent'
 //dbx folder naming scheme
 //Client ID + Name
 
-export default function ExistingClient(){
+export default function ExistingClient(props){
     
     console.log()
 
 
     const dbx = new Dropbox({
-        // accessToken: '1h4MKn2TgCAAAAAAAAABRsCmhcmfra1WDcMxOOdbdtqGtQBQ4unwlHeRorOFmEPE',
         accessToken: '1h4MKn2TgCAAAAAAAAABYwuiXzG-l9ibyJrPECgCr7Dhe5z2awWbNTK0xjJN37OE',
         fetch
     })
@@ -32,7 +31,7 @@ export default function ExistingClient(){
     useEffect(() => {
         async function fetchDpx() {  
             const response = await dbx.filesListFolder({  
-                path: '',   
+                path: props.dbxPath ? '/Customer 1' : '',   
                 limit: 100     
             })
             setFiles([{
@@ -77,15 +76,7 @@ export default function ExistingClient(){
             <ul className="list">
                 {updateDisplayedCustomers}
             </ul>
-            <Switch>
- 
-                {files[fileIndex].entries.map((file, i) => (
-                    <Route 
-                        path={initRoutingPath + (""+file.name).replace(/\s/g, '_') + '/'}
-                        component={TopAgent.simple("ummm")}
-                        />    
-                ))}
-            </Switch>
+            
             <button onClick={() => showSet(files[fileIndex].cursor, fileIndex-1)}> 
                 prev 
             </button>
