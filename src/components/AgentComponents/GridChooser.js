@@ -1,7 +1,6 @@
 import React from 'react'
 import './GridChooser.scss'
-import {Link, Switch, Route} from 'react-router-dom'
-import * as TopAgent from '../AgentComponents/TopAgent'
+import {Link,} from 'react-router-dom'
 
 export default function GridChooser(props){
 

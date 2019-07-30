@@ -187,8 +187,7 @@ export var gridRouteInfo = [{
     title:'Client Name!',
     path:clientIdPath,
     icon:'',
-    topComponent: TopAgent.client(
-        window.localStorage.getItem("Client Name")),
+    topComponent: TopAgent.client(window.localStorage.getItem("Client Name")),
     storeData:'Client Name',
     info:existingClientInfo
 }]

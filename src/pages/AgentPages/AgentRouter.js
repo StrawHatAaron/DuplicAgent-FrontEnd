@@ -99,8 +99,7 @@ export default function AgentRouter(){
                                     route.title,
                                     route.icon)}
                                 <route.botComponent 
-                                    key={"ExistingClient"+i} 
-                                    dbxPath={true}/>
+                                    key={"ExistingClient"+route.title+i} />
                             </>
                         )}
                     />
