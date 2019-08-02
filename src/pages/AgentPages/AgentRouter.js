@@ -53,7 +53,8 @@ export default function AgentRouter(){
                         exact path={headerInfo.path}
                         component={() => (
                         <>
-                            {TopAgent.simple(headerInfo.title)} 
+                            {TopAgent.simple(headerInfo.title)}
+                            <headerInfo.botComponent/> 
                         </> 
                     )}/>
                 ))}

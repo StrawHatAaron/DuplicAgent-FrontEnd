@@ -5,13 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { fab, faInstagram, faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons'
 import { faSearch, faUserTie, faHome, faCloudUploadAlt, faComment, 
-    faExclamationTriangle} 
+    faExclamationTriangle, faUpload} 
     from '@fortawesome/free-solid-svg-icons'
 
 //watch for any svg icons from fontawesome
 library.add(fab, faSearch, faUserTie, faHome, faCloudUploadAlt, 
             faComment, faExclamationTriangle, faInstagram, 
-            faFacebook, faGoogle);
+            faFacebook, faGoogle, faUpload);
 dom.watch();
 
 //render the entire App!

@@ -23,6 +23,7 @@ import NewClient from '../components/AgentComponents/NewClient'
 import ExistingClient from '../components/AgentComponents/ExistingClient'
 import Todos from '../components/AgentComponents/Todos'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
+import Uploader from '../components/AgentComponents/Uploader'
 
 
 //constant paths that help keep the app more organized because
@@ -41,17 +42,20 @@ export const agentHeaderInfo = [{
     title:"Upload Document",
     path:"/UploadDocument",
     icon:"cloud-upload-alt",
-    explanation:"Choose where to upload a Document!"
+    explanation:"Choose where to upload a Document!",
+    botComponent:Uploader
 },{
     title:"Chat",
     path:"/Chat",
     icon:"comment",
     explanation:"Send Message",
+    botComponent:Uploader
 },{
     title:"Notifications",
     path:"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
+    botComponent:Uploader
 }]
 
 //home page for the Agent or Broker
