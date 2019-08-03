@@ -12,13 +12,7 @@ export default function Uploader() {
         fetch
     })
 
-    dbx.filesUpload({
-        path: "/test.txt",
-        mode: "add",
-        autorename: true,
-        mute: false,
-        strict_conflict: false
-    })
+    
 
     const onDrop = useCallback(acceptedFiles => {
         const reader = new FileReader()
@@ -26,12 +20,14 @@ export default function Uploader() {
         reader.onabort = () => console.log('file reading was aborted')
         reader.onerror = () => console.log('file reading has failed')
         reader.onload = () => {
-          // Do whatever you want with the file contents
-          const binaryStr = reader.result
-          console.log(reader)
-          
+            // Do whatever you want with the file contents
+            // const binaryStr = reader.result
+            console.log(reader)
+            dbx.filesUpload({
+                path: '/'+reader.result,
+                mode: 'add'
+            })
         }
-    
         acceptedFiles.forEach(file => reader.readAsBinaryString(file))
       }, [])
       const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
@@ -41,7 +37,9 @@ export default function Uploader() {
             <div {...getRootProps()} className="upload-container upload-decoration">
                 <input {...getInputProps()} />
                 <p>
-                    <FontAwesomeIcon icon="upload"/>  
+                    <FontAwesomeIcon 
+                        className="up-icon"
+                        icon="upload"/>  
                     <br/>
                     Drag 'n' drop some files here, or click to select files
                 </p>
