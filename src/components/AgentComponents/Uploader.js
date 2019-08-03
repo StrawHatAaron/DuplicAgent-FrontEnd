@@ -21,7 +21,7 @@ export default function Uploader() {
         reader.onerror = () => console.log('file reading has failed')
         reader.onload = () => {
             // Do whatever you want with the file contents
-            // const binaryStr = reader.result
+            // const binaryStr = reader.resultffjfjfj
             console.log(reader)
             dbx.filesUpload({
                 path: '/'+reader.result,
