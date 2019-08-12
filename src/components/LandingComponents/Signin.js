@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
-import * as Constants from '../../Constants'
+import * as Constants from '../../utils/Constants'
 
 
 const checkBoxStyles = theme => ({

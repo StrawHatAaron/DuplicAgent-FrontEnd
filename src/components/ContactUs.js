@@ -1,6 +1,6 @@
 import React from 'react'
 import SharpTextField from './SharpTextField'
-import * as Constants from '../Constants'
+import * as Constants from '../utils/Constants'
 import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
 

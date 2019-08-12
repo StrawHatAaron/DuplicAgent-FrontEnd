@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.scss'
-import ACORDLogo from '../../img/acord-logo.png'
+import ACORDLogo from '../../media/acord-logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const iconInfo =[{company:'facebook'}, 
