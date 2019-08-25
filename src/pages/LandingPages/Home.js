@@ -20,20 +20,19 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
     if (index < 2){
         console.log('be nice')
         Vert = 'ya'
-        // VertHr = <hr width='1' size='100'/>
     }
     return(
-            <div className={`row-2-boxes ${Vert}`}>
-                <div className='bigger-text'>
-                    {c.grammar} <div className='cust-type'>{c.custType}</div>
-                </div>
-                <br/>
-                {c.do}
-                <br/>
-                <a className='link-learn' href='hi'>
-                    Learn More
-                </a>
+        <div className={`row-2-boxes ${Vert}`}>
+            <div className='bigger-text'>
+                {c.grammar} <div className='cust-type'>{c.custType}</div>
             </div>
+            <br/>
+            {c.do}
+            <br/>
+            <a className='link-learn' href='hi'>
+                Learn More
+            </a>
+        </div>
     )
 });
 
@@ -58,13 +57,13 @@ const affiliatesContent = affiliatesInfo.map((c) => {
         console.log('need a default')
     }
     return (
-            <div className={`${c.class} affiliates`}>
-                {c.name}
-                <hr/>
-                <img src={imgSrc} 
-                    alt={c.name} 
-                    className=''/>
-            </div>
+        <div className={`${c.class} affiliates`}>
+            {c.name}
+            <hr/>
+            <img src={imgSrc} 
+                alt={c.name} 
+                className=''/>
+        </div>
     )
 });
 
@@ -74,10 +73,8 @@ const imgStyle = {
 
 
 
-
-
-
-export default function Home(){
+export default function Home(props){
+    console.log(props.auth)
     return(
         <div className="the-big-div">
             <Header/>
@@ -113,7 +110,7 @@ export default function Home(){
                     </div>
 
                     <div className="row-1_col3">
-                        <Signin/>
+                        <Signin auth={props.auth}/>
                     </div>
                 </div>
 

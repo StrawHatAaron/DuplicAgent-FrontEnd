@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom'
 import './Signin.scss'
 import Checkbox from '@material-ui/core/Checkbox';
 import {withStyles,} from '@material-ui/styles';
@@ -7,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
+// import {authButton} from '../AuthHelpers'
 
 
 const checkBoxStyles = theme => ({
@@ -21,7 +23,8 @@ const CustomCheckbox = withStyles(checkBoxStyles)(Checkbox);
 
 
 
-export default function Signin() {
+export default function Signin(props) {
+
     const [state, setState] = React.useState({
         checkedA: false,
     });
@@ -32,6 +35,20 @@ export default function Signin() {
 
     const buttonStyle = Constants.ButtonStyle();
     // const classes = Constants.
+
+    const AuthButton = withRouter(
+        ({ history }) =>
+        props.auth.isAuthenticated ? (
+        <p>
+            Welcome!{" "}
+            <button onClick={() => {props.auth.signout(() => history.push("/"))}}>
+            Sign out
+            </button>
+        </p>
+        ) : (
+        <p>You are not logged in.</p>
+        )
+    );
 
     return(
         <div className="sign-section">
@@ -72,6 +89,11 @@ export default function Signin() {
                     Sign in
                     <LockIcon className={buttonStyle.rightIcon}/>
                 </Button>
+                        
+                {/* <div>
+                    <AuthButton>
+                    ummmmm.....
+                </div> */}
 
                 <div className="account-help-link">
                     Username or Password help?
