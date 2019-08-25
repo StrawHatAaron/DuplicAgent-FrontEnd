@@ -14,7 +14,7 @@ function App(){
             <Link to="/public">Public Page</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected">Protected Page um</Link>
           </li>
         </ul>
         <Route path="/public" component={Home} />
