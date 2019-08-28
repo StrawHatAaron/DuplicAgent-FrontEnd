@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import {HashRouter, Link, Route, Redirect, withRouter} from 'react-router-dom'
 import AgentRouter from './pages/AgentPages/AgentRouter'
 import Home from './pages/LandingPages/Home'
-import {auth} from './components/AuthHelpers'
+// import {auth} from './components/AuthHelpers'
 
 function App(){
-
-  
-
   return (
     <HashRouter className="App">
       <div>
@@ -25,15 +22,42 @@ function App(){
           render={() => (<Home auth={auth}/>)}
           key = "the-landing-page"/>
         <Route path="/login" component={Login} />
-        <PrivateRoute path="/protected" component={<AgentRouter auth={auth}/>} />
+        <PrivateRoute path="/protected" component={() => <AgentRouter auth={auth}/>} />
       </div>
     </HashRouter>
   )
 }
 
 
+const auth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100); // fake async
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
 
-
+const AuthButton = withRouter(
+  ({ history }) =>
+    auth.isAuthenticated ? (
+      <p>
+        Welcome!{" "}
+        <button
+          onClick={() => {
+            auth.signout(() => history.push("/"));
+          }}
+        >
+          Sign out
+        </button>
+      </p>
+    ) : (
+      <p>You are not logged in.</p>
+    )
+);
 
 function PrivateRoute({ component: Component, ...rest }) {
   return (
