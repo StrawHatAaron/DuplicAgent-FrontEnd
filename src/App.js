@@ -78,7 +78,7 @@ function PrivateRoute({ component: Component, ...rest }) {
     />
   );
 }
-
+//
 
 class Login extends Component {
   state = { redirectToReferrer: false };
