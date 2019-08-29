@@ -37,6 +37,8 @@ export default function Header(){
                 <div className="profile-area">
                     <FontAwesomeIcon icon="user-tie"/>
                     <div className="user-name">Aaron</div>
+                    {/* handle logging the user out */}
+                    {/* <props.authButton/> */}
                 </div>
             </div>
             <div className="nav-bot">

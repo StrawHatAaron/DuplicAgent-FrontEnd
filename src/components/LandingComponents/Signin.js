@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {withRouter} from 'react-router-dom'
 import './Signin.scss'
 import Checkbox from '@material-ui/core/Checkbox';
@@ -8,7 +8,8 @@ import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
-// import {authButton} from '../AuthHelpers'
+// import {auth, authButton} from '../AuthHelpers'
+import Login from './Login'
 
 
 const checkBoxStyles = theme => ({
@@ -25,30 +26,17 @@ const CustomCheckbox = withStyles(checkBoxStyles)(Checkbox);
 
 export default function Signin(props) {
 
-    const [state, setState] = React.useState({
+    //design things
+    const [checkBoxState, setCheckBoxState] = useState({
         checkedA: false,
     });
 
     const handleChange = name => event => {
-        setState({ ...state, [name]: event.target.checked });
+        setCheckBoxState({ ...checkBoxState, [name]: event.target.checked });
     };
 
     const buttonStyle = Constants.ButtonStyle();
     // const classes = Constants.
-
-    const AuthButton = withRouter(
-        ({ history }) =>
-        props.auth.isAuthenticated ? (
-        <p>
-            Welcome!{" "}
-            <button onClick={() => {props.auth.signout(() => history.push("/"))}}>
-            Sign out
-            </button>
-        </p>
-        ) : (
-        <p>You are not logged in.</p>
-        )
-    );
 
     return(
         <div className="sign-section">
@@ -77,7 +65,7 @@ export default function Signin(props) {
                     value="end"
                     control={<CustomCheckbox
                         onChange={handleChange('checkedA')} 
-                        checked={state.checkedA}/>}
+                        checked={checkBoxState.checkedA}/>}
                     label="Remember Me"
                     labelPlacement="end"/>
 
@@ -90,10 +78,9 @@ export default function Signin(props) {
                     <LockIcon className={buttonStyle.rightIcon}/>
                 </Button>
                         
-                {/* <div>
-                    <AuthButton>
+                <div>
                     ummmmm.....
-                </div> */}
+                </div>
 
                 <div className="account-help-link">
                     Username or Password help?

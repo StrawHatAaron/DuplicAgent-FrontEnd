@@ -39,9 +39,10 @@ function RouteGridComponents(route){
 }
 
 
-export default function AgentRouter(){
+export default function AgentRouter(props){
     return(
         <>
+            {/* <AgentHeader authButton={props.authButton}/> */}
             <AgentHeader/>
             <div className="home-div">
 

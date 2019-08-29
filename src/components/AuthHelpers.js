@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 
 export const auth = {
   isAuthenticated: false,
@@ -14,15 +14,23 @@ export const auth = {
 };
 
 export const authButton = withRouter(
-    ({ history }) =>
-      auth.isAuthenticated ? (
+  ({ history }) =>
+    auth.isAuthenticated ? (
       <p>
         Welcome!{" "}
-        <button onClick={() => {auth.signout(() => history.push("/"))}}>
+        <button
+          onClick={() => {
+            auth.signout(() => history.push("/public"));
+          }}
+        >
           Sign out
         </button>
       </p>
     ) : (
-      <p>You are not logged in.</p>
+      <p>
+        You are not logged in.
+        <button>login</button>
+      </p>
+
     )
-  );
+);
