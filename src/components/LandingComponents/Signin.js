@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
-// import {auth, authButton} from '../AuthHelpers'
-import Login from './Login'
 
 
 const checkBoxStyles = theme => ({

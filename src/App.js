@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {HashRouter, Link, Route, Redirect, withRouter} from 'react-router-dom'
 import AgentRouter from './pages/AgentPages/AgentRouter'
 import Home from './pages/LandingPages/Home'
-// import {auth} from './components/AuthHelpers'
-// import Login from './components/LandingComponents/Login'
 
 
 function App(){
@@ -13,7 +11,12 @@ function App(){
   return (
     <HashRouter className="App">
       <div>
-        <button onClick={auth.authenticate(() => {})}>
+        auth.isAuthenticated ? (
+          <p> you are logged In</p>
+        )
+        : (
+          <button onClick={auth.authenticate(() => {})}>
+        )
           Log In
         </button>
         <ul>
