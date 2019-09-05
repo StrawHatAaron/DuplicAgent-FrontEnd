@@ -9,6 +9,8 @@ import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
 
+//This components handles both the style and authentication for users
+
 const CssTextField = withStyles({
     root: {
         '& label.Mui-focused': {
