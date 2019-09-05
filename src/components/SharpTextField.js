@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import TextField from '@material-ui/core/TextField';
 import {withStyles,} from '@material-ui/styles';
 
@@ -27,19 +27,31 @@ const DivWidth = {
 }
 
 export default function SharpTextField(props){
+
+    const [myValue, setValue] = useState('')
+
+    const valCatch = () => {
+        console.log(myValue)
+    }
+
     return(
         <div style={DivWidth}>
             <CssTextField
-                    variant="outlined"
-                    margin="normal"
-                    required={props.required}
-                    fullWidth
-                    multiline={props.multiline}
-                    placeholder={props.placeholder}
-                    id={props.id}
-                    label={props.label}
-                    name={props.name}
-                    autoComplete={props.autoComplete}/>
+                variant="outlined"
+                margin="normal"
+                required={props.required}
+                fullWidth
+                multiline={props.multiline}
+                placeholder={props.placeholder}
+                id={props.id}
+                label={props.label}
+                name={props.name}
+                autoComplete={props.autoComplete}
+                
+                onChange={(e) => setValue(e.target.value)}/>
+            <button onClick={() => valCatch() }>
+                lol
+            </button>         
         </div>
     )
 }

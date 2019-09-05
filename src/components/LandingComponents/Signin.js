@@ -36,6 +36,14 @@ export default function Signin(props) {
     const buttonStyle = Constants.ButtonStyle();
     // const classes = Constants.
 
+
+
+    // const [myValue, setValue] = useState('f')
+
+    // const onSignIn = () => {
+    //     console.log(myValue)
+    // }
+
     return(
         <div className="sign-section">
 
@@ -53,12 +61,16 @@ export default function Signin(props) {
                     id="email"
                     label="Email Address"
                     name="email"
-                    autoComplete="email"/>
+                    autoComplete="email"
+                    // inputRef={(e) => setValue(e.target.value)}
+                />
                 <SharpTextField
                     id="password"
                     label="Password"
                     name="password"
-                    autoComplete="current-password"/>
+                    autoComplete="current-password"
+                    // inputRef={(c) => {this.myRefs.password = c}}
+                />
                 <FormControlLabel
                     value="end"
                     control={<CustomCheckbox
@@ -71,7 +83,9 @@ export default function Signin(props) {
                 <Button 
                     variant="contained" 
                     color="secondary" 
-                    className={buttonStyle.button}>
+                    className={buttonStyle.button}
+                    // onClick={() => onSignIn()}
+                >
                     Sign in
                     <LockIcon className={buttonStyle.rightIcon}/>
                 </Button>

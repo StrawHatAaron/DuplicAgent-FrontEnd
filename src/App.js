@@ -8,17 +8,49 @@ function App(){
 
   const [loggedIn, setLoggedIn] = useState(false)
 
+  function authenticate(){
+    console.log(loggedIn)
+    setLoggedIn(true)
+  }
+
+  function signOut(){
+    setLoggedIn(false)
+  }
+
+  function PrivateRoute({ component: Component, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={props =>
+          loggedIn ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+
   return (
     <HashRouter className="App">
       <div>
-        auth.isAuthenticated ? (
-          <p> you are logged In</p>
-        )
-        : (
-          <button onClick={auth.authenticate(() => {})}>
-        )
-          Log In
-        </button>
+        {loggedIn ? (
+          <p> 
+            you are logged In
+            <Redirect to="/protected"/>
+          </p>
+          
+        ) : (
+          <button onClick={() => authenticate()}>
+            Log In
+          </button>
+        )}
         <ul>
           <li>
             <Link to="/public">Public Page</Link>
@@ -31,44 +63,17 @@ function App(){
           path="/public" 
           render={() => (<Home loggedIn={loggedIn}/>)}
           key = "the-landing-page"/>
-        {/* <Route path="/login" component={authButton} /> */}
+        <Route 
+          path="/login" 
+          render={() => (<Home loggedIn={loggedIn}/>)}
+          key = "the-landing-page"/>
         <PrivateRoute path="/protected" component={() => <AgentRouter/>} />
       </div>
     </HashRouter>
   )
 }
 
-function PrivateRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        auth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
 
-const auth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 100);
-  }
-};
 
 
 // export default AuthExample;
