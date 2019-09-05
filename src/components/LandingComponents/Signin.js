@@ -1,14 +1,36 @@
 import React, {useState} from "react";
-import {withRouter} from 'react-router-dom'
 import './Signin.scss'
 import Checkbox from '@material-ui/core/Checkbox';
 import {withStyles,} from '@material-ui/styles';
+import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
 
+const CssTextField = withStyles({
+    root: {
+        '& label.Mui-focused': {
+            color: '#DE6D43',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#54B0F2',
+            },
+            '&:hover fieldset': {
+                borderColor: '#003142',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#DE6D43',
+            },
+        },
+    },
+})(TextField);
+
+const DivWidth = {
+    width:'100%'
+}
 
 const checkBoxStyles = theme => ({
     root: {
@@ -38,11 +60,13 @@ export default function Signin(props) {
 
 
 
-    // const [myValue, setValue] = useState('f')
+    const [emailValue, setEmailValue] = useState('')
+    const [passwordValue, setPasswordValue] = useState('')
 
-    // const onSignIn = () => {
-    //     console.log(myValue)
-    // }
+    const onSignIn = () => {
+        console.log(emailValue)
+        console.log(passwordValue)
+    }
 
     return(
         <div className="sign-section">
@@ -57,20 +81,25 @@ export default function Signin(props) {
                 Learn More
             </div>
             <div className="flex-form">
-                <SharpTextField
+
+                <CssTextField style={DivWidth}
+                    variant="outlined"
+                    margin="normal"
                     id="email"
                     label="Email Address"
                     name="email"
                     autoComplete="email"
-                    // inputRef={(e) => setValue(e.target.value)}
-                />
-                <SharpTextField
+                    onChange={(e) => setEmailValue(e.target.value)} />
+
+                <CssTextField style={DivWidth}
+                    variant="outlined"
+                    margin="normal"
                     id="password"
                     label="Password"
                     name="password"
                     autoComplete="current-password"
-                    // inputRef={(c) => {this.myRefs.password = c}}
-                />
+                    onChange={(e) => setPasswordValue(e.target.value)}/>
+                    
                 <FormControlLabel
                     value="end"
                     control={<CustomCheckbox
@@ -84,7 +113,7 @@ export default function Signin(props) {
                     variant="contained" 
                     color="secondary" 
                     className={buttonStyle.button}
-                    // onClick={() => onSignIn()}
+                    onClick={() => onSignIn()}
                 >
                     Sign in
                     <LockIcon className={buttonStyle.rightIcon}/>

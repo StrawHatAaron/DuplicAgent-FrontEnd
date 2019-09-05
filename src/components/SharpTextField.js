@@ -28,12 +28,6 @@ const DivWidth = {
 
 export default function SharpTextField(props){
 
-    const [myValue, setValue] = useState('')
-
-    const valCatch = () => {
-        console.log(myValue)
-    }
-
     return(
         <div style={DivWidth}>
             <CssTextField
@@ -46,12 +40,8 @@ export default function SharpTextField(props){
                 id={props.id}
                 label={props.label}
                 name={props.name}
-                autoComplete={props.autoComplete}
-                
-                onChange={(e) => setValue(e.target.value)}/>
-            <button onClick={() => valCatch() }>
-                lol
-            </button>         
+                autoComplete={props.autoComplete} />
+
         </div>
     )
 }
