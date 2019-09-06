@@ -92,7 +92,7 @@ export default function Signin(props) {
     return(
         <div className="sign-section">
 
-            <Route
+            {/* <Route
                 render={ () => 
                     {signedIn ? (
                         <Redirect to="/protected"/>
@@ -102,7 +102,7 @@ export default function Signin(props) {
                         </div>
                     )}
                 }
-            />
+            /> */}
 
             <div className="lil-explain">
                 View your account. Sign in to Management Solutions to access your products and tools.

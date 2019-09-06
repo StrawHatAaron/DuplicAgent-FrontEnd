@@ -103,10 +103,10 @@ export default function Home(props){
                     </div>
     
                     <div className="row-1_col2">
-                        <img style={imgStyle} 
+                        {/* <img style={imgStyle} 
                             src={GuysWalking} 
                             alt='people walking' 
-                            className='guys-walking'/>
+                            className='guys-walking'/> */}
                     </div>
 
                     <div className="row-1_col3">
@@ -125,7 +125,7 @@ export default function Home(props){
                 <div className="row-3">
                     <div className="elon-quote">
                         Make America Great Again
-                        <br/>-Donald Trump
+                        <br/>-Trumpel Frumpel
                     </div>
                 </div>
                 
@@ -143,13 +143,10 @@ export default function Home(props){
                 </div>
 
                 <div className="row-5">
-                    <div className='row-5-col-1'>
-                        <hr/>
+                    <div className='row-5-contain'>
+                        <hr className="left"/>
                         <div className='contact-us'>Contact Us</div>
-                        <hr/>
-                    </div>
-                    <div className='row-5-col-2'>
-                        <hr/>
+                        <hr className="right"/>
                     </div>
                 </div>
 

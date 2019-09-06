@@ -1,5 +1,5 @@
 import React from 'react'
-import SharpTextField from '../SharpTextField'
+import {SharpTextField} from '../SharpTextField'
 import './NewClient.scss'
 import SharpButton from '../SharpButton'
 
