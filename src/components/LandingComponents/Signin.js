@@ -6,8 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
-import SharpTextField from '../SharpTextField'
 import * as Constants from '../../utils/Constants'
+import axios from 'axios'
+import {Redirect, Route} from 'react-router-dom'
 
 //This components handles both the style and authentication for users
 
@@ -64,18 +65,45 @@ export default function Signin(props) {
 
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
+    const [signedIn, setSignedIn] = useState(false)
 
     const onSignIn = () => {
         console.log(emailValue)
         console.log(passwordValue)
+        axios.post('http://127.0.0.1:8000/api/user/token/', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+            email: emailValue,
+            password: passwordValue
+        })
+        .then((response) => {
+            console.log(response)
+            console.log(response.status)
+            if(response.status===200){
+                setSignedIn(true)
+            }
+        }, (error) => {
+            console.log(error);
+        })
     }
 
     return(
         <div className="sign-section">
 
-            <div className="sign-in">
-                Sign in
-            </div>
+            <Route
+                render={ () => 
+                    {signedIn ? (
+                        <Redirect to="/protected"/>
+                    ) : (
+                        <div className="sign-in">
+                            Sign in
+                        </div>
+                    )}
+                }
+            />
+
             <div className="lil-explain">
                 View your account. Sign in to Management Solutions to access your products and tools.
             </div>
