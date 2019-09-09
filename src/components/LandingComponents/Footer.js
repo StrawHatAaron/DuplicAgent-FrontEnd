@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const iconInfo =[{company:'facebook'}, 
                 {company:'instagram'}, 
                 {company:'linkedin'}]
-const iconContent = iconInfo.map((c) => {
+const iconContent = iconInfo.map((c, index) => {
     return(
         <FontAwesomeIcon 
+            key={"footer-icon"+index}
             className="icon"    
             icon={['fab', `${c.company}`]} 
             size='lg'>
@@ -47,11 +48,6 @@ export default function Footer(){
                     src={ACORDLogo}
                     alt="NOT CERTIFIED WITH Association for Cooperative Operations Research and Development."/>
             </div>
-            {/* <div className='col-5 footer-row'>
-                Privacy Statement <br/>
-                Terms of Use <br/>
-                Terms of Service
-            </div> */}
         </footer>
     )
 }

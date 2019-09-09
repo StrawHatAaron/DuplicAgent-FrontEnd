@@ -29,7 +29,7 @@ function App(){
           <Route 
             path={signIn}
             render={() => (<Home loggedIn={loggedIn}/>)}
-            key={"thelandingpageasdlkfjsadeoixfks"}/>
+            key={"the_landing_page"+1}/>
           <ProtectedRoute 
             path={agent}
             component={() => <AgentRouter/>}

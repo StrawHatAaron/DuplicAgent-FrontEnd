@@ -6,9 +6,11 @@ import SharpButton from '../SharpButton';
 export default function Header(){
 
     const staticText = [{word:'Contact Us'},{word:'Partners & Affiliate Companies'}];
-    const staticBar = staticText.map((c) => {
+    const staticBar = staticText.map((c, index) => {
         return(
-            <div className="static-bar">
+            <div 
+                className="static-bar"
+                key={"header-nav-"+index}>
                 {c.word}
             </div>
         )

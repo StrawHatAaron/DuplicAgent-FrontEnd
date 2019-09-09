@@ -22,7 +22,9 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
         Vert = 'ya'
     }
     return(
-        <div className={`row-2-boxes ${Vert}`}>
+        <div
+            key={"customer-type-content"+index} 
+            className={`row-2-boxes ${Vert}`}>
             <div className='bigger-text'>
                 {c.grammar} <div className='cust-type'>{c.custType}</div>
             </div>
@@ -41,7 +43,7 @@ const affiliatesInfo = [
     {name:'Baretaps Tech.', class:'bare'},
     {name:'CSU Sacramento', class:'sac'},
     {name:'Empire West Insurance', class:'empire'}]
-const affiliatesContent = affiliatesInfo.map((c) => {
+const affiliatesContent = affiliatesInfo.map((c, index) => {
     var imgSrc
     switch(c.name){
         case 'Baretaps Tech.':
@@ -57,7 +59,9 @@ const affiliatesContent = affiliatesInfo.map((c) => {
         console.log('need a default')
     }
     return (
-        <div className={`${c.class} affiliates`}>
+        <div 
+            key={"affiliates-content"+index} 
+            className={`${c.class} affiliates`}>
             {c.name}
             <hr/>
             <img src={imgSrc} 
@@ -74,11 +78,12 @@ const imgStyle = {
 
 
 export default function Home(props){
-    console.log(props.auth)
     return(
-        <div className="the-big-div">
+        <div
+            key={"the-big-div-lands"} 
+            className="the-big-div">
             <Header/>
-            <body className="landing-body">
+            <div className="landing-body">
 
                 <div className='row-1'>
                     <div className="row-1_col1">
@@ -170,9 +175,9 @@ export default function Home(props){
                     <hr/>
                 </div>
                 
-                <Footer/>
+                <Footer key={"agent-footer"+1}/>
 
-            </body>
+            </div>
         </div>
 
 
