@@ -7,9 +7,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import * as Constants from '../../utils/Constants'
-import auth from '../../auth'
-import {history} from '../../history'
+import auth from '../../utils/auth'
+import {history} from '../../utils/history'
 import * as RouteConstants from '../../utils/RouteConstants'
+
 //This components handles both the style and authentication for users
 
 const CssTextField = withStyles({

@@ -5,8 +5,8 @@ import Logo from '../Logo'
 import * as RouteConstants from '../../utils/RouteConstants'
 import * as Constants from '../../utils/Constants'
 import {NavLink} from 'react-router-dom'
-import auth from '../../auth'
-import {history} from '../../history'
+import auth from '../../utils/auth'
+import {history} from '../../utils/history'
 
 export default function Header(props){
 

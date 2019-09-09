@@ -1,4 +1,4 @@
-@import '../../utils/constant-styles.scss';
+@import './utils/constant-styles.scss';
 .the-big-div{
   margin: 0 5em;
   border: 1px solid #868585;
@@ -75,7 +75,7 @@
       }
     }
     .row-3{
-      background: url("../../media/falcon9.jpg");
+      background: url("./media/falcon9.jpg");
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;

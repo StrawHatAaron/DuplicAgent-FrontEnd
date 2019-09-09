@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {HashRouter, Link, Route, Switch} from 'react-router-dom'
-import AgentRouter from './pages/AgentPages/AgentRouter'
-import Home from './pages/LandingPages/Home'
-import { ProtectedRoute } from "./protected.route";
-import { history } from "./history";
+import AgentRouter from './AgentRouter'
+import Home from './Home'
+import { ProtectedRoute } from "./utils/protected.route";
+import { history } from "./utils/history";
 
 
 function App(){
@@ -29,7 +29,7 @@ function App(){
           <Route 
             path={signIn}
             render={() => (<Home loggedIn={loggedIn}/>)}
-            key = "the-landing-page"/>
+            key={"thelandingpageasdlkfjsadeoixfks"}/>
           <ProtectedRoute 
             path={agent}
             component={() => <AgentRouter/>}

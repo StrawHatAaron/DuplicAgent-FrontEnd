@@ -1,14 +1,14 @@
 import React from 'react'
 import './Home.scss'
-import Header from '../../components/LandingComponents/Header'
-import Footer from '../../components/LandingComponents/Footer'
-import Signin from "../../components/LandingComponents/Signin"
-import ContactUs from "../../components/ContactUs"
-import SharpButton from '../../components/SharpButton'
-import GuysWalking from '../../media/guys-walking.png'
-import BaretapsLogo from '../../media/baretaps_logo.png'
-import SacStateLogo from '../../media/sac_state_logo.png'
-import EmpireWeLogo from '../../media/empire_west_logo.jpeg'
+import Header from './components/LandingComponents/Header'
+import Footer from './components/LandingComponents/Footer'
+import Signin from "./components/LandingComponents/Signin"
+import ContactUs from "./components/ContactUs"
+import SharpButton from './components/SharpButton'
+import GuysWalking from './media/guys-walking.png'
+import BaretapsLogo from './media/baretaps_logo.png'
+import SacStateLogo from './media/sac_state_logo.png'
+import EmpireWeLogo from './media/empire_west_logo.jpeg'
 
 
 const customerTypeInfo = [
