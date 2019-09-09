@@ -19,9 +19,9 @@ class Auth {
       return this.authenticated;
     }
 
-    authenticate(emailValue, passwordValue){
-        console.log(emailValue)
-        console.log(passwordValue)
+    authenticate(emailValue, passwordValue, callback){
+        console.log("email value "+emailValue)
+        console.log("password value "+passwordValue)
         axios.post('http://127.0.0.1:8000/api/user/token/', {
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -36,7 +36,7 @@ class Auth {
             if(response.status===200){
                 window.localStorage.setItem(true, "SignedIn")
                 console.log("does this happen first")
-                this.login()
+                this.login(callback)
                 console.log("proper username and password info was submitted")
                 return true
             }
@@ -45,9 +45,6 @@ class Auth {
             return false
         })
 
-        // if (this.authenticated===true){
-        //     callback()
-        // }
     }
   }
   

@@ -32,7 +32,8 @@ function App(){
             key = "the-landing-page"/>
           <ProtectedRoute 
             path={agent}
-            component={() => <AgentRouter/>}/>
+            component={() => <AgentRouter/>}
+          />
         </Switch>
       </div>
     </HashRouter>

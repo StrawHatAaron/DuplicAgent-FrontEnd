@@ -7,11 +7,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import * as Constants from '../../utils/Constants'
-import axios from 'axios'
-import {Redirect, Route, browserHistory} from 'react-router-dom'
-import AgentRouter from '../../pages/AgentPages/AgentRouter'
 import auth from '../../auth'
 import {history} from '../../history'
+import * as RouteConstants from '../../utils/RouteConstants'
 //This components handles both the style and authentication for users
 
 const CssTextField = withStyles({
@@ -120,8 +118,8 @@ export default function Signin(props) {
                     color="secondary" 
                     className={buttonStyle.button}
                     onClick={() => {
-                        auth.login(() => {
-                            history.push("/Agent");
+                        auth.authenticate(emailValue, passwordValue, () => {
+                            history.push(RouteConstants.agentHeaderInfo[0].path);
                         });
                     }}
                 >

@@ -42,14 +42,12 @@ export default function Header(props){
                     <button 
                         onClick={() => {
                             auth.logout(() => {
-                              history.push("/");
+                              history.push("/SignIn");
                             });
                           }}
                         >
                         Logout
                     </button>
-                    {/* handle logging the user out */}
-                    {/* <props.authButton/> */}
                 </div>
             </div>
             <div className="nav-bot">
