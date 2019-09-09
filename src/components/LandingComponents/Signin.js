@@ -8,8 +8,9 @@ import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
 import * as Constants from '../../utils/Constants'
 import axios from 'axios'
-import {Redirect, Route} from 'react-router-dom'
-
+import {Redirect, Route, browserHistory} from 'react-router-dom'
+import AgentRouter from '../../pages/AgentPages/AgentRouter'
+import auth from '../../auth'
 //This components handles both the style and authentication for users
 
 const CssTextField = withStyles({
@@ -62,47 +63,74 @@ export default function Signin(props) {
     // const classes = Constants.
 
 
+    window.localStorage.setItem(false, "SignedIn")
 
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
     const [signedIn, setSignedIn] = useState(false)
 
-    const onSignIn = () => {
-        console.log(emailValue)
-        console.log(passwordValue)
-        axios.post('http://127.0.0.1:8000/api/user/token/', {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-            },
-            email: emailValue,
-            password: passwordValue
-        })
-        .then((response) => {
-            console.log(response)
-            console.log(response.status)
-            if(response.status===200){
-                setSignedIn(true)
-            }
-        }, (error) => {
-            console.log(error);
-        })
-    }
+    // const onSignIn = () => {
+    //     // console.log(emailValue)
+    //     // console.log(passwordValue)
+    //     axios.post('http://127.0.0.1:8000/api/user/token/', {
+    //         headers: {
+    //             'Access-Control-Allow-Origin': '*',
+    //             'Content-Type': 'application/json',
+    //         },
+    //         email: emailValue,
+    //         password: passwordValue
+    //     })
+    //     .then((response) => {
+    //         console.log(response)
+    //         console.log(response.status)
+    //         if(response.status===200){
+    //             window.localStorage.setItem(true, "SignedIn")
+    //             setSignedIn(true)
+    //             console.log("proper username and password info was submitted")
+    //         }
+    //     }, (error) => {
+    //         console.log(error);
+    //     })
+    // }
+
+    // function PrivateRoute({ component: Component, ...rest }) {
+    //     console.log("hello "+signedIn)
+    //     return (
+    //         <Route
+    //         {...rest}
+    //         render={props =>
+    //           signedIn ? (
+    //             <Redirect
+    //               to={"/Agent/Home"}
+    //             />
+    //           ) : (
+    //             <Redirect
+    //               to={"/SignIn"}
+    //             />
+    //           )
+    //         }
+    //       />
+    //     );
+    //   }
 
     return(
         <div className="sign-section">
 
-            {/* <Route
-                render={ () => 
-                    {signedIn ? (
-                        <Redirect to="/protected"/>
-                    ) : (
-                        <div className="sign-in">
-                            Sign in
-                        </div>
-                    )}
-                }
-            /> */}
+            {/* <PrivateRoute path="/protected" component={() => <AgentRouter/>} /> */}
+
+            <div className="sign-in">
+                Sign in
+            </div>
+
+
+            <button
+                onClick={() => {
+                    auth.login(() => {
+                        history.push("/Agent");
+                    });
+                }}>
+                Login
+            </button>
 
             <div className="lil-explain">
                 View your account. Sign in to Management Solutions to access your products and tools.
@@ -143,15 +171,11 @@ export default function Signin(props) {
                     variant="contained" 
                     color="secondary" 
                     className={buttonStyle.button}
-                    onClick={() => onSignIn()}
+                    // onClick={() => onSignIn()}
                 >
                     Sign in
                     <LockIcon className={buttonStyle.rightIcon}/>
                 </Button>
-                        
-                <div>
-                    ummmmm.....
-                </div>
 
                 <div className="account-help-link">
                     Username or Password help?
@@ -170,3 +194,4 @@ export default function Signin(props) {
         </div>
     )
 }
+

@@ -1,73 +1,40 @@
 import React, {useState} from 'react';
-import {HashRouter, Link, Route, Redirect, withRouter} from 'react-router-dom'
+import {HashRouter, Link, Route, Switch} from 'react-router-dom'
 import AgentRouter from './pages/AgentPages/AgentRouter'
 import Home from './pages/LandingPages/Home'
+import { ProtectedRoute } from "./protected.route";
+import { createHashHistory } from "history";
 
+const history = createHashHistory()
 
 function App(){
 
   const [loggedIn, setLoggedIn] = useState(false)
 
-  function authenticate(){
-    console.log(loggedIn)
-    setLoggedIn(true)
-  }
-
-  function signOut(){
-    setLoggedIn(false)
-  }
-
-  function PrivateRoute({ component: Component, ...rest }) {
-    return (
-      <Route
-        {...rest}
-        render={props =>
-          loggedIn ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  }
+  const signIn = "/SignIn"
+  const agent = "/Agent"
 
   return (
-    <HashRouter className="App">
+    <HashRouter history={history} className="App">
       <div>
-        {loggedIn ? (
-          <p> 
-            you are logged In
-            <Redirect to="/protected"/>
-          </p>
-          
-        ) : (
-          <button onClick={() => authenticate()}>
-            Log In
-          </button>
-        )}
         <ul>
           <li>
-            <Link to="/public">Public Page</Link>
+            <Link to={signIn}>Sign in Page</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to={agent}>Protected Agent Page</Link>
           </li>
         </ul>
-        <Route 
-          path="/public" 
-          render={() => (<Home loggedIn={loggedIn}/>)}
-          key = "the-landing-page"/>
-        <Route 
-          path="/login" 
-          render={() => (<Home loggedIn={loggedIn}/>)}
-          key = "the-landing-page"/>
-        <PrivateRoute path="/protected" component={() => <AgentRouter/>} />
+
+        <Switch>
+          <Route 
+            path={signIn}
+            render={() => (<Home loggedIn={loggedIn}/>)}
+            key = "the-landing-page"/>
+          <ProtectedRoute 
+            path={agent}
+            component={() => <AgentRouter/>}/>
+        </Switch>
       </div>
     </HashRouter>
   )

@@ -2,10 +2,11 @@ import React from 'react'
 import AgentHeader from '../../components/AgentComponents/AgentHeader'
 import './AgentHome.scss'
 import GridChooser from '../../components/AgentComponents/GridChooser'
-import {Route} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import * as RouteConstants from '../../utils/RouteConstants'
 import * as TopAgent from '../../components/AgentComponents/TopAgent'
 import AgentFooter from '../../components/AgentComponents/AgentFooter'
+import auth from '../../auth'
 
 //NOTE-- This file is heavily tied with RouteConstants.js
 //------------------------------------------------------------------------------
@@ -40,10 +41,20 @@ function RouteGridComponents(route){
 
 
 export default function AgentRouter(props){
+
+    // console.log("local storage value "+window.localStorage.getItem("SignedIn"))
+    // if(window.localStorage.getItem("SignedIn")===false){
+    //     console.log("not signed in so should redirect")
+    //     return <Redirect to="/SignIn"/>
+    // }
+
     return(
         <>
             {/* <AgentHeader authButton={props.authButton}/> */}
             <AgentHeader/>
+
+            <div>hello?</div>
+
             <div className="home-div">
 
                 {/* some routes for the header */}
@@ -59,6 +70,7 @@ export default function AgentRouter(props){
                         </> 
                     )}/>
                 ))}
+
 
                 {/* Little more complex... Uses the above method
                 "RouteGridComponents" to provide all main clicking

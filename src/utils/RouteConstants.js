@@ -29,7 +29,7 @@ import Uploader from '../components/AgentComponents/Uploader'
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
 const clientIdPath = "/NewBusiness/ExistingClient/:id"
-
+const baseURL = "/Agent"
 
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
@@ -39,20 +39,26 @@ const clientIdPath = "/NewBusiness/ExistingClient/:id"
 
 // -- Using faFa Icons
 export const agentHeaderInfo = [{    
+    title:"Home",
+    path:baseURL+"/Home",
+    icon:"home",
+    explanation:"What are your looking to do?",
+    botComponent:Uploader
+    },{    
     title:"Upload Document",
-    path:"/UploadDocument",
+    path:baseURL+"/UploadDocument",
     icon:"cloud-upload-alt",
     explanation:"Choose where to upload a Document!",
     botComponent:Uploader
 },{
     title:"Chat",
-    path:"/Chat",
+    path:baseURL+"/Chat",
     icon:"comment",
     explanation:"Send Message",
     botComponent:Uploader
 },{
     title:"Notifications",
-    path:"/Notifications",
+    path:baseURL+"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
     botComponent:Uploader
@@ -61,42 +67,42 @@ export const agentHeaderInfo = [{
 //home page for the Agent or Broker
 export const homeInfo = [{
     title:'New Business', 
-    path:'/NewBusiness',
+    path:baseURL+'/NewBusiness',
     icon:NewBusinessImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Renewals',
-    path:'/Renewals', 
+    path:baseURL+'/Renewals', 
     icon:RenewalsImg, 
     explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...'
 },{
     title:'Accounting',
-    path:'/Accounting', 
+    path:baseURL+'/Accounting', 
     icon:AccountingImg, 
     explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...'
 },{
     title:'Service',
-    path:'/Service', 
+    path:baseURL+'/Service', 
     icon:ServiceImg, 
     explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...'
 },{
     title:'Resources', 
-    path:'/Resources',
+    path:baseURL+'/Resources',
     icon:ResourcesImg, 
     explanation:'Admin support tools, statistics and marketing materials, important agency files...'
 },{
     title:'Calendar',
-    path:'/Calendar', 
+    path:baseURL+'/Calendar', 
     icon:CalendarImg, 
     explanation:'View or set new reminders, events, meetings, and keep track of important personal & business dates... '
 },{
     title:'Surplus Lines Taxes',
-    path:'/SurplusLinesTaxes', 
+    path:baseURL+'/SurplusLinesTaxes', 
     icon:SurplusLinesTaxesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Agency Support',
-    path:'/AgencySupport', 
+    path:baseURL+'/AgencySupport', 
     icon:AgencySupportImg, 
     explanation:'Customer support and contact information, live chat, questions and concerns, general help...'
 }]
@@ -175,7 +181,7 @@ export const existingClientInfo =[{
 //Routes that are for displaying navigation with grid components
 export var gridRouteInfo = [{
     title:'Home',
-    path:'/', 
+    path:baseURL+"/Home", 
     icon:'home', 
     topComponent: TopAgent.simple('Home'),
     storeData:'',

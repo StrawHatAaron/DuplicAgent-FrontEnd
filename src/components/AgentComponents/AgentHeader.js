@@ -14,7 +14,7 @@ export default function Header(){
                 key={"bot-navbar-right-routes"+i} 
                 to={info.path}
                 activeStyle={{color: Constants.orange}}>
-            <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
+                <FontAwesomeIcon className="four-fa-fas" icon={info.icon}/>
             </NavLink>
        )
     });
@@ -46,11 +46,6 @@ export default function Header(){
                     Current Route
                 </div>
                 <div className="four-fa-fas">
-                    <NavLink 
-                    exact to="/"
-                    activeStyle={{color: Constants.orange}}>
-                        <FontAwesomeIcon className="four-fa-fas" icon="home"/>
-                    </NavLink>
                     {faContent}
                 </div>
             </div>
