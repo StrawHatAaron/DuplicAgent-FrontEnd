@@ -5,8 +5,10 @@ import Logo from '../Logo'
 import * as RouteConstants from '../../utils/RouteConstants'
 import * as Constants from '../../utils/Constants'
 import {NavLink} from 'react-router-dom'
+import auth from '../../auth'
+import {history} from '../../history'
 
-export default function Header(){
+export default function Header(props){
 
     const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
@@ -37,6 +39,15 @@ export default function Header(){
                 <div className="profile-area">
                     <FontAwesomeIcon icon="user-tie"/>
                     <div className="user-name">Aaron</div>
+                    <button 
+                        onClick={() => {
+                            auth.logout(() => {
+                              history.push("/");
+                            });
+                          }}
+                        >
+                        Logout
+                    </button>
                     {/* handle logging the user out */}
                     {/* <props.authButton/> */}
                 </div>

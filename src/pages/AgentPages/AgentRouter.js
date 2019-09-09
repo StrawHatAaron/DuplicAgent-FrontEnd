@@ -53,8 +53,6 @@ export default function AgentRouter(props){
             {/* <AgentHeader authButton={props.authButton}/> */}
             <AgentHeader/>
 
-            <div>hello?</div>
-
             <div className="home-div">
 
                 {/* some routes for the header */}

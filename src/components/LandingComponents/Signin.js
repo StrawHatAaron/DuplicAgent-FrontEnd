@@ -11,6 +11,7 @@ import axios from 'axios'
 import {Redirect, Route, browserHistory} from 'react-router-dom'
 import AgentRouter from '../../pages/AgentPages/AgentRouter'
 import auth from '../../auth'
+import {history} from '../../history'
 //This components handles both the style and authentication for users
 
 const CssTextField = withStyles({
@@ -63,55 +64,12 @@ export default function Signin(props) {
     // const classes = Constants.
 
 
-    window.localStorage.setItem(false, "SignedIn")
+    // window.localStorage.setItem(false, "SignedIn")
 
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
     const [signedIn, setSignedIn] = useState(false)
 
-    // const onSignIn = () => {
-    //     // console.log(emailValue)
-    //     // console.log(passwordValue)
-    //     axios.post('http://127.0.0.1:8000/api/user/token/', {
-    //         headers: {
-    //             'Access-Control-Allow-Origin': '*',
-    //             'Content-Type': 'application/json',
-    //         },
-    //         email: emailValue,
-    //         password: passwordValue
-    //     })
-    //     .then((response) => {
-    //         console.log(response)
-    //         console.log(response.status)
-    //         if(response.status===200){
-    //             window.localStorage.setItem(true, "SignedIn")
-    //             setSignedIn(true)
-    //             console.log("proper username and password info was submitted")
-    //         }
-    //     }, (error) => {
-    //         console.log(error);
-    //     })
-    // }
-
-    // function PrivateRoute({ component: Component, ...rest }) {
-    //     console.log("hello "+signedIn)
-    //     return (
-    //         <Route
-    //         {...rest}
-    //         render={props =>
-    //           signedIn ? (
-    //             <Redirect
-    //               to={"/Agent/Home"}
-    //             />
-    //           ) : (
-    //             <Redirect
-    //               to={"/SignIn"}
-    //             />
-    //           )
-    //         }
-    //       />
-    //     );
-    //   }
 
     return(
         <div className="sign-section">
@@ -121,16 +79,6 @@ export default function Signin(props) {
             <div className="sign-in">
                 Sign in
             </div>
-
-
-            <button
-                onClick={() => {
-                    auth.login(() => {
-                        history.push("/Agent");
-                    });
-                }}>
-                Login
-            </button>
 
             <div className="lil-explain">
                 View your account. Sign in to Management Solutions to access your products and tools.
@@ -171,7 +119,11 @@ export default function Signin(props) {
                     variant="contained" 
                     color="secondary" 
                     className={buttonStyle.button}
-                    // onClick={() => onSignIn()}
+                    onClick={() => {
+                        auth.login(() => {
+                            history.push("/Agent");
+                        });
+                    }}
                 >
                     Sign in
                     <LockIcon className={buttonStyle.rightIcon}/>

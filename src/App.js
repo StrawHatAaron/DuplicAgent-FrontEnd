@@ -3,9 +3,8 @@ import {HashRouter, Link, Route, Switch} from 'react-router-dom'
 import AgentRouter from './pages/AgentPages/AgentRouter'
 import Home from './pages/LandingPages/Home'
 import { ProtectedRoute } from "./protected.route";
-import { createHashHistory } from "history";
+import { history } from "./history";
 
-const history = createHashHistory()
 
 function App(){
 
