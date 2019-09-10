@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {HashRouter, Link, Route, Switch} from 'react-router-dom'
 import AgentRouter from './AgentRouter'
 import Home from './Home'
@@ -7,8 +7,6 @@ import { history } from "./utils/history";
 
 
 function App(){
-
-  const [loggedIn, setLoggedIn] = useState(false)
 
   const signIn = "/SignIn"
   const agent = "/Agent"
@@ -28,7 +26,7 @@ function App(){
         <Switch>
           <Route 
             path={signIn}
-            render={() => (<Home loggedIn={loggedIn}/>)}
+            render={() => (<Home/>)}
             key={"the_landing_page"+1}/>
           <ProtectedRoute 
             path={agent}

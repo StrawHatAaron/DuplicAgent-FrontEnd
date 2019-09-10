@@ -67,7 +67,6 @@ export default function Signin(props) {
 
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
-    const [signedIn, setSignedIn] = useState(false)
 
 
     return(
@@ -120,7 +119,7 @@ export default function Signin(props) {
                     className={buttonStyle.button}
                     onClick={() => {
                         auth.authenticate(emailValue, passwordValue, () => {
-                            history.push(RouteConstants.agentHeaderInfo[0].path);
+                            history.push(RouteConstants.gridRouteInfo[0].path);
                         });
                     }}
                 >

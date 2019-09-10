@@ -55,6 +55,12 @@ export default function Header(props){
                     Current Route
                 </div>
                 <div className="four-fa-fas">
+                    <NavLink
+                        key={"bot-navbar-right-routes"+4} 
+                        to={RouteConstants.gridRouteInfo[0].path}
+                        activeStyle={{color: Constants.orange}}>
+                        <FontAwesomeIcon className="four-fa-fas" icon="home"/>
+                    </NavLink>
                     {faContent}
                 </div>
             </div>

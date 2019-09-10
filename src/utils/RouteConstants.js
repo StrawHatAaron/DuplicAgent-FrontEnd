@@ -39,12 +39,6 @@ const baseURL = "/Agent"
 
 // -- Using faFa Icons
 export const agentHeaderInfo = [{    
-    title:"Home",
-    path:baseURL+"/Home",
-    icon:"home",
-    explanation:"What are your looking to do?",
-    botComponent:Uploader
-    },{    
     title:"Upload Document",
     path:baseURL+"/UploadDocument",
     icon:"cloud-upload-alt",
