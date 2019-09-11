@@ -16,7 +16,7 @@ export default function GridChooser(props){
         return(
             <Link
                 key={info.path+i} 
-                to={info.path} 
+                to={info.path+'/'} 
                 className="section">
 
                 <img

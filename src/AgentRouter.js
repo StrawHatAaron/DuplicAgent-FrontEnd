@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom'
 import * as RouteConstants from './utils/RouteConstants'
 import * as TopAgent from './components/AgentComponents/TopAgent'
 import AgentFooter from './components/AgentComponents/AgentFooter'
-
+import auth from './utils/auth'
 
 //NOTE-- This file is heavily tied with RouteConstants.js
 //------------------------------------------------------------------------------
