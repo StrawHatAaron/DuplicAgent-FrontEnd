@@ -2,11 +2,11 @@ import React from 'react'
 import AgentHeader from './components/AgentComponents/AgentHeader'
 import './AgentRouter.scss'
 import GridChooser from './components/AgentComponents/GridChooser'
-import {Route, Redirect} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import * as RouteConstants from './utils/RouteConstants'
 import * as TopAgent from './components/AgentComponents/TopAgent'
 import AgentFooter from './components/AgentComponents/AgentFooter'
-import auth from './utils/auth'
+
 
 //NOTE-- This file is heavily tied with RouteConstants.js
 //------------------------------------------------------------------------------

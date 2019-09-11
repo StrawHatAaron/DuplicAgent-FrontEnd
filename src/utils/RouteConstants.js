@@ -104,19 +104,19 @@ export const homeInfo = [{
 //NEW Business ROUTES
 export const newBizInfo = [{
     title:'New Client',
-    path:`${homeInfo[0].path}/NewClient`, 
+    path:`${baseURL}${homeInfo[0].path}/NewClient`, 
     icon:NewClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: NewClient
 },{
     title:'Existing Client',
-    path:`${homeInfo[0].path}/ExistingClient`, 
+    path:`${baseURL}${homeInfo[0].path}/ExistingClient`, 
     icon:ExistingClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: ExistingClient
 },{
     title:'Current Submissions',
-    path:`${homeInfo[0].path}/CurrentSubmissions`, 
+    path:`${baseURL}${homeInfo[0].path}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: ExistingClient
@@ -127,43 +127,43 @@ export const newBizInfo = [{
 //still need to incorporate the clients name in here
 export const existingClientInfo =[{
     title:'Acords',
-    path:`${clientIdPath}/Acords`, 
+    path:`${baseURL}${clientIdPath}/Acords`, 
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:ExistingClient
 },{
     title:'Files',
-    path:`${clientIdPath}/Files`, 
+    path:`${baseURL}${clientIdPath}/Files`, 
     icon:FilesImg, 
     explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
     botComponent:ExistingClient
 },{
     title:'Policies',
-    path:`${clientIdPath}/Policies`, 
+    path:`${baseURL}${clientIdPath}/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:NewClient
 },{
     title:'Accounting',
-    path:`${clientIdPath}/Accounting`, 
+    path:`${baseURL}${clientIdPath}/Accounting`, 
     icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:Todos
 },{
     title:'Claims',
-    path:`${clientIdPath}/Claims`, 
+    path:`${baseURL}${clientIdPath}/Claims`, 
     icon:ClaimsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:Todos
 },{
     title:'Quotes',
-    path:`${clientIdPath}/Quotes`, 
+    path:`${baseURL}${clientIdPath}/Quotes`, 
     icon:QuotesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:Todos
 },{
     title:'Additional Details',
-    path:`${clientIdPath}/AdditionalDetails`, 
+    path:`${baseURL}${clientIdPath}/AdditionalDetails`, 
     icon:AdditionalDetailsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:Todos
@@ -182,14 +182,14 @@ export var gridRouteInfo = [{
     info: homeInfo
 },{
     title:'New Business',
-    path:'/NewBusiness', 
+    path:baseURL+'/NewBusiness', 
     icon:AdditionalDetailsImg, 
     topComponent: TopAgent.simple('New Biz'),
     storeData:'',
     info: newBizInfo
 },{
     title:'Client Name!',
-    path:clientIdPath,
+    path:baseURL+clientIdPath,
     icon:'',
     topComponent: TopAgent.client(window.localStorage.getItem("Client Name")),
     storeData:'Client Name',
