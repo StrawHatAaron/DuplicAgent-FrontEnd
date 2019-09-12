@@ -28,7 +28,11 @@ import Uploader from '../components/AgentComponents/Uploader'
 
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
-const baseURL = "/Agent"
+export const baseURL = "/Agent"
+export const signInPath = "/SignIn"
+export const signUpPath = "/SignUp"
+  
+
 const clientIdPath = baseURL+"/NewBusiness/ExistingClient/:id"
 
 //*** */the constants are written in the following structure***

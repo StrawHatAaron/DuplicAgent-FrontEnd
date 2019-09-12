@@ -20,19 +20,19 @@ import auth from './utils/auth'
 
 //Advanced Routing where props are being passed
 //into the GridChooser file
-function RouteGridComponents(route){
+function RouteGridComponents(c){
     return(
         <Route
-            key={"top-grid-route"+route.title+route.path} 
-            exact path={route.path} 
+            key={"top-grid-route"+c.title+c.path} 
+            exact path={c.path} 
             render={props => (
                 <>
-                    {route.topComponent}
+                    {c.topComponent}
                     <GridChooser 
                         {...props} 
-                        title={route.title}
-                        info={route.info}
-                        storeData={route.storeData}/>
+                        title={c.title}
+                        info={c.info}
+                        storeData={c.storeData}/>
                 </>
             )}
         />
