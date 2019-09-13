@@ -5,15 +5,17 @@ const AuthTokenKey = "AuthToken"
 class Auth {
     constructor() {
       this.authenticated = false
+      this.passed = false
     }
   
     //not sure if this will be needed
-    isAuthenticated() {
-      return this.authenticated
+    async isAuthenticated(callback) {
+      await callback()
     }
 
     logout(callback){
         this.authenticated = false
+        window.localStorage.setItem(AuthTokenKey, "")
         callback()
     }
 
@@ -29,7 +31,7 @@ class Auth {
             password: passwordValue
         })
         .then((response) => {
-            // console.log(response)
+            console.log(response)
             // console.log(response.status)
             if(response.status===200){
                 const token = response.data['token']
@@ -45,12 +47,13 @@ class Auth {
         })
     }
 
-    checkAuthentication(){
+    async checkAuthentication(callback){
         const token = window.localStorage.getItem(AuthTokenKey)
 
+        console.log("checking auth")
         console.log(token)
 
-        axios.get('http://127.0.0.1:8000/api/user/me/', {
+        await axios.get('http://127.0.0.1:8000/api/user/me/', {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -60,14 +63,19 @@ class Auth {
         })
         .then((response) => {
             if(response.status===200){
-                return true
-            } else {
-                return false
-            }
+                console.log('auth check passed')
+                // this.passed = true
+                var good = true
+                callback(good)
+
+            } 
         }, (error) => {
+            var good = false
+            callback(good)
+            // this.passed = false 
             console.log(error);
-            return false
         })
+        // return this;
     }
 
   }

@@ -34,9 +34,6 @@ function App(){
             component={() => (<SignUp/>)}
             key="sign-up-page-1"/>
           
-
-
-
           <Route 
             path={RouteConstants.signInPath}
             render={() => (<Home/>)}
