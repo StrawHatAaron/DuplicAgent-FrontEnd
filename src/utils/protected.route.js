@@ -4,6 +4,7 @@ import auth from "./auth";
 import {history} from './history'
 
 
+//will learn about this soon
 export function ProtectedRoute({component: Component, ...rest})  {
   const [authentication, setAuthentication] = useState('pending');
 
