@@ -47,36 +47,33 @@ class Auth {
         })
     }
 
-    async checkAuthentication(callback){
-        const token = window.localStorage.getItem(AuthTokenKey)
-
-        console.log("checking auth")
-        console.log(token)
-
-        await axios.get('http://127.0.0.1:8000/api/user/me/', {
+    async checkAuthentication(){
+        const token = window.localStorage.getItem(AuthTokenKey);
+      
+        console.log("checking auth");
+        console.log(token);
+      
+        try {
+          let response = await axios.get('http://127.0.0.1:8000/api/user/me/', {
             headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': 'true',
-                'Authorization': 'Token ' + token
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': 'true',
+              'Authorization': 'Token ' + token
             },
-        })
-        .then((response) => {
-            if(response.status===200){
-                console.log('auth check passed')
-                // this.passed = true
-                var good = true
-                callback(good)
-
-            } 
-        }, (error) => {
-            var good = false
-            callback(good)
-            // this.passed = false 
-            console.log(error);
-        })
-        // return this;
-    }
+          });
+      
+          if (response.status === 200) {
+            console.log('auth check passed');
+            return true;
+          }
+      
+          return false;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      }
 
   }
   
