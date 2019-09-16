@@ -142,15 +142,15 @@ export const existingClientInfo =[{
     explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
     botComponent:ExistingClient
 },{
-    title:'Policies',
-    path:`${clientIdPath}/Policies`, 
-    icon:PoliciesImg, 
+    title:'Create Policy',
+    path:`${clientIdPath}/Create Policy`, 
+    icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:NewClient
 },{
-    title:'Accounting',
+    title:'Manage Policies',
     path:`${clientIdPath}/Accounting`, 
-    icon:ClientAccountingImg, 
+    icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:Todos
 },{

@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+import * as ApiConstants from "./ApiConstants";
 
 const AuthTokenKey = "AuthToken"
 
@@ -22,7 +23,7 @@ class Auth {
     authenticate(emailValue, passwordValue, callback){
         // console.log("email value "+emailValue)
         // console.log("password value "+passwordValue)
-        axios.post('http://127.0.0.1:8000/api/user/token/', {
+        axios.post(ApiConstants.GetAuthTokenURL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ class Auth {
         console.log(token);
       
         try {
-          let response = await axios.get('http://127.0.0.1:8000/api/user/me/', {
+          let response = await axios.get(ApiConstants.CheckUserInfoURL, {
             headers: {
               'Access-Control-Allow-Origin': '*',
               'Content-Type': 'application/json',
