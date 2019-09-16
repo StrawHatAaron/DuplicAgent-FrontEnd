@@ -5,10 +5,10 @@ import Footer from './components/LandingComponents/Footer'
 import Signin from "./components/LandingComponents/Signin"
 import ContactUs from "./components/ContactUs"
 import SharpButton from './components/SharpButton'
-import GuysWalking from './media/guys-walking.png'
 import BaretapsLogo from './media/baretaps_logo.png'
 import SacStateLogo from './media/sac_state_logo.png'
 import EmpireWeLogo from './media/empire_west_logo.jpeg'
+import Elon from './media/elon.jpg';
 
 
 const customerTypeInfo = [
@@ -71,13 +71,9 @@ const affiliatesContent = affiliatesInfo.map((c, index) => {
     )
 });
 
-const imgStyle = {
-    width: '50%'
-}
-
-
 
 export default function Home(props){
+
     return(
         <div
             key={"the-big-div-lands"} 
@@ -98,12 +94,11 @@ export default function Home(props){
                                 DUPLICATE SUCCESSFUL MANAGEMENT
                             </div>
                             <div className="explain">
-                                Improve efficiency and productivity through a customizable platform tailored to your business. Utilize a software system to focus spceifically on the tasks that will help your business reach its full potiential.
+                                Improve efficiency and productivity through a customizable platform tailored to your business. Utilize a software system to focus specifically on the tasks that will help your business reach its full potiential.
                             </div>
                             <div className="button-wrapper" style={{justifyContent: 'center', textAlign:'center'}}>
                                 <SharpButton word="Learn More" />
                             </div>
-                            
                         </div>
                     </div>
     
@@ -118,9 +113,6 @@ export default function Home(props){
                         <Signin auth={props.auth}/>
                     </div>
                 </div>
-
-
-
 
                 <div className='row-2'>
                     {customerTypeContent}
@@ -139,7 +131,7 @@ export default function Home(props){
                         Awesome Customer Support 
                     </div>
                     <div className='row-4-row-2'>
-                        Automated management systems can be comfusing. We have
+                        Automated management systems can be confusing. We have
                         great people ready to help whenever you need it.
                     </div>
                     <div className='row-4-row-3'>
@@ -157,7 +149,7 @@ export default function Home(props){
 
                 <div className="row-6">
                     <ContactUs/>
-                    <div>Another picture will be here</div>
+                    <div> <img src={Elon} alt="Elon" style={{width: 775, height: 700}}/></div>
                 </div>
                 
                 <div className="row-7">
@@ -176,10 +168,7 @@ export default function Home(props){
                 </div>
                 
                 <Footer key={"agent-footer"+1}/>
-
             </div>
         </div>
-
-
     )
 }
