@@ -8,7 +8,7 @@ import SharpButton from './components/SharpButton'
 import BaretapsLogo from './media/baretaps_logo.png'
 import SacStateLogo from './media/sac_state_logo.png'
 import EmpireWeLogo from './media/empire_west_logo.jpeg'
-import Elon from './media/elon.jpg';
+import Stock from './media/stock.jpg';
 
 
 const customerTypeInfo = [
@@ -149,7 +149,7 @@ export default function Home(props){
 
                 <div className="row-6">
                     <ContactUs/>
-                    <div> <img src={Elon} alt="Elon" style={{width: 775, height: 700}}/></div>
+                    <div> <img src={Stock} alt="Stock" style={{width: 720, height: 700}}/></div>
                 </div>
                 
                 <div className="row-7">

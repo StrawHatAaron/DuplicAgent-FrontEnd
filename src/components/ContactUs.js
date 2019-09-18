@@ -74,6 +74,9 @@ export default function ContactUs(){
             <CssTextField
                 variant="outlined"
                 margin="normal"
+                className="form-control"
+                name="message"
+                rows="5"
                 multiline={true}
                 label="Message"/>
             <Button onClick={handleClick}
