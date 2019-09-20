@@ -97,6 +97,7 @@ export default function Signin(props) {
                     onChange={(e) => setEmailValue(e.target.value)} />
 
                 <CssTextField style={DivWidth}
+                    type = "password"
                     variant="outlined"
                     margin="normal"
                     id="password"
@@ -108,8 +109,8 @@ export default function Signin(props) {
                 <FormControlLabel
                     value="end"
                     control={<CustomCheckbox
-                        onChange={handleChange('checkedA')} 
-                        checked={checkBoxState.checkedA}/>}
+                    onChange={handleChange('checkedA')} 
+                    checked={checkBoxState.checkedA}/>}
                     label="Remember Me"
                     labelPlacement="end"/>
 

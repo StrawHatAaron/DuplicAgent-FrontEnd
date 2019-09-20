@@ -20,7 +20,7 @@ export default function Header(){
         <nav className="nav-static">
             <Logo/>
             {staticBar}
-            <SharpButton word='Sign in'/>
+            <SharpButton word='Sign Up'/>
         </nav>
     )
 }
