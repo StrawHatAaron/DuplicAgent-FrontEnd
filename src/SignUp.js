@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Header from './components/LandingComponents/Header'
 import Footer from './components/LandingComponents/Footer'
 

@@ -11,7 +11,7 @@ export default function GridChooser(props){
     
     const homeContent = props.info.map((info, i) => {
         // console.log("pathname: " + window.location.hash)
-        var url = window.location.hash.replace('#', '')
+        // var url = window.location.hash.replace('#', '')
         // console.log(url)
         return(
             <Link

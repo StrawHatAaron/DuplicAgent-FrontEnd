@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import './Signin.scss'
 import Checkbox from '@material-ui/core/Checkbox';
 import {withStyles,} from '@material-ui/styles';
-import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
@@ -10,28 +9,9 @@ import * as Constants from '../../utils/Constants'
 import auth from '../../utils/auth'
 import {history} from '../../utils/history'
 import * as RouteConstants from '../../utils/RouteConstants'
-
+import {CssTextField} from '../../utils/Constants'
 //This components handles both the style and authentication for users
 
-
-const CssTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {
-            color: '#DE6D43',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#54B0F2',
-            },
-            '&:hover fieldset': {
-                borderColor: '#003142',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: '#DE6D43',
-            },
-        },
-    },
-})(TextField);
 
 const DivWidth = {
     width:'100%'

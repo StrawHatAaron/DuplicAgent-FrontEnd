@@ -1,8 +1,6 @@
 import React from "react";
 import TextField from '@material-ui/core/TextField';
 import {withStyles,} from '@material-ui/styles';
-import { bool } from "prop-types";
-
 
 const CssTextField = withStyles({
     root: {

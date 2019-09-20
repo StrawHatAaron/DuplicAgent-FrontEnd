@@ -1,5 +1,5 @@
-import {makeStyles} from '@material-ui/styles'
-
+import {makeStyles, withStyles} from '@material-ui/styles'
+import TextField from '@material-ui/core/TextField';
 //colors
 export const blue = '#003142';
 export const lightBlue = '#54B0F2';
@@ -17,9 +17,8 @@ export const fontFam = 'Skia';
 export const ButtonStyle = makeStyles(theme => ({
   button: {
       width: '100%',
-      background:'#54B0F2',
+      background: lightBlue,
       '&:hover':{
-        //   background: '#DE6D43'
         background: blue
       }
   },
@@ -28,3 +27,22 @@ export const ButtonStyle = makeStyles(theme => ({
       marginLeft:'.2em'
   },    
 }));
+
+export const CssTextField = withStyles({
+  root: {
+      '& label.Mui-focused': {
+          color: '#DE6D43',
+      },
+      '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+              borderColor: '#54B0F2',
+          },
+          '&:hover fieldset': {
+              borderColor: '#003142',
+          },
+          '&.Mui-focused fieldset': {
+              borderColor: '#DE6D43',
+          },
+      },
+  },
+})(TextField);

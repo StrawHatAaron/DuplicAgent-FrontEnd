@@ -2,8 +2,8 @@ import React from 'react'
 import * as Constants from '../utils/Constants'
 import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
-import {withStyles} from '@material-ui/styles';
-import TextField from '@material-ui/core/TextField';
+import {CssTextField} from '../utils/Constants'
+
  
 const OutLineStyles = {
     margin: '1em',
@@ -15,25 +15,6 @@ const OutLineStyles = {
     flexDirection:'column',
     padding:'6em'
 }
- 
-const CssTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {
-            color: '#DE6D43',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#54B0F2',
-            },
-            '&:hover fieldset': {
-                borderColor: '#003142',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: '#DE6D43',
-            },
-        },
-    },
-})(TextField);
  
 function handleClick(){
     console.log('I was clicked')
