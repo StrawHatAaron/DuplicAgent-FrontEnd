@@ -24,6 +24,7 @@ import ExistingClient from '../components/AgentComponents/ExistingClient'
 import Todos from '../components/AgentComponents/Todos'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
 import Uploader from '../components/AgentComponents/Uploader'
+import Notifications from '../components/AgentComponents/Notifications'
 
 
 //constant paths that help keep the app more organized because
@@ -59,7 +60,7 @@ export const agentHeaderInfo = [{
     path:baseURL+"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
-    botComponent:Uploader
+    botComponent:Notifications
 }]
 
 //home page for the Agent or Broker
