@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-
-
-
+import React from 'react'
 
 
 export const ToggleContent = ({ toggle, content }) => {

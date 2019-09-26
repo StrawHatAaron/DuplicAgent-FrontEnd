@@ -11,7 +11,7 @@ import {history} from '../../utils/history'
 export default function Header(props){
 
 
-    const [searchShow, setSearchShow] = useState(true)
+    const [searchShow, setSearchShow] = useState(false)
 
     function toggleSearch(){
         setSearchShow(!searchShow)

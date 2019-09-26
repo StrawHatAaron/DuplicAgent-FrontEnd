@@ -96,13 +96,12 @@ export default function SignUp(){
                     type = "password"
                     variant="outlined"
                     margin="normal"
-                    id="password"
+                    id="password-confirm"
                     label="Re-Enter Password"
                     name="password"
                     autoComplete="current-password"
                     onChange={(e) => setPasswordConfirm(e.target.value)}/>
                 <br/>
-
                 <FormControlLabel style={DivWidth}
                     value="end"
                     control={<CustomCheckbox
@@ -110,10 +109,7 @@ export default function SignUp(){
                         checked={checkBoxState.checkedA}/>}
                     label="I Agree to Terms of Service"
                     labelPlacement="end"/>
-                    
                 <br/>
-
-
                 <ToggleContent
                     toggle={show => 
                         <Button 
