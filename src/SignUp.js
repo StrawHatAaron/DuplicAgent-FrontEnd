@@ -10,33 +10,51 @@ import * as  ApiConstants from './utils/ApiConstants'
 import Modal, {ToggleContent} from './components/Modal'
 
 const DivWidth = {
-    width:'35%',
+    width:'95%',
     margin:'1em'
 }
 
 export default function SignUp(){
 
-    const [modalText, setModalText] = useState("")
+    const OuterStyle = {
+        background:'#fff', 
+        display: 'grid', 
+        gridTemplateColumns: '.5fr 1fr .5fr', 
+        gridTemplateRows: '1', 
+        height:'60em'
+    }
+
+    const SignUpStyle = {
+        border: '1px solid #C4C4C4',
+        boxSizing:'border-box',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        height:'50em',
+        marginTop:'5em'
+    }
 
     const [checkBoxState, setCheckBoxState] = useState({
         checkedA: false,
     });
-
     const handleChange = name => event => {
         setCheckBoxState({ ...checkBoxState, [name]: event.target.checked });
     };
-
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
+    const [modalText, setModalText] = useState("")
 
     return(
         <>
             <Header/>
-            <div style={{paddingLeft:'3em', background:'#fff'}}>
+            <div style={OuterStyle}>
+            {/* <div></div> */}
+            <div style={SignUpStyle}>
+                <h1>We just need a little info to get you started</h1>
                 <CssTextField style={DivWidth}
                     variant="outlined"
                     margin="normal"
@@ -54,15 +72,6 @@ export default function SignUp(){
                     name="last-name"
                     autoComplete="family-name"
                     onChange={(e) => setLastName(e.target.value)}/>
-                <br/>
-                <CssTextField style={DivWidth}
-                    variant="outlined"
-                    margin="normal"
-                    id="phone"
-                    label="Phone"
-                    name="phone"
-                    autoComplete="tel"
-                    onChange={(e) => setPhone(e.target.value)}/>
                 <br/>
                 <CssTextField style={DivWidth}
                     variant="outlined"
@@ -113,11 +122,11 @@ export default function SignUp(){
                             color="secondary" 
                             className={ButtonStyle().button}
                             onClick={() => {
-                                // if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email).valueOf){
-                                //     setModalText("That is not a valid email")
-                                //     show()    
-                                // } 
-                                if (password !== passwordConfirm){
+                                // alert(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))
+                                if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))){
+                                    setModalText("That is not a valid email")
+                                    show()    
+                                } else if (password !== passwordConfirm){
                                     setModalText("Your passwords did not match")
                                     show()
                                 } else if (!checkBoxState.checkedA){
@@ -152,11 +161,13 @@ export default function SignUp(){
                     }
                     content={hide => (
                         <Modal>
-                        {modalText}❗<br/>
-                        <button onClick={hide}>Close</button>
+                            {modalText}❗<br/>
+                            <button onClick={hide}>Close</button>
                         </Modal>
                     )}
                 />
+            </div>
+            {/* <div></div> */}
             </div>
             <Footer/>
         </>
