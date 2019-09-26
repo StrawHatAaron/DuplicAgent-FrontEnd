@@ -1,5 +1,7 @@
 import {makeStyles, withStyles} from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+
 //colors
 export const blue = '#003142';
 export const lightBlue = '#54B0F2';
@@ -14,6 +16,8 @@ export const greyText = '#868585';
 export const fontFam = 'Skia';
 
 //material-ui
+
+//style for the buttons
 export const ButtonStyle = makeStyles(theme => ({
   button: {
       width: '100%',
@@ -28,6 +32,7 @@ export const ButtonStyle = makeStyles(theme => ({
   },    
 }));
 
+//style for the text fields
 export const CssTextField = withStyles({
   root: {
       '& label.Mui-focused': {
@@ -46,3 +51,14 @@ export const CssTextField = withStyles({
       },
   },
 })(TextField);
+
+//style for the check boxes
+const CheckBoxStyles = theme => ({
+    root: {
+        '&$checked': {
+            color: '#54B0F2',
+        },
+    },
+    checked: {},
+});
+export const CustomCheckbox = withStyles(CheckBoxStyles)(Checkbox);

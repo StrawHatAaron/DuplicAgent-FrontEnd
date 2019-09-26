@@ -1,33 +1,19 @@
 import React, {useState} from "react";
 import './Signin.scss'
-import Checkbox from '@material-ui/core/Checkbox';
-import {withStyles,} from '@material-ui/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock'
-import * as Constants from '../../utils/Constants'
+// import * as Constants from '../../utils/Constants'
 import auth from '../../utils/auth'
 import {history} from '../../utils/history'
 import * as RouteConstants from '../../utils/RouteConstants'
-import {CssTextField} from '../../utils/Constants'
+import {ButtonStyle, CssTextField, CustomCheckbox} from '../../utils/Constants'
 //This components handles both the style and authentication for users
 
 
 const DivWidth = {
     width:'100%'
 }
-
-const checkBoxStyles = theme => ({
-    root: {
-        '&$checked': {
-            color: '#54B0F2',
-        },
-    },
-    checked: {},
-});
-const CustomCheckbox = withStyles(checkBoxStyles)(Checkbox);
-
-
 
 export default function Signin(props) {
 
@@ -40,20 +26,12 @@ export default function Signin(props) {
         setCheckBoxState({ ...checkBoxState, [name]: event.target.checked });
     };
 
-    const buttonStyle = Constants.ButtonStyle();
-    // const classes = Constants.
-
-
-    // window.localStorage.setItem(false, "SignedIn")
-
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
     
 
     return(
         <div className="sign-section">
-
-            {/* <PrivateRoute path="/protected" component={() => <AgentRouter/>} /> */}
 
             <div className="sign-in">
                 Sign in
@@ -89,8 +67,8 @@ export default function Signin(props) {
                 <FormControlLabel
                     value="end"
                     control={<CustomCheckbox
-                    onChange={handleChange('checkedA')} 
-                    checked={checkBoxState.checkedA}/>}
+                        onChange={handleChange('checkedA')} 
+                        checked={checkBoxState.checkedA}/>}
                     label="Remember Me"
                     labelPlacement="end"/>
 
@@ -98,7 +76,7 @@ export default function Signin(props) {
                 <Button 
                     variant="contained" 
                     color="secondary" 
-                    className={buttonStyle.button}
+                    className={ButtonStyle().button}
                     onClick={() => {
                         auth.authenticate(emailValue, passwordValue, () => {
                             history.push(RouteConstants.gridRouteInfo[0].path);
@@ -106,7 +84,7 @@ export default function Signin(props) {
                     }}
                 >
                     Sign in
-                    <LockIcon className={buttonStyle.rightIcon}/>
+                    <LockIcon className={ButtonStyle().rightIcon}/>
                 </Button>
 
                 <div className="account-help-link">
