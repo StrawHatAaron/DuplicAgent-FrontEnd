@@ -18,9 +18,10 @@ export default function SignUp(){
 
     const OuterStyle = {
         background:'#fff', 
-        display: 'grid', 
-        gridTemplateColumns: '.5fr 1fr .5fr', 
-        gridTemplateRows: '1', 
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
         height:'60em'
     }
 
@@ -28,11 +29,7 @@ export default function SignUp(){
         border: '1px solid #C4C4C4',
         boxSizing:'border-box',
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        display:'flex',
-        flexDirection:'column',
-        alignItems:'center',
-        height:'50em',
-        marginTop:'5em'
+        width:'800px'
     }
 
     const [checkBoxState, setCheckBoxState] = useState({
@@ -54,7 +51,9 @@ export default function SignUp(){
             <div style={OuterStyle}>
             {/* <div></div> */}
             <div style={SignUpStyle}>
-                <h1>We just need a little info to get you started</h1>
+                <div style={{fontSize:'2.5rem', textAlign:'center', margin:'1em'}}>
+                    We just need a little info to get you started
+                </div>
                 <CssTextField style={DivWidth}
                     variant="outlined"
                     margin="normal"
@@ -117,7 +116,7 @@ export default function SignUp(){
                 <ToggleContent
                     toggle={show => 
                         <Button 
-                            style={DivWidth}
+                            style={{width:'95%', margin:'2em'}}
                             variant="contained" 
                             color="secondary" 
                             className={ButtonStyle().button}
@@ -132,7 +131,6 @@ export default function SignUp(){
                                 } else if (!checkBoxState.checkedA){
                                     setModalText("You need to agree to the Terms Of Use")
                                     show()
-                                    // window.alert("The Password that you re-entered does not match the original"); 
                                 } else {
                                     axios.post(ApiConstants.SignUpUserURL, {
                                         headers: {
@@ -145,12 +143,14 @@ export default function SignUp(){
                                         })
                                         .then((response) => {
                                             console.log(response)
-                                            // console.log(response.status)
                                             if(response.status===200){
+                                                setModalText('Your account has ben successfuly created')
+                                                show()
                                                 return true
                                             }
                                         }, (error) => {
-                                            console.log(error);
+                                            setModalText(error.response.data['email'])
+                                            show()
                                             return false
                                     })
                                 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
 import Logo from '../Logo'
@@ -9,6 +9,34 @@ import auth from '../../utils/auth'
 import {history} from '../../utils/history'
 
 export default function Header(props){
+
+
+    const [searchShow, setSearchShow] = useState(true)
+
+    function toggleSearch(){
+        setSearchShow(!searchShow)
+    }
+
+    const toggleSearchStyle = {
+        margin:'1em 3em'
+    }
+
+    const AdvancedSearchComponent = () => {
+        if (searchShow===true){
+            return(
+                <div style={{background:'#fff', display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                    <input type="text" placeholder=" Search for clients, key words, general inquiry..." style={toggleSearchStyle}/><br/>
+                    <input type="text" placeholder=" Search for clients, key words, general inquiry..." style={toggleSearchStyle}/><br/>
+                    <input type="text" placeholder=" Search for clients, key words, general inquiry..." style={toggleSearchStyle}/><br/>
+                </div>
+            )
+        } else {
+            return(
+                <></>
+            )
+        }
+        
+    }
 
     const faContent = RouteConstants.agentHeaderInfo.map((info, i) => {
        return(
@@ -28,7 +56,9 @@ export default function Header(props){
                 <div className="search-area">
                     <input type="text" placeholder=" Search for clients, key words, general inquiry..." className="search-input"/>
                     <div className="search-buttons">
-                        <button className="search-advanced">
+                        <button 
+                            onClick={() => toggleSearch()}
+                            className="search-advanced">
                         ADVANCED
                         </button>
                         <button className="search-button">
@@ -50,6 +80,9 @@ export default function Header(props){
                     </button>
                 </div>
             </div>
+
+            <AdvancedSearchComponent/>
+
             <div className="nav-bot">
                 <div className="current-route">
                     Current Route
