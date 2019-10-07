@@ -14,6 +14,7 @@ function App(){
   return (
     <HashRouter history={history} className="App">
       <div>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> 
         <ul>
           <li>
             <Link to={RouteConstants.signInPath}>Sign in Page</Link>
