@@ -30,5 +30,9 @@ export default function SharpButton(props){
             className={classes.button}>
             {props.word}
         </Button>
+    
+    
+    
+    
     );
 }

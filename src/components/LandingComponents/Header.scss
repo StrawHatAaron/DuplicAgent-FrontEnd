@@ -22,3 +22,10 @@
   }
 }
 
+@media all and (max-width: $mobile-size){
+  .nav-static {
+    background: $light-blue;
+  }
+
+}
+
