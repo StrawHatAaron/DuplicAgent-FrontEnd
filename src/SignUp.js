@@ -140,8 +140,8 @@ export default function SignUp(){
                                         })
                                         .then((response) => {
                                             console.log(response)
-                                            if(response.status===200){
-                                                setModalText('Your account has ben successfuly created')
+                                            if(response.status===201){
+                                                setModalText('Your account has ben successfully created')
                                                 show()
                                                 return true
                                             }

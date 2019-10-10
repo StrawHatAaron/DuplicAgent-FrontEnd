@@ -8,8 +8,9 @@ import auth from '../../utils/auth'
 import {history} from '../../utils/history'
 import * as RouteConstants from '../../utils/RouteConstants'
 import {ButtonStyle, CssTextField, CustomCheckbox} from '../../utils/Constants'
-//This components handles both the style and authentication for users
+import Modal, {ToggleContent} from '../Modal'
 
+//This components handles both the style and authentication for users
 
 const DivWidth = {
     width:'100%'
@@ -28,7 +29,7 @@ export default function Signin(props) {
 
     const [emailValue, setEmailValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
-    
+    const [modalText, setModalText] = useState('')
 
     return(
         <div className="sign-section">
@@ -72,20 +73,36 @@ export default function Signin(props) {
                     label="Remember Me"
                     labelPlacement="end"/>
 
-
-                <Button 
-                    variant="contained" 
-                    color="secondary" 
-                    className={ButtonStyle().button}
-                    onClick={() => {
-                        auth.authenticate(emailValue, passwordValue, () => {
-                            history.push(RouteConstants.gridRouteInfo[0].path);
-                        });
-                    }}
-                >
-                    Sign in
-                    <LockIcon className={ButtonStyle().rightIcon}/>
-                </Button>
+                <ToggleContent
+                    toggle={show => 
+                        <Button 
+                            variant="contained" 
+                            color="secondary" 
+                            className={ButtonStyle().button}
+                            onClick={() => {
+                                auth.authenticate(emailValue, passwordValue, () => {
+                                    history.push(RouteConstants.gridRouteInfo[0].path);
+                                },
+                                () => {
+                                    var element = <div> Check your username and password. <br/>
+                                    Invalid combination was entered❗ </div>
+                                    setModalText(element)
+                                    show()
+                                });
+                            }}
+                        >
+                            Sign in
+                            <LockIcon className={ButtonStyle().rightIcon}/>
+                        </Button>
+                    }
+                    content={hide => (
+                        <Modal>
+                            {modalText}<br/>
+                            <button onClick={hide}>Close</button>
+                        </Modal>
+                    )}
+                />
+                
 
                 <div className="account-help-link">
                     Username or Password help?

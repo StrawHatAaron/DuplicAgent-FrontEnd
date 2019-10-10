@@ -20,7 +20,7 @@ class Auth {
         callback()
     }
 
-    authenticate(emailValue, passwordValue, callback){
+    authenticate(emailValue, passwordValue, callbackSuccess, callbackFailure){
         // console.log("email value "+emailValue)
         // console.log("password value "+passwordValue)
         axios.post(ApiConstants.GetAuthTokenURL, {
@@ -39,11 +39,12 @@ class Auth {
                 window.localStorage.setItem(AuthTokenKey, token)
                 this.authenticated = true
                 //Use the callback function after setting variables
-                callback()
+                callbackSuccess()
                 return true
             }
         }, (error) => {
             console.log(error);
+            callbackFailure()
             return false
         })
     }
