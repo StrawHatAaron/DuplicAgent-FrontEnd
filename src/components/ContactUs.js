@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import * as Constants from '../utils/Constants'
 import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
 import {CssTextField} from '../utils/Constants'
-
+import axios from 'axios'
+import * as ApiConstants from '../utils/ApiConstants'
  
 const OutLineStyles = {
     margin: '1em',
@@ -19,9 +20,15 @@ const OutLineStyles = {
 function handleClick(){
     console.log('I was clicked')
 } 
-
+ 
 export default function ContactUs(){
     const buttonStyle = Constants.ButtonStyle();
+    const [emailValue, setEmailValue] = useState('')
+    const [fnameValue, setFNameValue] = useState('')
+    const [lnameValue, setLNameValue] = useState('')
+    const [messageValue, setMessageValue] = useState('')
+    const [phoneValue, setPhoneValue] = useState('')
+ 
     return(
         <div style={OutLineStyles}>
             <CssTextField
@@ -30,28 +37,34 @@ export default function ContactUs(){
                 id="first-name"
                 label="First Name"
                 name="first-name"
-                autoComplete="given-name"/>
+                autoComplete="family-name"
+                onChange={(e) => setFNameValue(e.target.value)}
+                />
             <CssTextField
                 variant="outlined"
                 margin="normal"
                 id="last-name"
                 label="Last Name"
                 name="last-name"
-                autoComplete="family-name"/>
+                autoComplete="family-name"
+                onChange={(e) => setLNameValue(e.target.value)}/>
             <CssTextField
                 variant="outlined"
                 margin="normal"
                 id="phone"
                 label="Phone"
                 name="phone"
-                autoComplete="tel"/>
+                autoComplete="tel"
+                onChange={(e) => setPhoneValue(e.target.value)}/>
             <CssTextField
                 variant="outlined"
                 margin="normal"
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"/>
+                autoComplete="email"
+                onChange={(e) => setEmailValue(e.target.value)}
+                />
             <CssTextField
                 variant="outlined"
                 margin="normal"
@@ -59,14 +72,33 @@ export default function ContactUs(){
                 name="message"
                 rows="5"
                 multiline={true}
-                label="Message"/>
+                label="Message"
+                onChange={(e) => setMessageValue(e.target.value)}/>
             <Button onClick={handleClick}
                 variant="contained" 
                 color="secondary" 
-                className={buttonStyle.button}>
+                className={buttonStyle.button}
+                onClick={() => {
+                    axios.post(ApiConstants.ContactURL, {
+                        firstName: fnameValue,
+                        lastName: lnameValue,
+                        phone: phoneValue,
+                        email: emailValue,
+                        message: messageValue,
+                      })
+                      .then(function (response) {
+                        console.log(response);
+                      })
+                      .catch(function (error) {
+                        console.log(error);
+                      });
+                      
+                }}
+            >
                 Submit
                 <SendIcon className={buttonStyle.rightIcon}/>
             </Button >
     </div>
  )
 }
+

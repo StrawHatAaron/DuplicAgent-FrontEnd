@@ -7,6 +7,9 @@ export const SignUpUserURL = BaseURL + "user/create/";
 export const GetAuthTokenURL = BaseURL + "user/token/";
 export const CheckUserInfoURL = BaseURL + "user/me/";
 
+//Pawan added ContactURL
+export const ContactURL = BaseURL + "send"; 
+
 //You can Delete, Post, Put here for information that will
 // be fed into the database 
 export const TagsURL = BaseURL + "clients/tags/";
