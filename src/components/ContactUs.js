@@ -23,29 +23,29 @@ function handleClick(){
  
 export default function ContactUs(){
     const buttonStyle = Constants.ButtonStyle();
-    const [emailValue, setEmailValue] = useState('')
-    const [fnameValue, setFNameValue] = useState('')
-    const [lnameValue, setLNameValue] = useState('')
-    const [messageValue, setMessageValue] = useState('')
-    const [phoneValue, setPhoneValue] = useState('')
+    const [email, setEmailValue] = useState('')
+    const [fname, setFNameValue] = useState('')
+    const [lname, setLNameValue] = useState('')
+    const [message, setMessageValue] = useState('')
+    const [phone, setPhoneValue] = useState('')
  
     return(
         <div style={OutLineStyles}>
             <CssTextField
                 variant="outlined"
                 margin="normal"
-                id="first-name"
+                id="fname"
                 label="First Name"
-                name="first-name"
+                name="fname"
                 autoComplete="family-name"
                 onChange={(e) => setFNameValue(e.target.value)}
                 />
             <CssTextField
                 variant="outlined"
                 margin="normal"
-                id="last-name"
+                id="lname"
                 label="Last Name"
-                name="last-name"
+                name="lname"
                 autoComplete="family-name"
                 onChange={(e) => setLNameValue(e.target.value)}/>
             <CssTextField
@@ -74,17 +74,24 @@ export default function ContactUs(){
                 multiline={true}
                 label="Message"
                 onChange={(e) => setMessageValue(e.target.value)}/>
-            <Button onClick={handleClick}
+            <Button
                 variant="contained" 
                 color="secondary" 
                 className={buttonStyle.button}
                 onClick={() => {
+                    console.log("hello")
                     axios.post(ApiConstants.ContactURL, {
-                        firstName: fnameValue,
-                        lastName: lnameValue,
-                        phone: phoneValue,
-                        email: emailValue,
-                        message: messageValue,
+                        //Look up what this does PAWAN
+                        //Look up regular expression for password
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                            'Content-Type': 'application/json',
+                        },
+                        fname: fname,
+                        lname: lname,
+                        phone: phone,
+                        email: email,
+                        message: message,
                       })
                       .then(function (response) {
                         console.log(response);
