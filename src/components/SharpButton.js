@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/styles';
 import * as Constants from '../utils/Constants'
+import {Route} from 'react-router-dom'
 
 
 export default function SharpButton(props){
@@ -24,11 +25,15 @@ export default function SharpButton(props){
 
     const classes = buttonStyle();
     return(
-        <Button 
-            variant="contained" 
-            color="secondary" 
-            className={classes.button}>
-            {props.word}
-        </Button>
+        <Route render={({ history}) => (
+            <Button
+                onClick={() => { history.push(props.link) }} 
+                variant="contained" 
+                color="secondary" 
+                className={classes.button}>
+                {props.word}
+            </Button>
+        )} />
+        
     );
 }

@@ -9,7 +9,7 @@ import BaretapsLogo from './media/baretaps_logo.png'
 import SacStateLogo from './media/sac_state_logo.png'
 import EmpireWeLogo from './media/empire_west_logo.jpeg'
 import Stock from './media/stock.jpg';
-
+import {signUpPath} from './utils/RouteConstants'
 
 const customerTypeInfo = [
     {grammar:"I'M AN ", custType:'AGENCY', do:'Looking for an outscourcing system'},
@@ -78,7 +78,7 @@ export default function Home(props){
         <div
             key={"the-big-div-lands"} 
             className="the-big-div">
-            <Header/>
+            <Header word="Sign Up" link={signUpPath}/>
             <div className="landing-body">
 
                 <div className='row-1'>

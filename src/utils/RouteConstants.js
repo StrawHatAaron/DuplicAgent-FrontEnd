@@ -30,7 +30,7 @@ import Notifications from '../components/AgentComponents/Notifications'
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
 export const baseURL = "/Agent"
-export const signInPath = "/SignIn"
+export const signInPath = "/"
 export const signUpPath = "/SignUp"
   
 

@@ -1,0 +1,10 @@
+@import '../../utils/constant-styles.scss';
+
+.the-big-div{
+    margin: 0 5em;
+    border: 1px solid #868585;
+    box-shadow: $box-shadow;
+    .landing-body{
+        background: white;
+    }
+}

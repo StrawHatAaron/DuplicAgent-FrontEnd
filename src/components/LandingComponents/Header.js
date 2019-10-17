@@ -3,7 +3,7 @@ import './Header.scss'
 import Logo from '../Logo'
 import SharpButton from '../SharpButton';
 
-export default function Header(){
+export default function Header(props){
 
     const staticText = [{word:'Contact Us'},{word:'Partners & Affiliate Companies'}];
     const staticBar = staticText.map((c, index) => {
@@ -20,7 +20,9 @@ export default function Header(){
         <nav className="nav-static">
             <Logo/>
             {staticBar}
-            <SharpButton word='Sign Up'/>
+            <SharpButton 
+                word={props.word} 
+                link={props.link}/>
         </nav>
     )
 }
