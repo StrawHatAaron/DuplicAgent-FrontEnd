@@ -72,7 +72,7 @@ export default function Header(props){
                     <button 
                         onClick={() => {
                             auth.logout(() => {
-                              history.push("/SignIn");
+                              history.push(RouteConstants.signInPath);
                             });
                           }}
                         >

@@ -10,20 +10,22 @@ import * as RouteConstants from "./utils/RouteConstants"
 function App(){
   return (
     <HashRouter history={history} className="App">
-      <Switch>
-        <Route
-          path={RouteConstants.signUpPath}
-          component={() => (<SignUp/>)}
-          key="sign-up-page-1"/> 
-        <Route 
-          path={RouteConstants.signInPath}
-          render={() => (<Home/>)}
-          key={"the_landing_page"+1}/>
-        <ProtectedRoute 
-            path={RouteConstants.baseURL}
-            component={() => <AgentRouter/>}
-            key ="the-agent-of-lord-routes"/>
-      </Switch>
+      <div>
+        <Switch>
+          <Route
+            path={RouteConstants.signUpPath}
+            component={() => (<SignUp/>)}
+            key="sign-up-page-1"/> 
+          <Route 
+            exact path={RouteConstants.signInPath}
+            render={() => (<Home/>)}
+            key={"the_landing_page"+1}/>
+          <ProtectedRoute 
+              path={RouteConstants.baseURL}
+              component={() => <AgentRouter/>}
+              key ="the-agent-of-lord-routes"/>
+        </Switch>
+      </div>
     </HashRouter>
   )
 }

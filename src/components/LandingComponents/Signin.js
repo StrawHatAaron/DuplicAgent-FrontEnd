@@ -81,10 +81,8 @@ export default function Signin(props) {
                             className={ButtonStyle().button}
                             onClick={() => {
                                 auth.authenticate(emailValue, passwordValue, () => {
-                                    console.log("lol")
                                     history.push(RouteConstants.gridRouteInfo[0].path);
-                                },
-                                () => {
+                                }, () => {
                                     var element = <div> Check your username and password. <br/>
                                     Invalid combination was entered❗ </div>
                                     setModalText(element)
