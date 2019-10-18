@@ -6,6 +6,7 @@ import SignUp from './components/LandingComponents/SignUp'
 import { ProtectedRoute } from "./utils/protected.route";
 import { history } from "./utils/history";
 import * as RouteConstants from "./utils/RouteConstants" 
+import Adobe from './Adobe'
 
 function App(){
 
@@ -13,7 +14,18 @@ function App(){
 
   return (
     <HashRouter history={history} className="App">
+      
+      <ul>
+        <Link to="/adobe">
+          adobe
+        </Link>
+      </ul>
       <Switch>
+        <Route 
+          path="/adobe"
+          component={() => (<Adobe/>)}
+        />
+
         <Route
           path={RouteConstants.signUpPath}
           component={() => (<SignUp/>)}
