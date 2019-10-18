@@ -36,12 +36,6 @@ export default function SignUp(){
         width:'800px'
     }
 
-    const BigDiv = {
-        margin: '2em 5em',
-        border: '1px solid #868585',
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    }
-
     const [checkBoxState, setCheckBoxState] = useState({
         checkedA: false,
     });

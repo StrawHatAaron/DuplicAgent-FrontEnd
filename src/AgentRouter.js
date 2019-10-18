@@ -41,14 +41,8 @@ function RouteGridComponents(c){
 
 export default function AgentRouter(props){
 
-    // console.log("local storage value "+window.localStorage.getItem("SignedIn"))
-    // if(window.localStorage.getItem("SignedIn")===false){
-    //     console.log("not signed in so should redirect")
-    //     return <Redirect to="/SignIn"/>
-    // }
-
     return(
-        <>
+        <div>
             {/* <AgentHeader authButton={props.authButton}/> */}
             <AgentHeader/>
 
@@ -118,6 +112,6 @@ export default function AgentRouter(props){
 
             </div>
             <AgentFooter/>
-        </>
+        </div>
     )
 }

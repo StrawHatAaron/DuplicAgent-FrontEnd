@@ -18,7 +18,6 @@ const customerTypeInfo = [
 const customerTypeContent = customerTypeInfo.map((c, index) => {
     var Vert= 'na';
     if (index < 2){
-        console.log('be nice')
         Vert = 'ya'
     }
     return(
@@ -56,7 +55,6 @@ const affiliatesContent = affiliatesInfo.map((c, index) => {
         imgSrc = EmpireWeLogo
         break;
         default:
-        console.log('need a default')
     }
     return (
         <div 

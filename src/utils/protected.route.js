@@ -15,9 +15,7 @@ export function ProtectedRoute({component: Component, ...rest})  {
     return null; // or some placeholder
   } else if (authentication === false) {
     return (
-      <Redirect
-        to={"/SignIn"}
-      />
+      <Redirect to={"/SignIn"}/>
     )
   } else {
     return <Route {...rest} render={props => <Component {...props} />}/>
