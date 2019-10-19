@@ -52,8 +52,8 @@ class Auth {
     async checkAuthentication(){
         const token = window.localStorage.getItem(AuthTokenKey);
       
-        console.log("checking auth");
-        console.log(token);
+        // console.log("checking auth");
+        // console.log(token);
       
         try {
           let response = await axios.get(ApiConstants.CheckUserInfoURL, {

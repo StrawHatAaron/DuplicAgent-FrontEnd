@@ -27,7 +27,11 @@ export default function SharpButton(props){
     return(
         <Route render={({ history}) => (
             <Button
-                onClick={() => { history.push(props.link) }} 
+                onClick={() => {
+                    if(props.link !== undefined) {
+                        history.push(props.link) 
+                    }
+                }} 
                 variant="contained" 
                 color="secondary" 
                 className={classes.button}>
