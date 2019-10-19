@@ -5,7 +5,6 @@ import SharpButton from '../SharpButton'
 import axios from 'axios'
 import {ClientURL} from '../../utils/ApiConstants'
 import {AuthTokenKey} from '../../utils/auth'
-import Button from '@material-ui/core/Button'
 
 export default function NewClient(){
 
@@ -124,7 +123,7 @@ export default function NewClient(){
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': 'Token ' + token
+                        'Authorization': 'Token 038d0cdd4180c28d5caed33d360dbb16770d3c81' 
                     },
                     fein:fein,
                     business_name:businessName,
