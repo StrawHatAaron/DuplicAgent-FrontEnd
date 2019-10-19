@@ -1,6 +1,7 @@
 import {makeStyles, withStyles} from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button'
 
 //colors
 export const blue = '#003142';
@@ -32,21 +33,27 @@ export const ButtonStyle = makeStyles(theme => ({
   },    
 }));
 
+export const MaterialButton = withStyles({
+    root: {
+
+    }
+})
+
 //style for the text fields
 export const CssTextField = withStyles({
   root: {
       '& label.Mui-focused': {
-          color: '#DE6D43',
+          color: orange,
       },
       '& .MuiOutlinedInput-root': {
           '& fieldset': {
-              borderColor: '#54B0F2',
+              borderColor: lightBlue,
           },
           '&:hover fieldset': {
-              borderColor: '#003142',
+              borderColor: blue,
           },
           '&.Mui-focused fieldset': {
-              borderColor: '#DE6D43',
+              borderColor: orange,
           },
       },
   },
