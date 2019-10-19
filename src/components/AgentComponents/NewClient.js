@@ -115,6 +115,7 @@ export default function NewClient(){
             </div>
             
             <SharpButton
+                // everything is not up to date you dumb fucking cunt
                 className="button" 
                 word="Next" 
                 onClick={
