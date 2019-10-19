@@ -12,9 +12,9 @@ import Stock from './media/stock.jpg';
 import {signUpPath} from './utils/RouteConstants'
 
 const customerTypeInfo = [
-    {grammar:"I'M AN ", custType:'AGENCY', do:'Looking for an outscourcing system'},
-    {grammar:"I'M A ", custType:'FREELANCER', do:'Looking for a partner relationship'},
-    {grammar:"I'M A ", custType:'BUSINESS', do:'Looking for development help'}]
+    {grammar:"I'M AN", custType:' AGENCY', do:'Looking for an outscourcing system'},
+    {grammar:"I'M A ", custType:' FREELANCER', do:'Looking for a partner relationship'},
+    {grammar:"I'M A ", custType:' BUSINESS', do:'Looking for development help'}]
 const customerTypeContent = customerTypeInfo.map((c, index) => {
     var Vert= 'na';
     if (index < 2){
@@ -25,7 +25,7 @@ const customerTypeContent = customerTypeInfo.map((c, index) => {
             key={"customer-type-content"+index} 
             className={`row-2-boxes ${Vert}`}>
             <div className='bigger-text'>
-                {c.grammar} <div className='cust-type'>{c.custType}</div>
+                {c.grammar} <div style={{marginLeft:'.2em'}} className='cust-type'> {c.custType}</div>
             </div>
             <br/>
             {c.do}

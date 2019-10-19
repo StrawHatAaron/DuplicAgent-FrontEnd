@@ -1,8 +1,7 @@
 import React from 'react'
 import * as Constants from '../utils/Constants'
-import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
-import {CssTextField} from '../utils/Constants'
+import {MaterialButton, CssTextField} from '../utils/Constants'
 
  
 const OutLineStyles = {
@@ -21,7 +20,6 @@ function handleClick(){
 } 
 
 export default function ContactUs(){
-    const buttonStyle = Constants.ButtonStyle();
     return(
         <div style={OutLineStyles}>
             <CssTextField
@@ -60,13 +58,12 @@ export default function ContactUs(){
                 rows="5"
                 multiline={true}
                 label="Message"/>
-            <Button onClick={handleClick}
+            <MaterialButton onClick={handleClick}
                 variant="contained" 
-                color="secondary" 
-                className={buttonStyle.button}>
+                color="secondary" >
                 Submit
-                <SendIcon className={buttonStyle.rightIcon}/>
-            </Button >
+                <SendIcon/>
+            </MaterialButton>
     </div>
  )
 }

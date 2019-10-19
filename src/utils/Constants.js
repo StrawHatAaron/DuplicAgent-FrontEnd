@@ -19,25 +19,32 @@ export const fontFam = 'Skia';
 //material-ui
 
 //style for the buttons
-export const ButtonStyle = makeStyles(theme => ({
-  button: {
-      width: '100%',
-      background: lightBlue,
-      '&:hover':{
-        background: blue
-      }
-  },
-  rightIcon: {
-      fontSize: 20,
-      marginLeft:'.2em'
-  },    
-}));
-
 export const MaterialButton = withStyles({
     root: {
-
+        width: '100%',
+        background:lightBlue,
+        color: white,
+        '&:hover': {
+            background: blue
+        },
     }
-})
+})(Button);
+
+// export const SharpButton = withStyles({
+//     root: {
+//         width:'15em',
+//             background: white,
+//             border:'2px solid #54B0F2',
+//             color:lightBlue,
+//             borderRadius:'0px',
+//             margin:'.5em 7em',
+//             fontFamily:fontFam,
+//             justifyContent: 'center',
+//             '&:hover':{
+//                 background: '#FEFEFE'
+//             }
+//     }
+// })(Button);
 
 //style for the text fields
 export const CssTextField = withStyles({

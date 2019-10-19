@@ -1,11 +1,10 @@
 import './SignUp.scss'
 import React, {useState} from "react"
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Button from '@material-ui/core/Button'
 import LockIcon from '@material-ui/icons/Lock'
 import Header from './Header'
 import Footer from './Footer'
-import {ButtonStyle, CssTextField, CustomCheckbox} from '../../utils/Constants'
+import {MaterialButton, CssTextField, CustomCheckbox} from '../../utils/Constants'
 import axios from 'axios';
 import * as  ApiConstants from '../../utils/ApiConstants'
 import Modal, {ToggleContent} from '../Modal'
@@ -120,11 +119,8 @@ export default function SignUp(){
                     <br/>
                     <ToggleContent
                         toggle={show => 
-                            <Button 
+                            <MaterialButton 
                                 style={{width:'95%', margin:'2em'}}
-                                variant="contained" 
-                                color="secondary" 
-                                className={ButtonStyle().button}
                                 onClick={() => {
                                     // alert(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))
                                     if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))){
@@ -161,8 +157,8 @@ export default function SignUp(){
                                     }
                                 }}>
                                 Sign Up
-                                <LockIcon className={ButtonStyle().rightIcon}/>
-                            </Button>
+                                <LockIcon/>
+                            </MaterialButton>
                         }
                         content={hide => (
                             <Modal>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {CssTextField} from '../../utils/Constants'
 import './NewClient.scss'
-import SharpButton from '../SharpButton'
+import {MaterialButton} from '../../utils/Constants'
 import axios from 'axios'
 import {ClientURL} from '../../utils/ApiConstants'
 import {AuthTokenKey} from '../../utils/auth'
@@ -114,26 +114,34 @@ export default function NewClient(){
                 </div>
             </div>
             
-            <SharpButton
-                className="button" 
-                word="Next" 
-                onClick={
-                    axios.post(ClientURL, {
+            <MaterialButton
+                style={{width:'75%', marginTop:'3em', marginBottom:'3em'}}
+                onClick={ () => (axios.post(ClientURL, {
                     headers: {
+                        'Host': 'localhost:8000',
                         'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Token 038d0cdd4180c28d5caed33d360dbb16770d3c81' 
+                        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Authorization': 'Token ' + token,
+
+                        'Accept': '*/*',
+                        
+                        'Accept-Encoding': 'gzip, deflate',
+                        // Content-Length: 1298
+                        'Connection': 'keep-alive',
+                        'Cache-Control': 'no-cache',
+                        
                     },
                     fein:fein,
                     business_name:businessName,
                     first_name:firstName,
                     last_name:lastName,
                     emails:emails,
-                    phone:phone,
+                    phone:6149059,
                     address:address,
                     city:city,
                     state:state,
-                    zip_code:zipCode,
+                    zip_code:123,
                     tags:[1],
                 })
                 .then((response) => {
@@ -143,8 +151,10 @@ export default function NewClient(){
                     console.log("why is this being called");
                     console.log(error);
                     return false
-                })}
-            />
+                }))}
+            >
+                Next
+            </MaterialButton>
         </div>
     )
 }

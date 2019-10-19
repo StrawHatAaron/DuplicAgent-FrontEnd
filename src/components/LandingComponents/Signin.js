@@ -7,7 +7,7 @@ import LockIcon from '@material-ui/icons/Lock'
 import auth from '../../utils/auth'
 import {history} from '../../utils/history'
 import * as RouteConstants from '../../utils/RouteConstants'
-import {ButtonStyle, CssTextField, CustomCheckbox} from '../../utils/Constants'
+import {MaterialButton, CssTextField, CustomCheckbox} from '../../utils/Constants'
 import Modal, {ToggleContent} from '../Modal'
 
 //This components handles both the style and authentication for users
@@ -75,10 +75,10 @@ export default function Signin(props) {
 
                 <ToggleContent
                     toggle={show => 
-                        <Button 
+                        <MaterialButton 
                             variant="contained" 
                             color="secondary" 
-                            className={ButtonStyle().button}
+                            // className={ButtonStyle().button}
                             onClick={() => {
                                 auth.authenticate(emailValue, passwordValue, () => {
                                     history.push(RouteConstants.gridRouteInfo[0].path);
@@ -91,8 +91,8 @@ export default function Signin(props) {
                             }}
                         >
                             Sign in
-                            <LockIcon className={ButtonStyle().rightIcon}/>
-                        </Button>
+                            <LockIcon />
+                        </MaterialButton>
                     }
                     content={hide => (
                         <Modal>
