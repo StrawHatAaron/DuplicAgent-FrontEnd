@@ -115,7 +115,6 @@ export default function NewClient(){
             </div>
             
             <SharpButton
-                // everything is not up to date you dumb fucking cunt
                 className="button" 
                 word="Next" 
                 onClick={
@@ -123,7 +122,6 @@ export default function NewClient(){
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json',
-                        'Access-Control-Allow-Credentials': 'true',
                         'Authorization': 'Token 038d0cdd4180c28d5caed33d360dbb16770d3c81' 
                     },
                     fein:fein,
