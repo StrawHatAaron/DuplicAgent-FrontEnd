@@ -19,6 +19,7 @@ export default function NewClient(){
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
     const token = window.localStorage.getItem(AuthTokenKey);
+    const authString = 'Token '.concat(token)
     
     return(
         <div className="new-client">
@@ -116,43 +117,38 @@ export default function NewClient(){
             
             <MaterialButton
                 style={{width:'75%', marginTop:'3em', marginBottom:'3em'}}
-                onClick={ () => (axios.post(ClientURL, {
-                    headers: {
-                        'Host': 'localhost:8000',
+                onClick={() => (axios({
+                    method: 'post', 
+                    url: ClientURL, 
+                    headers:{
                         'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+                        'Content-Type': 'application/json;charset=utf-8',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': 'Token ' + token,
-
-                        'Accept': '*/*',
-                        
-                        'Accept-Encoding': 'gzip, deflate',
-                        // Content-Length: 1298
-                        'Connection': 'keep-alive',
+                        'Authorization': authString,
+                        'Accept': 'application/json, text/plain, */*',
                         'Cache-Control': 'no-cache',
-                        
-                    },
-                    fein:fein,
-                    business_name:businessName,
-                    first_name:firstName,
-                    last_name:lastName,
-                    emails:emails,
-                    phone:6149059,
-                    address:address,
-                    city:city,
-                    state:state,
-                    zip_code:123,
-                    tags:[1],
-                })
-                .then((response) => {
-                    console.log(response)
-                    return true
-                }, (error) => {
-                    console.log("why is this being called");
-                    console.log(error);
-                    return false
-                }))}
-            >
+                    }, 
+                    data:{
+                        fein:fein,
+                        business_name:businessName,
+                        first_name:firstName,
+                        last_name:lastName,
+                        emails:emails,
+                        phone:phone,
+                        address:address,
+                        city:city,
+                        state:state,
+                        zip_code:zipCode,
+                        tags:[1],
+                    }})
+                    .then((response) => {
+                        console.log(response)
+                        return true
+                    }, (error) => {
+                        console.log(error);
+                        return false
+                    })
+            )}>
                 Next
             </MaterialButton>
         </div>
