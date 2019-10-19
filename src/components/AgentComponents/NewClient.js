@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-import {CssTextField, ButtonStyle} from '../../utils/Constants'
+import {CssTextField} from '../../utils/Constants'
 import './NewClient.scss'
 import SharpButton from '../SharpButton'
 import axios from 'axios'
-import * as ApiConstants from '../../utils/ApiConstants'
-import Button from '@material-ui/core/Button';
+import {ClientURL} from '../../utils/ApiConstants'
+import {AuthTokenKey} from '../../utils/auth'
+import Button from '@material-ui/core/Button'
 
 export default function NewClient(){
 
@@ -18,40 +19,7 @@ export default function NewClient(){
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
-    const token = window.localStorage.getItem("AuthToken");
-
-    const fieldContent = [
-        {id:"biz-name",  label:"Name Of Business",  autoComplete:"", setter:setFein},
-        {id:"first-name", label:"First Name", autoComplete:"given-name", setter:setBusinessName},
-        {id:"last-name" , label:"Last Name" , autoComplete:"family-name", setter:setFirstName},
-        {id:"email", label:"Email Address", autoComplete:"email", setter:setLastName},
-        {id:"fein" , label:"FEIN #" , autoComplete:"na", setter:setEmails},
-        {id:"phone" , label:"Phone #" , autoComplete:"tel", setter:setPhone},
-        {id:"address" , label:"Mailing Address" , autoComplete:"ship-address", setter:setAddress},
-        {id:"city" , label:"City" , autoComplete:"ship-city", setter:setCity},
-        {id:"state" , label:"State" , autoComplete:"ship-state", setter:setState},
-        {id:"zip" , label:"Zip Code" , autoComplete:"ship-zip", setter:setZipCode},
-    ]
-
-    const TextFields = fieldContent.map((c, index) => {
-        return(
-            <>   
-                <CssTextField
-                    key={"newClientTextField"+index}
-                    variant="outlined"
-                    margin="normal"
-                    id={c.id} 
-                    label={c.label} 
-                    autoComplete={c.autoComplete}
-                    onChange={(e) => {
-                        function handleClick(e) {e.preventDefault();}
-                        c.setter(e.target.value)
-                    }}
-                />
-                <br/>
-            </>
-        )
-    })
+    const token = window.localStorage.getItem(AuthTokenKey);
     
     return(
         <div className="new-client">
@@ -60,19 +28,98 @@ export default function NewClient(){
             </div>
             <br/>
             <div className="r">
-
                 <div className="c">
-                    {TextFields}
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="biz-name" 
+                        label="Name Of Business" 
+                        autoComplete=""
+                        onChange={(e) => setBusinessName(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="first-name" 
+                        label="First Name" 
+                        autoComplete="given-name"
+                        onChange={(e) => setFirstName(e.target.value)}/>
+                    <br/>
+                    <CssTextField
+                        variant="outlined"
+                        margin="normal" 
+                        id="last-name" 
+                        label="Last Name" 
+                        autoComplete="family-name"
+                        onChange={(e) => setLastName(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        onChange={(e) => setEmails(e.target.value)}/>
+                    <br/>
+                    <CssTextField
+                        variant="outlined"
+                        margin="normal" 
+                        id="" 
+                        label="FEIN #" 
+                        autoComplete="na"
+                        onChange={(e) => setFein(e.target.value)}/>
+                    <br/>
                 </div>
-
                 <div className="c">
-                    
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="phone" 
+                        label="Phone #" 
+                        autoComplete="tel"
+                        onChange={(e) => setPhone(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="address" 
+                        label="Mailing Address" 
+                        autoComplete="ship-address"
+                        onChange={(e) => setAddress(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="city" 
+                        label="City" 
+                        autoComplete="ship-city"
+                        onChange={(e) => setCity(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="state" 
+                        label="State" 
+                        autoComplete="ship-state"
+                        onChange={(e) => setState(e.target.value)}/>
+                    <br/>
+                    <CssTextField 
+                        variant="outlined"
+                        margin="normal"
+                        id="zip" 
+                        label="Zip Code" 
+                        autoComplete="ship-zip"
+                        onChange={(e) => setZipCode(e.target.value)}/>
+                    <br/>
                 </div>
             </div>
             
-            <Button 
+            <SharpButton
+                className="button" 
+                word="Next" 
                 onClick={
-                    axios.post(ApiConstants.ClientURL, {
+                    axios.post(ClientURL, {
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json',
@@ -93,21 +140,13 @@ export default function NewClient(){
                 })
                 .then((response) => {
                     console.log(response)
-                    if(response.status===200){
-                        
-                    }
+                    return true
                 }, (error) => {
                     console.log("why is this being called");
                     console.log(error);
                     return false
                 })}
-
-                variant="contained" 
-                color="secondary" >
-
-                    Create Client
-
-                </Button>
+            />
         </div>
     )
 }

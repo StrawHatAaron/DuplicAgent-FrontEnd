@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as ApiConstants from "./ApiConstants";
 
-const AuthTokenKey = "AuthToken"
+export const AuthTokenKey = "AuthToken"
 
 class Auth {
     constructor() {
@@ -66,7 +66,6 @@ class Auth {
           });
       
           if (response.status === 200) {
-            console.log('auth check passed');
             return true;
           }
       
