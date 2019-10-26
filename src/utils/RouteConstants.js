@@ -1,3 +1,5 @@
+import React from 'react'
+
 //imported icons
 import NewBusinessImg from '../media/routing/NewBusisnessImg.png'
 import RenewalsImg from '../media/routing/RenewalsImg.png'
@@ -25,7 +27,7 @@ import Todos from '../components/AgentComponents/Todos'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
 import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
-
+import RetrieveData from '../components/AgentComponents/RetrieveData'
 
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
@@ -118,7 +120,7 @@ export const newBizInfo = [{
     path:`${homeInfo[0].path}/ExistingClient`, 
     icon:ExistingClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent: ExistingClient
+    botComponent: RetrieveData
 },{
     title:'Current Submissions',
     path:`${baseURL}${homeInfo[0].path}/CurrentSubmissions`, 
@@ -149,11 +151,11 @@ export const existingClientInfo =[{
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:NewClient
 },{
-    title:'Manage Policies',
-    path:`${clientIdPath}/Accounting`, 
+    title:'Policies',
+    path:`${clientIdPath}/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:Todos
+    botComponent:() => (<RetrieveData type='client'/>)
 },{
     title:'Claims',
     path:`${clientIdPath}/Claims`, 

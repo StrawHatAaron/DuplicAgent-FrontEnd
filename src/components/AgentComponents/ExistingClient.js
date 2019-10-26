@@ -12,7 +12,7 @@ import * as RouteConstants from '../../utils/RouteConstants'
 //dbx folder naming scheme
 //Client ID + Name
 
-export default function ExistingClient(){
+export default function ExistingClient(props){
     
     //return true or false if the current link
     //matches with the passed route
@@ -92,6 +92,7 @@ export default function ExistingClient(){
         setFileIndex(newFileIndex)
         //console.log(files.cursor)
     }
+
 
 
     return(

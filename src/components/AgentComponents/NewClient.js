@@ -18,9 +18,14 @@ export default function NewClient(){
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
-    const token = window.localStorage.getItem(AuthTokenKey);
-    const authString = 'Token '.concat(token)
+    // const authTokenKey = 'Token '.concat(window.localStorage.getItem("AuthToken"));
+    // console.log(authTokenKey)
+
     
+    const TextWidth = {
+        width: '100%'
+    }
+
     return(
         <div className="new-client">
             <div className="t">
@@ -29,7 +34,8 @@ export default function NewClient(){
             <br/>
             <div className="r">
                 <div className="c">
-                    <CssTextField 
+                    <CssTextField
+                        style={TextWidth} 
                         variant="outlined"
                         margin="normal"
                         id="biz-name" 
@@ -37,7 +43,8 @@ export default function NewClient(){
                         autoComplete=""
                         onChange={(e) => setBusinessName(e.target.value)}/>
                     <br/>
-                    <CssTextField 
+                    <CssTextField
+                        style={TextWidth} 
                         variant="outlined"
                         margin="normal"
                         id="first-name" 
@@ -46,6 +53,7 @@ export default function NewClient(){
                         onChange={(e) => setFirstName(e.target.value)}/>
                     <br/>
                     <CssTextField
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal" 
                         id="last-name" 
@@ -54,6 +62,7 @@ export default function NewClient(){
                         onChange={(e) => setLastName(e.target.value)}/>
                     <br/>
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="email"
@@ -63,6 +72,7 @@ export default function NewClient(){
                         onChange={(e) => setEmails(e.target.value)}/>
                     <br/>
                     <CssTextField
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal" 
                         id="" 
@@ -73,6 +83,7 @@ export default function NewClient(){
                 </div>
                 <div className="c">
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="phone" 
@@ -81,6 +92,7 @@ export default function NewClient(){
                         onChange={(e) => setPhone(e.target.value)}/>
                     <br/>
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="address" 
@@ -89,6 +101,7 @@ export default function NewClient(){
                         onChange={(e) => setAddress(e.target.value)}/>
                     <br/>
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="city" 
@@ -97,6 +110,7 @@ export default function NewClient(){
                         onChange={(e) => setCity(e.target.value)}/>
                     <br/>
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="state" 
@@ -105,6 +119,7 @@ export default function NewClient(){
                         onChange={(e) => setState(e.target.value)}/>
                     <br/>
                     <CssTextField 
+                        style={TextWidth}
                         variant="outlined"
                         margin="normal"
                         id="zip" 
@@ -124,7 +139,7 @@ export default function NewClient(){
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json;charset=utf-8',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': authString,
+                        'Authorization': AuthTokenKey,
                         'Accept': 'application/json, text/plain, */*',
                         'Cache-Control': 'no-cache',
                     }, 

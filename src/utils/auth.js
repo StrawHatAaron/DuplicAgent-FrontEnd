@@ -1,7 +1,8 @@
 import axios from 'axios';
 import * as ApiConstants from "./ApiConstants";
 
-export const AuthTokenKey = "AuthToken"
+const authToken = 'AuthToken'
+export const AuthTokenKey = 'Token '.concat(window.localStorage.getItem(authToken))
 
 class Auth {
     constructor() {
@@ -16,7 +17,7 @@ class Auth {
 
     logout(callback){
         this.authenticated = false
-        window.localStorage.setItem(AuthTokenKey, "")
+        window.localStorage.setItem(authToken, "")
         callback()
     }
 
@@ -36,7 +37,7 @@ class Auth {
             // console.log(response.status)
             if(response.status===200){
                 const token = response.data['token']
-                window.localStorage.setItem(AuthTokenKey, token)
+                window.localStorage.setItem(authToken, token)
                 this.authenticated = true
                 //Use the callback function after setting variables
                 callbackSuccess()
@@ -50,7 +51,7 @@ class Auth {
     }
 
     async checkAuthentication(){
-        const token = window.localStorage.getItem(AuthTokenKey);
+        const token = window.localStorage.getItem(authToken);
       
         // console.log("checking auth");
         // console.log(token);
