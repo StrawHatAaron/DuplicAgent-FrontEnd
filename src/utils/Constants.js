@@ -16,7 +16,6 @@ export const greyText = '#868585';
   //font type
 export const fontFam = 'Skia';
 
-//material-ui
 
 //style for the buttons
 export const MaterialButton = withStyles({
