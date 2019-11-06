@@ -71,6 +71,12 @@ export const agentHeaderInfo = [{
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
     botComponent:Notifications
+}, {
+    title: "Settings",
+    path: baseURL + "/Settings",
+    icon: "comment",
+    explanation: "Configure Settings",
+    botComponent: Uploader
 }]
 
 //home page for the Agent or Broker
