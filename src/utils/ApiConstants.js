@@ -2,12 +2,15 @@
 //easily managed in one place
 
 // const BaseURL = "http://api.duplicagent.com:8000/api/";
-const BaseURL = "http://localhost:8000/api/";
+const BaseURL = "https://duplicagent.com/api/";
 
 //manage or create authenticated user 
 export const SignUpUserURL = BaseURL + "user/create/";
 export const GetAuthTokenURL = BaseURL + "user/token/";
 export const CheckUserInfoURL = BaseURL + "user/me/";
+
+//Pawan added ContactURL - chose user because
+export const ContactURL = BaseURL + "send/"; 
 
 //You can Delete, Post, Put here for information that will
 // be fed into the database 

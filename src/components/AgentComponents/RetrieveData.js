@@ -2,39 +2,76 @@ import React, {useState, useEffect} from 'react'
 import './ExistingClient.scss'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import {ClientURL} from '../../utils/ApiConstants'
+import {ClientURL, PolicyURL, AccountingInfoURL} from '../../utils/ApiConstants'
+import {ExistingClients, Polices, AccountingInfo} from '../../utils/RouteConstants'
 import {AuthTokenKey} from '../../utils/auth'
 
 //should probably name this data list
 export default function RetrieveData(props) {
 
-    const contentType = {
-        title:'',
-        url:'',
-        dataDisplayed:[]
-    }
-
-    switch(props.type){
-        case 'client':
-            console.log('on client page')
-        break
-        case 'policy':
-            console.log('on policy page')
-        break
-        case 'accounting':
-            console.log('on policy page')
-        break
-        default:
-            console.log('oh god we are lost')
-    }
-
     const url = window.location.hash.replace('#', '')
 
-    const [clientList, setClientList] = useState([])
+    const [contentType, setContentType ] = useState({
+        title:null,
+        apiUrl:null,
+        descriptions:[],
+        parsers:[]
+    })
+    useEffect(() => {
+        switch(props.type){
+            case ExistingClients:
+            setContentType({
+                title:ExistingClients,
+                apiUrl:ClientURL,
+                descriptions:[
+                    {description:'First Name'},
+                    {description:'Last Name'},
+                    {description:'Phone'},
+                    {description:'Email'},
+                ],
+                parsers:['first_name','last_name','phone','emails',]
+            })
+            break
+            case Polices:
+            setContentType({
+                title:Polices,
+                apiUrl:PolicyURL,
+                descriptions:[
+                    {description:'Number'},
+                    {description:'Line Of Business'},
+                    {description:'Producer'},
+                    {description:'Expiration Date'},
+                ],
+                parsers:['number', 'line_of_business', 
+                    'producer', 'expiration_date',],
+            })
+            console.log('on policy page')
+            break
+            case AccountingInfo:
+            setContentType({
+                title:AccountingInfo,
+                apiUrl:AccountingInfoURL,
+                descriptions:[
+                    {description:'Premium Amount'},
+                    {description:'Deposit Amount'},
+                    {description:'Agency Management Fee'},
+                    {description:'Policy Fee'},
+                ],
+                parsers:['premium_amount', 'deposit_amount', 
+                    'agency_management_fee', 'policy_fee',]
+            })
+            console.log('on accounting page')
+            break
+            default:
+            console.log('oh god we are lost')
+        }        
+    }, [props.type])
+
+    const [dataList, setDataList] = useState([])
     useEffect(() => {
         axios({
             method: 'get', 
-            url: ClientURL, 
+            url: contentType.apiUrl, 
             headers:{
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json;charset=utf-8',
@@ -45,43 +82,47 @@ export default function RetrieveData(props) {
             },
             })
             .then((response) => {
-                setClientList(response.data)
+                setDataList(response.data)
                 console.log(response)
                 return true
             }, (error) => {
                 console.log(error);
                 return false
         })
-    }, [])
+    }, [contentType])
 
-    const ClientListContent = clientList.map((client, index) => {
-        console.log(client['address'])
+    const ListContent = dataList.map((data, index) => {
         return(
-            
-            <div key={'client-list'+index} className="list">
-                <Link to={url + client['id'] + '/'} className="text"> 
-                    {client['first_name']} 
+            <div key={'retrieve-data-list'+contentType.title+index} className="list">
+                <Link to={url + data['id'] + '/'} className="text"> 
+                    {data[contentType.parsers[0]]} 
                 </Link>
-                <div className="text">{client['last_name']}</div>
-                <div className="text">{client['phone']}</div>
-                <div className="text">{client['emails']}</div>
+                <div className="text">{data[contentType.parsers[1]]}</div>
+                <div className="text">{data[contentType.parsers[2]]}</div>
+                <div className="text">{data[contentType.parsers[3]]}</div>
             </div>
         )
     })
 
+    const HeaderListContent = contentType.descriptions.map((c, index) => {
+        return(
+            <div key={'retrieve-header-list'+contentType.title+index} className="text">
+                {c.description}
+            </div>
+        )
+    })
+
+
     return (
-        <div className="existing-client">
+        <div className="retrieve-data">
             <div className="headline">
-                Clients
+                {contentType.title}
             </div>
             <div className="box-for-list">
-                <div className="list top-list">
-                    <div className="text">First Name</div>
-                    <div className="text">Last Name</div>
-                    <div className="text">Phone</div>
-                    <div className="text">Email</div>
+                <div className="list header-list">
+                {HeaderListContent}
                 </div>
-                {ClientListContent}    
+                {ListContent}    
             </div>    
         </div>
     )

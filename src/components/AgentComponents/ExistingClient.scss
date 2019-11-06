@@ -1,6 +1,6 @@
 @import '../../utils/constant-styles.scss';
 
-.existing-client{
+.retrieve-data{
     .headline{
         font-size: 2rem;
     }
@@ -9,7 +9,7 @@
         height: 40em;
         overflow:scroll;
         margin:1em;
-        .top-list{
+        .header-list{
             background: $grey-backing; 
             padding: .75em 0;
             font-size: 1.2rem;

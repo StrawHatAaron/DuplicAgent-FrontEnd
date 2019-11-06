@@ -30,22 +30,6 @@ export const MaterialButton = withStyles({
     }
 })(Button);
 
-// export const SharpButton = withStyles({
-//     root: {
-//         width:'15em',
-//             background: white,
-//             border:'2px solid #54B0F2',
-//             color:lightBlue,
-//             borderRadius:'0px',
-//             margin:'.5em 7em',
-//             fontFamily:fontFam,
-//             justifyContent: 'center',
-//             '&:hover':{
-//                 background: '#FEFEFE'
-//             }
-//     }
-// })(Button);
-
 //style for the text fields
 export const CssTextField = withStyles({
   root: {

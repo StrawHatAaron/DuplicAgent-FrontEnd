@@ -29,6 +29,14 @@ import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
 
+//When Adding to the routing array always try and append to the end of it
+
+//These titles are passed down into components that are used for routing.
+//Then checked and used to dynamically display the appropriate data.
+export const ExistingClients = 'Existing Clients'
+export const Polices = 'Polices'
+export const AccountingInfo = 'Accounting Info'
+
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
 export const baseURL = "/Agent"
@@ -116,11 +124,11 @@ export const newBizInfo = [{
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: NewClient
 },{
-    title:'Existing Client',
+    title:ExistingClients,
     path:`${homeInfo[0].path}/ExistingClient`, 
     icon:ExistingClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent: RetrieveData
+    botComponent:() => (<RetrieveData type={ExistingClients}/>)
 },{
     title:'Current Submissions',
     path:`${baseURL}${homeInfo[0].path}/CurrentSubmissions`, 
@@ -132,7 +140,7 @@ export const newBizInfo = [{
 
 
 //still need to incorporate the clients name in here
-export const existingClientInfo =[{
+export const existingClientInfo = [{
     title:'Acords',
     path:`${clientIdPath}/Acords`, 
     icon:AcordsImg, 
@@ -151,11 +159,11 @@ export const existingClientInfo =[{
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent:NewClient
 },{
-    title:'Policies',
+    title:Polices,
     path:`${clientIdPath}/Policies`, 
     icon:PoliciesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:() => (<RetrieveData type='client'/>)
+    botComponent:() => (<RetrieveData type={Polices}/>)
 },{
     title:'Claims',
     path:`${clientIdPath}/Claims`, 
