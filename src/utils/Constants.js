@@ -16,6 +16,7 @@ export const greyText = '#868585';
   //font type
 export const fontFam = 'Skia';
 
+//I suck at git knida
 
 //style for the buttons
 export const MaterialButton = withStyles({
