@@ -75,11 +75,8 @@ export default function ContactUs(){
             <MaterialButton onClick={handleClick}
                 variant="contained" 
                 color="secondary" 
-                onClick={() => {
-                    console.log("hello")
+                onClick={() => { 
                     axios.post(ContactURL, {
-                        //Look up what this does PAWAN
-                        //Look up regular expression for password
                         headers: {
                             'Access-Control-Allow-Origin': '*',
                             'Content-Type': 'application/json',
@@ -95,8 +92,7 @@ export default function ContactUs(){
                       })
                       .catch(function (error) {
                         console.log(error);
-                      });
-                      
+                    })  
                 }}>
                 Submit
                 <SendIcon/>
