@@ -16,10 +16,6 @@ const OutLineStyles = {
     flexDirection:'column',
     padding:'6em'
 }
- 
-function handleClick(){
-    console.log('I was clicked')
-} 
 
 export default function ContactUs(){
 
@@ -72,7 +68,7 @@ export default function ContactUs(){
                 multiline={true}
                 label="Message"
                 onChange={(e) => setMessageValue(e.target.value)}/>
-            <MaterialButton onClick={handleClick}
+            <MaterialButton 
                 variant="contained" 
                 color="secondary" 
                 onClick={() => { 
