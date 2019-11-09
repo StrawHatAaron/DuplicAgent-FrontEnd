@@ -9,8 +9,15 @@ export default function GridChooser(props){
         const baseUrl = window.location.hash.replace('#', '')
         const endPointLength = info.path.split('/').length
         const endPoint = info.path.split('/')[endPointLength-1]
-        const dynamicRoute = baseUrl + endPoint + "/"
+        var dynamicRoute 
+        
+        if(baseUrl.charAt(baseUrl.length-1)==="/"){
+            dynamicRoute = baseUrl + endPoint + "/"
+        } else {
+            dynamicRoute = baseUrl + "/" + endPoint + "/"
+        }
 
+        console.log(baseUrl.charAt(baseUrl.length-1))
         // console.log("pathname: " + window.location.hash)
         // console.log(baseUrl)
         // console.log(endPointLength)

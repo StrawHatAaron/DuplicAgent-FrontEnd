@@ -44,9 +44,10 @@ export const AccountingInfo = 'Accounting Info'
 //Agent Authed Routes
 export const baseURL = "/Agent"
 export const home = "/Home"
+export const newBusiness = "/NewBusiness"
 
 
-//Landing page non-auth
+//Landing page
 export const signInPath = "/"
 export const signUpPath = "/SignUp"
 
@@ -125,7 +126,7 @@ export const homeInfo = [{
 //NEW Business ROUTES
 export const newBizInfo = [{
     title:'New Client',
-    path:`${baseURL}${homeInfo[0].path}/NewClient`, 
+    path:`${homeInfo[0].path}/NewClient`, 
     icon:NewClientImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: NewClient
@@ -137,7 +138,7 @@ export const newBizInfo = [{
     botComponent:() => (<RetrieveData type={ExistingClients}/>)
 },{
     title:'Current Submissions',
-    path:`${baseURL}${homeInfo[0].path}/CurrentSubmissions`, 
+    path:`${homeInfo[0].path}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     botComponent: () => (<RetrieveData type={ExistingClients}/>)
@@ -205,7 +206,7 @@ export var gridRouteInfo = [{
     info: homeInfo
 },{
     title:'New Business',
-    path:baseURL+home+'/NewBusiness', 
+    path:baseURL+home+newBusiness, 
     icon:AdditionalDetailsImg, 
     topComponent: TopAgent.simple('New Biz'),
     storeData:'',
