@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './ExistingClient.scss'
+import './RetrieveData.scss'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {ClientURL, PolicyURL, AccountingInfoURL} from '../../utils/ApiConstants'
@@ -91,10 +91,19 @@ export default function RetrieveData(props) {
         })
     }, [contentType])
 
+    var idList = []
+    function onGotToPage(index){
+        window.localStorage.setItem('clientId', idList[index])
+    }
+
     const ListContent = dataList.map((data, index) => {
+        idList.push(data['id'])
         return(
             <div key={'retrieve-data-list'+contentType.title+index} className="list">
-                <Link to={url + data['id'] + '/'} className="text"> 
+                <Link 
+                    to={url + data['id'] + '/'} 
+                    className="text"
+                    onClick={onGotToPage(index)}> 
                     {data[contentType.parsers[0]]} 
                 </Link>
                 <div className="text">{data[contentType.parsers[1]]}</div>

@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
-import {CssTextField} from '../../utils/Constants'
-import './NewClient.scss'
-import {MaterialButton} from '../../utils/Constants'
 import axios from 'axios'
+import {CssTextField, MaterialButton} from '../../utils/Constants'
 import {ClientURL} from '../../utils/ApiConstants'
+import {homeInfo} from '../../utils/RouteConstants'
+import {history} from '../../utils/history'
 import {AuthTokenKey} from '../../utils/auth'
+import Modal, {ToggleContent} from '../Modal'
+import './NewClient.scss'
 
 export default function NewClient(){
 
@@ -18,8 +20,8 @@ export default function NewClient(){
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
-    // const authTokenKey = 'Token '.concat(window.localStorage.getItem("AuthToken"));
-    // console.log(authTokenKey)
+    
+    console.log(AuthTokenKey)
 
     
     const TextWidth = {
@@ -129,43 +131,55 @@ export default function NewClient(){
                     <br/>
                 </div>
             </div>
-            
-            <MaterialButton
-                style={{width:'75%', marginTop:'3em', marginBottom:'3em'}}
-                onClick={() => (axios({
-                    method: 'post', 
-                    url: ClientURL, 
-                    headers:{
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json;charset=utf-8',
-                        'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': AuthTokenKey,
-                        'Accept': 'application/json, text/plain, */*',
-                        'Cache-Control': 'no-cache',
-                    }, 
-                    data:{
-                        fein:fein,
-                        business_name:businessName,
-                        first_name:firstName,
-                        last_name:lastName,
-                        emails:emails,
-                        phone:phone,
-                        address:address,
-                        city:city,
-                        state:state,
-                        zip_code:zipCode,
-                        tags:[1],
-                    }})
-                    .then((response) => {
-                        console.log(response)
-                        return true
-                    }, (error) => {
-                        console.log(error);
-                        return false
-                    })
-            )}>
-                Next
-            </MaterialButton>
+            <ToggleContent
+                content={hide => (
+                    <Modal>
+                        Client has been created❗<br/>
+                        <button onClick={hide}>
+                            Close
+                        </button>
+                    </Modal>
+                )}
+                toggle={show => 
+                    <MaterialButton
+                        style={{width:'75%', marginTop:'3em', marginBottom:'3em'}}
+                        onClick={() => (axios({
+                            method: 'post', 
+                            url: ClientURL, 
+                            headers:{
+                                'Access-Control-Allow-Origin': '*',
+                                'Content-Type': 'application/json;charset=utf-8',
+                                'Access-Control-Allow-Credentials': 'true',
+                                'Authorization': AuthTokenKey,
+                                'Accept': 'application/json, text/plain, */*',
+                                'Cache-Control': 'no-cache',
+                            }, 
+                            data:{
+                                fein:fein,
+                                business_name:businessName,
+                                first_name:firstName,
+                                last_name:lastName,
+                                emails:emails,
+                                phone:phone,
+                                address:address,
+                                city:city,
+                                state:state,
+                                zip_code:zipCode,
+                                tags:[1],
+                            }})
+                            .then((response) => {
+                                console.log(response)
+                                alert('client ' + firstName + ' ' + lastName + ' with business ' + businessName + ' was properly created')
+                                history.push(homeInfo[0].path)
+                            }, (error) => {
+                                console.log(error);
+                                return false
+                            })
+                        )}>
+                    Next
+                </MaterialButton>
+            }
+        />
         </div>
     )
 }

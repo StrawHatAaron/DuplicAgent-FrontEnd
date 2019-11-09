@@ -22,9 +22,10 @@ import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
 
 //imported components
 import NewClient from '../components/AgentComponents/NewClient'
-import ExistingClient from '../components/AgentComponents/ExistingClient'
+import NewPolicy from '../components/AgentComponents/NewPolicy'
 import Todos from '../components/AgentComponents/Todos'
 import * as TopAgent from '../components/AgentComponents/TopAgent'
+import TopClient from '../components/AgentComponents/TopClient'
 import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
@@ -44,7 +45,7 @@ export const signInPath = "/"
 export const signUpPath = "/SignUp"
   
 
-const clientIdPath = baseURL+"/NewBusiness/ExistingClient/:id"
+const clientIdPath = baseURL+"/NewBusiness/ExistingClient/:id"//+window.localStorage.getItem('clientId')
 
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
@@ -134,7 +135,7 @@ export const newBizInfo = [{
     path:`${baseURL}${homeInfo[0].path}/CurrentSubmissions`, 
     icon:CurrentSubmissionsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent: ExistingClient
+    botComponent: () => (<RetrieveData type={ExistingClients}/>)
 }]
 
 
@@ -145,19 +146,21 @@ export const existingClientInfo = [{
     path:`${clientIdPath}/Acords`, 
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:ExistingClient
+    //will need new file for file system
+    botComponent:() => (<RetrieveData type={ExistingClients}/>)
 },{
     title:'Files',
     path:`${clientIdPath}/Files`, 
     icon:FilesImg, 
     explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
-    botComponent:ExistingClient
+    //will need new file for file system
+    botComponent:() => (<RetrieveData type={ExistingClients}/>)
 },{
     title:'Create Policy',
     path:`${clientIdPath}/Create Policy`, 
     icon:ClientAccountingImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    botComponent:NewClient
+    botComponent:NewPolicy
 },{
     title:Polices,
     path:`${clientIdPath}/Policies`, 
@@ -206,7 +209,7 @@ export var gridRouteInfo = [{
     title:'Client Name!',
     path:clientIdPath,
     icon:'',
-    topComponent: TopAgent.client(window.localStorage.getItem("Client Name")),
+    topComponent: <TopClient/>,
     storeData:'Client Name',
     info:existingClientInfo
 }]

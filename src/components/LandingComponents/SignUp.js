@@ -118,11 +118,16 @@ export default function SignUp(){
                         labelPlacement="end"/>
                     <br/>
                     <ToggleContent
+                        content={hide => (
+                            <Modal>
+                                {modalText}❗<br/>
+                                <button onClick={hide}>Close</button>
+                            </Modal>
+                        )}
                         toggle={show => 
                             <MaterialButton 
                                 style={{width:'95%', margin:'2em'}}
                                 onClick={() => {
-                                    // alert(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))
                                     if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))){
                                         setModalText("That is not a valid email")
                                         show()    
@@ -145,7 +150,7 @@ export default function SignUp(){
                                             .then((response) => {
                                                 console.log(response)
                                                 if(response.status===201){
-                                                    setModalText('Your account has ben successfully created')
+                                                    setModalText('Your account has been successfully created')
                                                     show()
                                                     return true
                                                 }
@@ -160,12 +165,6 @@ export default function SignUp(){
                                 <LockIcon/>
                             </MaterialButton>
                         }
-                        content={hide => (
-                            <Modal>
-                                {modalText}❗<br/>
-                                <button onClick={hide}>Close</button>
-                            </Modal>
-                        )}
                     />
                     </div>
                     </div>

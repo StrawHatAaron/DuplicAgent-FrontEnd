@@ -77,10 +77,8 @@ export default function AgentRouter(props){
                         exact path={route.path}
                         component={() => (
                             <>
-                                {TopAgent.simpleWithLocation(
-                                    route.explanation, 
-                                    route.title,
-                                    route.icon)}
+                                {TopAgent.simpleWithLocation(route.explanation, 
+                                    route.title, route.icon)}
                                 <route.botComponent/>
                             </> 
                         )}
