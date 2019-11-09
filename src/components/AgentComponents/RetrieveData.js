@@ -91,19 +91,24 @@ export default function RetrieveData(props) {
         })
     }, [contentType])
 
-    var idList = []
-    function onGotToPage(index){
-        window.localStorage.setItem('clientId', idList[index])
-    }
+    // var idList = [142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115]
+    // function saveId(index){
+    //     console.log('index: '+index)
+    //     window.localStorage.setItem('clientId', idList[index])
+    //     console.log(window.localStorage.getItem('clientId'))
+    // }
 
     const ListContent = dataList.map((data, index) => {
-        idList.push(data['id'])
+        // idList.push(data['id'])
+        // console.log(idList)
         return(
             <div key={'retrieve-data-list'+contentType.title+index} className="list">
                 <Link 
+                    key={'save-existing-client'+index}
                     to={url + data['id'] + '/'} 
                     className="text"
-                    onClick={onGotToPage(index)}> 
+                    // onClick={console.log('fuck you')}
+                > 
                     {data[contentType.parsers[0]]} 
                 </Link>
                 <div className="text">{data[contentType.parsers[1]]}</div>

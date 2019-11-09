@@ -40,12 +40,17 @@ export const AccountingInfo = 'Accounting Info'
 
 //constant paths that help keep the app more organized because
 //there is lots of reused paths
+
+//Agent Authed Routes
 export const baseURL = "/Agent"
+export const home = "/Home"
+
+
+//Landing page non-auth
 export const signInPath = "/"
 export const signUpPath = "/SignUp"
-  
 
-const clientIdPath = baseURL+"/NewBusiness/ExistingClient/:id"//+window.localStorage.getItem('clientId')
+const clientIdPath = baseURL+home+"/NewBusiness/ExistingClient/:id"//+window.localStorage.getItem('clientId')
 
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
@@ -77,42 +82,42 @@ export const agentHeaderInfo = [{
 //home page for the Agent or Broker
 export const homeInfo = [{
     title:'New Business', 
-    path:baseURL+'/NewBusiness',
+    path:baseURL+home+'/NewBusiness',
     icon:NewBusinessImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Renewals',
-    path:baseURL+'/Renewals', 
+    path:baseURL+home+'/Renewals', 
     icon:RenewalsImg, 
     explanation:'View all assigned renewals, update status/progress, access documents and information for renewals...'
 },{
     title:'Accounting',
-    path:baseURL+'/Accounting', 
+    path:baseURL+home+'/Accounting', 
     icon:AccountingImg, 
     explanation:'Run financial reports, view or create new invoices, statements, accounts receiveable/payable...'
 },{
     title:'Service',
-    path:baseURL+'/Service', 
+    path:baseURL+home+'/Service', 
     icon:ServiceImg, 
     explanation:'Issue standard Acord forms, help clients with general policy questions, admin tasks, urgent requests...'
 },{
     title:'Resources', 
-    path:baseURL+'/Resources',
+    path:baseURL+home+'/Resources',
     icon:ResourcesImg, 
     explanation:'Admin support tools, statistics and marketing materials, important agency files...'
 },{
     title:'Calendar',
-    path:baseURL+'/Calendar', 
+    path:baseURL+home+'/Calendar', 
     icon:CalendarImg, 
     explanation:'View or set new reminders, events, meetings, and keep track of important personal & business dates... '
 },{
     title:'Surplus Lines Taxes',
-    path:baseURL+'/SurplusLinesTaxes', 
+    path:baseURL+home+'/SurplusLinesTaxes', 
     icon:SurplusLinesTaxesImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...'
 },{
     title:'Agency Support',
-    path:baseURL+'/AgencySupport', 
+    path:baseURL+home+'/AgencySupport', 
     icon:AgencySupportImg, 
     explanation:'Customer support and contact information, live chat, questions and concerns, general help...'
 }]
@@ -193,20 +198,20 @@ export const existingClientInfo = [{
 //Routes that are for displaying navigation with grid components
 export var gridRouteInfo = [{
     title:'Home',
-    path:baseURL+"/Home", 
+    path:baseURL+home, 
     icon:'home', 
     topComponent: TopAgent.simple('Home'),
     storeData:'',
     info: homeInfo
 },{
     title:'New Business',
-    path:baseURL+'/NewBusiness', 
+    path:baseURL+home+'/NewBusiness', 
     icon:AdditionalDetailsImg, 
     topComponent: TopAgent.simple('New Biz'),
     storeData:'',
     info: newBizInfo
 },{
-    title:'Client Name!',
+    title:'Client Id!',
     path:clientIdPath,
     icon:'',
     topComponent: <TopClient/>,

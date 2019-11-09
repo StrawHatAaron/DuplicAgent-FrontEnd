@@ -6,20 +6,20 @@ import {AuthTokenKey} from '../../utils/auth'
 export default function TopClient() {
 
 
-    // const url = window.location.hash.replace('#', '')
-    // const urlArr = url.split('/')
+    const url = window.location.hash.replace('#', '')
+    const urlArr = url.split('/')
 
-    // var id
+    var id
 
-    // if(urlArr[urlArr.length-1]===''){
-    //     id = urlArr[urlArr.length-2]
-    // } else {
-    //     id = urlArr[urlArr.length-1]
-    // }
+    if(urlArr[urlArr.length-1]===''){
+        id = urlArr[urlArr.length-2]
+    } else {
+        id = urlArr[urlArr.length-1]
+    }
 
-    // window.localStorage.setItem('clientId', id)
+    window.localStorage.setItem('clientId', id)
 
-    console.log('id: ' + id)
+    // console.log('id: ' + id)
     // console.log("arr-2: "+urlArr[urlArr.length-2])
     // console.log("arr-1: "+urlArr[urlArr.length-1])
 

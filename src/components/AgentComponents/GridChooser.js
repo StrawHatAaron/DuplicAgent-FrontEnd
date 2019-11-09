@@ -3,20 +3,23 @@ import './GridChooser.scss'
 import {Link,} from 'react-router-dom'
 
 export default function GridChooser(props){
-
-    if(props.storeData==='Client Name'){
-        window.localStorage.setItem(props.storeData, "Aaron Miller")
-            console.log("Storing Client Data")    
-    }   
     
     const homeContent = props.info.map((info, i) => {
+
+        const baseUrl = window.location.hash.replace('#', '')
+        const endPointLength = info.path.split('/').length
+        const endPoint = info.path.split('/')[endPointLength-1]
+        const dynamicRoute = baseUrl + endPoint + "/"
+
         // console.log("pathname: " + window.location.hash)
-        // var url = window.location.hash.replace('#', '')
-        // console.log(url)
+        // console.log(baseUrl)
+        // console.log(endPointLength)
+        // console.log(endPoint)
+
         return(
             <Link
                 key={info.path+i} 
-                to={info.path+'/'} 
+                to={dynamicRoute} 
                 className="section">
 
                 <img
