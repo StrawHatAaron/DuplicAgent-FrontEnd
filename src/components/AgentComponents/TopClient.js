@@ -59,21 +59,21 @@ export default function TopClient() {
                 setState(response.data[0]['state'])
                 setZipCode(response.data[0]['zip_code'])
                 window.localStorage.setItem('clientName', 
-                    response.data[0]['first_name'] + ' ' + response.data[0]['last_name'])
+                response.data[0]['first_name'] + ' ' + response.data[0]['last_name'])
             }, (error) => {     
         })
     }, [])
 
     return(
-        <div className="top-client">
+        <div className="top-client" style={{textAlign:'left', padding:'2em'}}>
             <div className="left-side">
-                <div className="cust-name">{businessName}</div>
-                {firstName} {lastName}<br/>
-                {phone}<br/>
-                {address}, {city}, {state} {zipCode} <br/>
-                {emails} <br/>
+                <div className="cust-name">Business Name:{businessName}</div>
+                Name: {firstName} {lastName}<br/>
+                Phone: {phone}<br/>
+                Address: {address}, {city}, {state} {zipCode} <br/>
             </div>
             <div className="right-side">
+                Email: {emails} <br/>
                 FEIN: {fein} <br/>
                 Client ID: {id}<br/>
                 Status: Active

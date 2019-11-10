@@ -109,6 +109,22 @@ export default function AgentRouter(props){
                     />
                 ))}
 
+
+                {RouteConstants.policyInfo.map((route,i) => (
+                    <Route
+                        key={"policy-with-client-id-route"+i}
+                        exact path={route.path}
+                        render={() =>  (
+                            <>
+                            {TopAgent.simple(
+                                window.localStorage.getItem('clientName')
+                            )}
+                            <route.botComponent/>
+                            </>
+                        )}
+                    />
+                ))}
+
             </div>
             <AgentFooter/>
         </>

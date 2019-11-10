@@ -29,6 +29,7 @@ import TopClient from '../components/AgentComponents/TopClient'
 import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
+import DisplayPolicy from '../components/AgentComponents/DisplayPolicy'
 
 //When Adding to the routing array always try and append to the end of it
 
@@ -43,15 +44,16 @@ export const AccountingInfo = 'Accounting Info'
 
 //Agent Authed Routes
 export const baseURL = "/Agent"
-export const home = "/Home"
-export const newBusiness = "/NewBusiness"
-
+const home = "/Home"
+const newBusiness = "/NewBusiness"
+const clientIdPath = baseURL+home+"/NewBusiness/ExistingClient/:client"
+const policyIdPath = clientIdPath+"/Policies/:policy"
 
 //Landing page
 export const signInPath = "/"
 export const signUpPath = "/SignUp"
 
-const clientIdPath = baseURL+home+"/NewBusiness/ExistingClient/:id"//+window.localStorage.getItem('clientId')
+
 
 //*** */the constants are written in the following structure***
 // title: The title that will display where the user is,
@@ -194,6 +196,12 @@ export const existingClientInfo = [{
 },]
 
 
+//after you click on a policy number have this display
+export var policyInfo = [{
+    title:"The Specific Policy",
+    path:policyIdPath,
+    botComponent:DisplayPolicy
+}]
 
 
 //Routes that are for displaying navigation with grid components
@@ -208,7 +216,7 @@ export var gridRouteInfo = [{
     title:'New Business',
     path:baseURL+home+newBusiness, 
     icon:AdditionalDetailsImg, 
-    topComponent: TopAgent.simple('New Biz'),
+    topComponent: TopAgent.simple('New Business'),
     storeData:'',
     info: newBizInfo
 },{
@@ -219,3 +227,5 @@ export var gridRouteInfo = [{
     storeData:'Client Name',
     info:existingClientInfo
 }]
+
+
