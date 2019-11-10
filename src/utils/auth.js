@@ -33,7 +33,7 @@ class Auth {
             password: passwordValue
         })
         .then((response) => {
-            console.log(response)
+            //console.log(response)
             // console.log(response.status)
             if(response.status===200){
                 const token = response.data['token']
@@ -72,7 +72,7 @@ class Auth {
       
           return false;
         } catch (error) {
-          console.log(error);
+          //console.log(error);
           return false;
         }
       }

@@ -22,8 +22,7 @@ export default function NewPolicy(){
     const [producer, setProducer] = useState('')
     const [assignedCsr, setAssignedCsr] = useState('')
     
-    console.log(AuthTokenKey)
-
+    // console.log(AuthTokenKey)
     
     const TextWidth = {
         width: '100%'
@@ -135,7 +134,7 @@ export default function NewPolicy(){
                         }, 
                         data:{
                             client:window.localStorage.getItem('clientId'),
-                            number:number,
+                            number:78,
                             line_of_business:lineOfBusiness,
                             effective_date:effectiveDate,
                             expiration_date:expirationDate,
@@ -148,8 +147,28 @@ export default function NewPolicy(){
                         }})
                         .then((response) => {
                             console.log(response)
+
+                            //This code was written to always go back to the main client page
+                            // I Decided to comment it out because idk what the best 
+                            //user experience would be.
+                            // const url = window.location.hash.replace('#', '')
+                            // const splitUrl = url.split('/')
+                            // splitUrl.map((c) => {console.log(c)})
+                            // // console.log(splitUrl.length)
+                            // var cutLength
+                            // if(splitUrl[splitUrl.length-1]===''){
+                            //     cutLength = splitUrl[splitUrl.length-2].length + 1
+                            // } else {
+                            //     cutLength = splitUrl[splitUrl.length-1].length
+                            // }
+                            // // url.length - 1
+                            // const newRoute = url.substring(0, url.length-cutLength)
+                            // console.log(newRoute)
+                            //history.push(newRoute)
+
                             alert('policy ' + number + ' was properly created')
-                            history.push(newBizInfo[1].path)
+                            history.goBack()
+
                         }, (error) => {
                             console.log(error);
                             return false

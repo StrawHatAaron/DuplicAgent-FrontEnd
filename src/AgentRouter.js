@@ -71,6 +71,7 @@ export default function AgentRouter(props){
                 ))}
 
 
+
                 {RouteConstants.newBizInfo.map((route, i) => (
                     <Route
                         key={"newBizInfo"+i}
@@ -95,7 +96,7 @@ export default function AgentRouter(props){
                         render={() => (
                             <> 
                                 {TopAgent.simple(
-                                    window.localStorage.getItem('Client Name') + "Hello?"
+                                    window.localStorage.getItem('clientName')
                                 )}
                                 {TopAgent.simpleWithLocation(
                                     route.explanation, 

@@ -153,14 +153,14 @@ export const existingClientInfo = [{
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     //will need new file for file system
-    botComponent:() => (<RetrieveData type={ExistingClients}/>)
+    botComponent:Todos
 },{
     title:'Files',
     path:`${clientIdPath}/Files`, 
     icon:FilesImg, 
     explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
     //will need new file for file system
-    botComponent:() => (<RetrieveData type={ExistingClients}/>)
+    botComponent:Todos
 },{
     title:'Create Policy',
     path:`${clientIdPath}/Create Policy`, 

@@ -22,9 +22,7 @@ export default function TopClient() {
     // console.log('id: ' + id)
     // console.log("arr-2: "+urlArr[urlArr.length-2])
     // console.log("arr-1: "+urlArr[urlArr.length-1])
-
-    var id = window.localStorage.getItem('clientId')
-    console.log(id)
+    // console.log(id)
 
     const [fein, setFein] = useState('')
     const [businessName, setBusinessName] = useState('')
@@ -36,6 +34,7 @@ export default function TopClient() {
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
+    
     useEffect(() => {
         axios({
             method: 'get', 
@@ -59,6 +58,8 @@ export default function TopClient() {
                 setCity(response.data[0]['city'])
                 setState(response.data[0]['state'])
                 setZipCode(response.data[0]['zip_code'])
+                window.localStorage.setItem('clientName', 
+                    response.data[0]['first_name'] + ' ' + response.data[0]['last_name'])
             }, (error) => {     
         })
     }, [])
