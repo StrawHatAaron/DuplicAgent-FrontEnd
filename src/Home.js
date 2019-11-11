@@ -9,6 +9,8 @@ import BaretapsLogo from './media/baretaps_logo.png'
 import SacStateLogo from './media/sac_state_logo.png'
 import EmpireWeLogo from './media/empire_west_logo.jpeg'
 import Stock from './media/stock.jpg';
+import Link from 'react-scroll/modules/components/Link'
+import Element from 'react-scroll/modules/components/Element'
 
 
 const customerTypeInfo = [
@@ -79,6 +81,8 @@ export default function Home(props){
             key={"the-big-div-lands"} 
             className="the-big-div">
             <Header/>
+          
+           
             <div className="landing-body">
 
                 <div className='row-1'>
@@ -139,7 +143,7 @@ export default function Home(props){
                     </div>
                 </div>
 
-                <div className="row-5">
+                <div id="contact-us" className="row-5">
                     <div className='row-5-contain'>
                         <hr className="left"/>
                         <div className='contact-us'>Contact Us</div>
@@ -152,7 +156,7 @@ export default function Home(props){
                     <div> <img src={Stock} alt="Stock" style={{width: 720, height: 700}}/></div>
                 </div>
                 
-                <div className="row-7">
+                <div id="affiliates-comps" className="row-7">
                     <hr className="hr-1"/>
                     <div className='affiliates-comps'>Supporters & Affiliate Companies</div>
                     <hr className="hr-2"/>
