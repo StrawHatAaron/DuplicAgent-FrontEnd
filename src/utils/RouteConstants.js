@@ -19,6 +19,7 @@ import ClientAccountingImg from '../media/routing/AccountingImg.png'
 import ClaimsImg from '../media/routing/ClaimsImg.png'
 import QuotesImg from '../media/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
+import SettingsWheel from '../media/routing/ResourcesImg.png'
 
 //imported components
 import NewClient from '../components/AgentComponents/NewClient'
@@ -28,6 +29,7 @@ import * as TopAgent from '../components/AgentComponents/TopAgent'
 import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
+import Settings from '../components/AgentComponents/Settings'
 
 //When Adding to the routing array always try and append to the end of it
 
@@ -76,7 +78,7 @@ export const agentHeaderInfo = [{
     path: baseURL + "/Settings",
     icon: "comment",
     explanation: "Configure Settings",
-    botComponent: Uploader
+    botComponent: Settings
 }]
 
 //home page for the Agent or Broker
