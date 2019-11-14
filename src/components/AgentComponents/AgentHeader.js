@@ -1,4 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import {AuthTokenKey} from '../../utils/auth'
+import {CheckUserInfoURL} from '../../utils/ApiConstants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AgentHeader.scss'
 import Logo from '../Logo'
@@ -16,6 +19,30 @@ export default function Header(props){
     function toggleSearch(){
         setSearchShow(!searchShow)
     }
+
+    const [email, setEmail] = useState('')
+    useEffect(() => {
+        axios({
+            method: 'get', 
+            url: CheckUserInfoURL, 
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json;charset=utf-8',
+                'Access-Control-Allow-Credentials': 'true',
+                'Authorization': AuthTokenKey,
+                'Accept': 'application/json, text/plain, */*',
+                'Cache-Control': 'no-cache',
+            },
+            })
+            .then((response) => {
+                setEmail(response.data['name'])
+                console.log(response)
+                return true
+            }, (error) => {
+                console.log(error);
+                return false
+        })
+    }, [])
 
     const toggleSearchStyle = {
         margin:'1em 3em'
@@ -68,7 +95,7 @@ export default function Header(props){
                 </div>
                 <div className="profile-area">
                     <FontAwesomeIcon icon="user-tie"/>
-                    <div className="user-name">Aaron</div>
+                    <div className="user-name">{email}</div>
                     <button 
                         onClick={() => {
                             auth.logout(() => {

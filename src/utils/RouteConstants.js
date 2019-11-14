@@ -62,12 +62,6 @@ export const agentHeaderInfo = [{
     explanation:"Choose where to upload a Document!",
     botComponent:Uploader
 },{
-    title:"Chat",
-    path:baseURL+"/Chat",
-    icon:"comment",
-    explanation:"Send Message",
-    botComponent:Uploader
-},{
     title:"Notifications",
     path:baseURL+"/Notifications",
     icon:"exclamation-triangle",
@@ -76,7 +70,7 @@ export const agentHeaderInfo = [{
 }, {
     title: "Settings",
     path: baseURL + "/Settings",
-    icon: "comment",
+    icon: "cog",
     explanation: "Configure Settings",
     botComponent: Settings
 }]

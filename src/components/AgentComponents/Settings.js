@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {ClientURL} from '../../utils/ApiConstants'
+import {CheckUserInfoURL} from '../../utils/ApiConstants'
 import {AuthTokenKey} from '../../utils/auth'
 import axios from 'axios'
 import {MaterialButton, CssTextField} from '../../utils/Constants'
@@ -37,9 +37,9 @@ export default function Settings() {
                         onChange={(e) => setLastName(e.target.value)}/>
                 <MaterialButton
                     style={{width:'50%', marginTop:'3em', marginBottom:'3em'}}
-                    onClick={axios({
-                        method: 'post', 
-                        url: ClientURL, 
+                    onClick={() => axios({
+                        method: 'put', 
+                        url: CheckUserInfoURL, 
                         headers:{
                             'Access-Control-Allow-Origin': '*',
                             'Content-Type': 'application/json;charset=utf-8',
@@ -49,20 +49,23 @@ export default function Settings() {
                             'Cache-Control': 'no-cache',
                         }, 
                         data:{
-                            first_name: firstName,
-                            last_name: lastName,
-                        }})
-                        .then((response) => {
-                            console.log(response)
-                            return true
-                        }, (error) => {
-                            alert("Network Request Error")
-                            console.log(error);
-                            return false
-                        })}>
+                            email: window.localStorage.getItem('email'), 
+                            name: firstName+lastName,
+                        }
+                    })
+                    .then((response) => {
+                        console.log(response)
+                        return true
+                    }, (error) => {
+                        alert("Network Request Error")
+                        console.log(error);
+                        return false
+                    })}>
                     Submit
                 </MaterialButton>
             </div>
+
+            
             <div>
                 <h1>Change Password</h1>
                 <CssTextField style={DivWidth}
@@ -75,29 +78,31 @@ export default function Settings() {
                         autoComplete="current-password"
                         onChange={(e) => setPassword(e.target.value)}/>
                 <MaterialButton
-                style={{width:'50%', marginTop:'3em', marginBottom:'3em'}}
-                onClick={axios({
-                    method: 'post', 
-                    url: ClientURL, 
-                    headers:{
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json;charset=utf-8',
-                        'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': AuthTokenKey,
-                        'Accept': 'application/json, text/plain, */*',
-                        'Cache-Control': 'no-cache',
-                    }, 
-                    data:{
-                        passsword: password,
-                    }})
-                    .then((response) => {
-                        console.log(response)
-                        return true
-                    }, (error) => {
-                        alert("Network Request Error")
-                        console.log(error);
-                        return false
-                    })}>
+                    style={{width:'50%', marginTop:'3em', marginBottom:'3em'}}
+                    onClick={() => axios({
+                        method: 'post', 
+                        url: "https://api.duplicagent.com/api/", 
+                        headers:{
+                            'Access-Control-Allow-Origin': '*',
+                            'Content-Type': 'application/json;charset=utf-8',
+                            'Access-Control-Allow-Credentials': 'true',
+                            'Authorization': AuthTokenKey,
+                            'Accept': 'application/json, text/plain, */*',
+                            'Cache-Control': 'no-cache',
+                        }, 
+                        data:{
+                            passsword: password,
+                        }})
+                        .then((response) => {
+                            console.log(response)
+                            return true
+                        }, (error) => {
+                            alert("Network Request Error")
+                            console.log(error);
+                            return false
+                        }
+                    )}
+                >
                 Submit
             </MaterialButton>
             </div>            
