@@ -2,7 +2,8 @@ import axios from 'axios';
 import * as ApiConstants from "./ApiConstants";
 
 const authToken = 'AuthToken'
-export const AuthTokenKey = 'Token '.concat(window.localStorage.getItem(authToken))
+export const AuthTokenKey = `Token ${window.localStorage.getItem(authToken)}`
+console.log(AuthTokenKey)
 
 class Auth {
     constructor() {

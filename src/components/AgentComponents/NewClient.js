@@ -21,7 +21,7 @@ export default function NewClient(){
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
     
-    //console.log(AuthTokenKey)
+    console.log(AuthTokenKey)
 
     
     const TextWidth = {
