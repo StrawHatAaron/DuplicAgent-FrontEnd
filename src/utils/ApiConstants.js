@@ -2,7 +2,7 @@
 //easily managed in one place
 
 // const BaseURL = "http://api.duplicagent.com:8000/api/";
-const BaseURL = "https://duplicagent.com/api/";
+const BaseURL = "https://api.duplicagent.com/api/";
 
 //manage or create authenticated user 
 export const SignUpUserURL = BaseURL + "user/create/";
