@@ -38,6 +38,7 @@ class Auth {
             // console.log(response.status)
             if(response.status===200){
                 const token = response.data['token']
+                console.log(token)
                 window.localStorage.setItem(authToken, token)
                 this.authenticated = true
                 //Use the callback function after setting variables
