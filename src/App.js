@@ -1,17 +1,24 @@
 import React from 'react';
-import {HashRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter, Route, Switch, Link} from 'react-router-dom'
 import AgentRouter from './AgentRouter'
 import Home from './Home'
 import SignUp from './components/LandingComponents/SignUp'
 import { ProtectedRoute } from "./utils/protected.route";
 import { history } from "./utils/history";
 import * as RouteConstants from "./utils/RouteConstants" 
+import Adobe from './Adobe'
 
 function App(){
   return (
     <HashRouter history={history} className="App">
       <div>
+        <Link to="/adobe">    
+          adobe
+        </Link>  
         <Switch>
+          <Route 
+            path="/adobe"
+            component={() => (<Adobe/>)}/>
           <Route
             path={RouteConstants.signUpPath}
             component={() => (<SignUp/>)}

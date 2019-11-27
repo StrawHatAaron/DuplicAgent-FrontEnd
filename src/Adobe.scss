@@ -1,0 +1,270 @@
+@import './utils/constant-styles.scss';
+.the-big-div{
+  margin: 0 5em;
+  border: 1px solid #868585;
+  box-shadow: $box-shadow;
+  .landing-body{
+    background: white;
+    .row-1{
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.5fr;
+      grid-template-rows: 1;
+      .row-1_col1{
+        padding:3em;
+        .drive-force{
+          color: $grey-text;
+          font-size: 1.5rem;
+        }
+        .your-biz{
+          color: $orange;
+          padding-left:1em;
+          font-size: 2.5rem;
+        }
+        .sm-col-flex{
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+          .suc-man{
+            margin-top:2em;
+            font-size:1.35rem;
+          }
+          .explain{
+            margin: 2em 3em;
+            color: $grey-text;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.75em;
+          }
+          .MuiButtonBase-root .MuiButton-root .makeStyles-button-22 
+          .MuiButton-contained .MuiButton-containedSecondary{
+            justify-content: center;
+          }
+        }
+      }
+      .row-1_col2{.guys-walking{ }}
+      .row-1_col3{}
+      
+    }
+    .row-2{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1;
+      background: $blue;
+      color: $white;
+      .row-2-boxes{
+        text-align:center;
+        margin: 3em 0em;
+
+        .bigger-text{
+          font-size: 1.25rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          .cust-type{
+            color: $light-blue;
+          }
+        }
+        .link-learn{
+            color: $light-blue;
+            text-decoration: none;
+        }
+      }
+      .ya{
+        border-right: 1px solid $white;
+      }
+    }
+    .row-3{
+      background: url("./media/falcon9.jpg");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height:60em;
+      text-align: left;
+      color: $white;
+      .elon-quote{
+        font-size: 1.5rem;
+        padding:10em 30em 0em 20em;
+      }
+    }
+    .row-4{
+      background: $light-blue;
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      .row-4-row-1{
+        font-size: 2.5rem;
+        padding-top: 1em;
+      }
+      .row-4-row-2{
+        font-size: 1.2rem;
+        margin: 1em 12em;
+      }
+      .row-4-row-3{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1em;
+      }
+    }
+    .row-5{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      background: white;
+      padding: 1.75em;
+      .row-5-contain{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        hr.left{
+          flex:1;
+          margin: 0;
+          align-self: stretch;
+          margin-top:1em;
+        }
+        hr.right{
+          flex:3;
+          margin: 0;
+          align-self: stretch;
+          margin-top:1em;
+        }
+        .contact-us{
+          width:0em;
+          font-size: 2em;
+          color:$grey-text;
+        }
+      }
+      div{
+        flex:1;
+      }
+    }
+    .row-6{
+      background: white;
+
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .row-7{
+      background: white;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 1.75em;
+      .affiliates-comps{
+        width:0em;
+        font-size: 2em;
+        color:$grey-text;
+      }      
+      .row-7-col-1{}
+      .row-7-col-2{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        hr{
+          flex:1;
+          margin: 0;
+          align-self: stretch;
+          margin-top:1em;
+        }
+      }
+      hr { 
+        flex: 1;
+        border: 3em;
+        height: 1px;
+        background: $orange;
+        margin-top: 1em;
+        top: 1px;
+      }
+      div{
+        flex:1;
+      }
+    }
+
+    .row-8{
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+      grid-template-rows: 1;
+      text-align: center;
+      .affiliates{
+        margin: 1em;
+        padding: 1em 0em;
+        border: 1px solid #868585;
+        box-shadow: $box-shadow;
+        font-size: 2em;
+      }
+    }
+    .row-9{
+      background: white;
+
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 1.75em;
+      
+      hr{
+        flex:1;
+        margin: 0;
+        align-self: stretch;
+        margin-top:1em;
+        background: $orange;  
+      }
+    }
+  }
+}
+
+@media all and (max-width: $mobile-size){
+  .the-big-div{
+    .landing-body{
+      
+      .row-1{
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 3;
+        grid-template-areas:
+          'col1'
+          'col2'
+          'col3';
+
+      }
+      .row-2{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 3;
+        .row-2-boxes{
+          padding: 2em 0;
+          margin: 0 3em;    
+        }
+        .ya{
+          border-right: none;
+          border-bottom:  1px solid $white;
+          
+        }
+      }
+      .row-4{
+        .row-4-row-2{
+          font-size: 1.2rem;
+          margin: 1em 2em;
+        }
+      }
+      .row-6{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap; 
+      }
+      .row-8{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 3;
+        .affiliates{
+          margin: .5em;
+          padding: .5em 0em;
+        }
+      }
+    }
+  }
+}
