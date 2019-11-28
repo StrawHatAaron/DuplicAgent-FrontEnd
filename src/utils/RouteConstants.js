@@ -30,6 +30,11 @@ import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
 import DisplayPolicy from '../components/AgentComponents/DisplayPolicy'
+import Adobe from '../Adobe'
+
+//pdfs - temporary 
+import {acord25, acord125, acord126, acord131, acord131Filled} from './AdobeFile'
+
 
 //When Adding to the routing array always try and append to the end of it
 
@@ -155,7 +160,7 @@ export const existingClientInfo = [{
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
     //will need new file for file system
-    botComponent:Todos
+    botComponent:Adobe
 },{
     title:'Files',
     path:`${clientIdPath}/Files`, 
@@ -195,6 +200,20 @@ export const existingClientInfo = [{
     botComponent:Todos
 },]
 
+
+export const acordInfo = [{
+        name:'Acord 25',
+        pdf:acord25
+    },{
+        name:' Acord 125',
+        pdf:acord125
+    },{
+        name:'Acord 126',
+        pdf:acord126
+    },{
+        name:'Acord 131',
+        pdf:acord131
+},]
 
 //after you click on a policy number have this display
 export var policyInfo = [{

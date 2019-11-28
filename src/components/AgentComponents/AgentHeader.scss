@@ -21,7 +21,6 @@
         width: 55em;
         height: 2.5em;
         border: none;
-        
       }
       .search-buttons{
         display: flex;
@@ -70,9 +69,8 @@
     .four-fa-fas{      
       margin-left: auto;
       padding-right: $top-side-padding;
-      .a-fa{
-        padding:0em .5em;
-      }
+      width:50;
+      height:50;
     }
   }
 }
