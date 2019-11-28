@@ -8,7 +8,7 @@
   height: 3.35em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   .nav-top {
-    padding-bottom: .75em;
+    padding-bottom: 0em;
     display: flex;
     justify-content: center;
     .search-area{
@@ -32,7 +32,7 @@
         }
         .search-button{
           background-color: $orange;
-          height:2.7em;
+          height:59px;
           margin-right: -.1em;
           color: $white;
           border:none;
@@ -54,11 +54,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top:.5em;
     padding: .6em 0;
     background-color: $white;
     color: $blue;
     .current-route{ 
-      
       margin-right: auto;
       padding-left: $top-side-padding;
       padding-right: 10px;
