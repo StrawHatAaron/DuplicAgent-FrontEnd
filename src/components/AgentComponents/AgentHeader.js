@@ -36,6 +36,7 @@ export default function Header(props){
             })
             .then((response) => {
                 setEmail(response.data['name'])
+                window.localStorage.setItem('email', response.data['name'])
                 console.log(response)
                 return true
             }, (error) => {

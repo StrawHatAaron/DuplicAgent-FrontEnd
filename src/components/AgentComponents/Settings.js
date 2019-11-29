@@ -50,7 +50,7 @@ export default function Settings() {
                         }, 
                         data:{
                             email: window.localStorage.getItem('email'), 
-                            name: firstName+lastName,
+                            name: firstName + " " + lastName,
                         }
                     })
                     .then((response) => {
