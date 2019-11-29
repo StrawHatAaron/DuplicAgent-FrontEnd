@@ -147,25 +147,6 @@ export default function NewPolicy(){
                         }})
                         .then((response) => {
                             console.log(response)
-
-                            //This code was written to always go back to the main client page
-                            // I Decided to comment it out because idk what the best 
-                            //user experience would be.
-                            // const url = window.location.hash.replace('#', '')
-                            // const splitUrl = url.split('/')
-                            // splitUrl.map((c) => {console.log(c)})
-                            // // console.log(splitUrl.length)
-                            // var cutLength
-                            // if(splitUrl[splitUrl.length-1]===''){
-                            //     cutLength = splitUrl[splitUrl.length-2].length + 1
-                            // } else {
-                            //     cutLength = splitUrl[splitUrl.length-1].length
-                            // }
-                            // // url.length - 1
-                            // const newRoute = url.substring(0, url.length-cutLength)
-                            // console.log(newRoute)
-                            //history.push(newRoute)
-
                             alert('policy ' + number + ' was properly created')
                             history.goBack()
 

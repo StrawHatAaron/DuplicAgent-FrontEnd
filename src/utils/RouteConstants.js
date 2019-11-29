@@ -30,7 +30,7 @@ import Uploader from '../components/AgentComponents/Uploader'
 import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
 import DisplayPolicy from '../components/AgentComponents/DisplayPolicy'
-import Adobe from '../Adobe'
+import FileChooser from '../components/AgentComponents/FileChooser'
 
 //pdfs - temporary 
 import {acord25, acord125, acord126, acord131, acord131Filled} from './AdobeFile'
@@ -53,6 +53,8 @@ const home = "/Home"
 const newBusiness = "/NewBusiness"
 const clientIdPath = baseURL+home+"/NewBusiness/ExistingClient/:client"
 const policyIdPath = clientIdPath+"/Policies/:policy"
+const acordPath = clientIdPath+"/Acords"
+const filesPath = clientIdPath+"/Files"
 
 //Landing page
 export const signInPath = "/"
@@ -156,18 +158,16 @@ export const newBizInfo = [{
 //still need to incorporate the clients name in here
 export const existingClientInfo = [{
     title:'Acords',
-    path:`${clientIdPath}/Acords`, 
+    path:acordPath, 
     icon:AcordsImg, 
     explanation:'Create new customer profile, start new quote for an existing customer, review previous submissions...',
-    //will need new file for file system
-    botComponent:Adobe
+    botComponent: () => (<FileChooser acordType={"empty"}/>)
 },{
     title:'Files',
-    path:`${clientIdPath}/Files`, 
+    path:filesPath, 
     icon:FilesImg, 
     explanation:'View, Download and Edit all the files that you have uploaded for this Client. ',
-    //will need new file for file system
-    botComponent:Todos
+    botComponent:() => (<FileChooser acordType={"filled"}/>)
 },{
     title:'Create Policy',
     path:`${clientIdPath}/Create Policy`, 
@@ -202,18 +202,32 @@ export const existingClientInfo = [{
 
 
 export const acordInfo = [{
+        path:acordPath+'/acord25',
         name:'Acord 25',
         pdf:acord25
     },{
-        name:' Acord 125',
+        path:acordPath+'/acord125',
+        name:'Acord 125',
         pdf:acord125
     },{
+        path:acordPath+'/acord126',
         name:'Acord 126',
         pdf:acord126
     },{
+        path:acordPath+'/acord131',
         name:'Acord 131',
         pdf:acord131
 },]
+
+export const acordTempInfo =[{
+    path:filesPath+'/acord131Filled',
+    name:'Acord 131',
+    pdf:acord131Filled
+},{
+    path:filesPath+'/acord125Filled',
+    name:'Acord 125',
+    pdf:acord125
+}]
 
 //after you click on a policy number have this display
 export var policyInfo = [{

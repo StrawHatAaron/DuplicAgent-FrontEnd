@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom'
 import * as RouteConstants from './utils/RouteConstants'
 import * as TopAgent from './components/AgentComponents/TopAgent'
 import AgentFooter from './components/AgentComponents/AgentFooter'
-
+import PDFViewer from 'pdf-viewer-reactjs'
 //NOTE-- This file is heavily tied with RouteConstants.js
 //------------------------------------------------------------------------------
 //You will see ALOT of key={} in this file because 
@@ -116,10 +116,39 @@ export default function AgentRouter(props){
                         exact path={route.path}
                         render={() =>  (
                             <>
+                                {TopAgent.simple(
+                                    window.localStorage.getItem('clientName')
+                                )}
+                                <route.botComponent/>
+                            </>
+                        )}
+                    />
+                ))}
+
+                {RouteConstants.acordInfo.map((route, i) => (
+                    <Route
+                        key={'acord-info-routes'+i}
+                        exact path={route.path}
+                        render={() =>  (
+                            <>
                             {TopAgent.simple(
                                 window.localStorage.getItem('clientName')
                             )}
-                            <route.botComponent/>
+                            <PDFViewer document={route.pdf}/>
+                            </>
+                        )}
+                    />
+                ))}
+                {RouteConstants.acordTempInfo.map((route, i) => (
+                    <Route
+                        key={'acord-info-routes-temp'+i}
+                        exact path={route.path}
+                        render={() =>  (
+                            <>
+                            {TopAgent.simple(
+                                window.localStorage.getItem('clientName')
+                            )}
+                            <PDFViewer document={route.pdf}/>
                             </>
                         )}
                     />
