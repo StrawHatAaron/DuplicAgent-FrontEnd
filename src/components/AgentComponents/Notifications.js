@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function Notifications() {
+export default function Notifications() {
     return (
         <div>
             <div>
@@ -12,5 +12,3 @@ function Notifications() {
         </div>
     )
 }
-
-export default Notifications

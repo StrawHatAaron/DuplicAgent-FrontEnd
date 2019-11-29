@@ -19,6 +19,7 @@ import ClientAccountingImg from '../media/routing/AccountingImg.png'
 import ClaimsImg from '../media/routing/ClaimsImg.png'
 import QuotesImg from '../media/routing/QuotesImg.jpeg'
 import AdditionalDetailsImg from '../media/routing/AdditionalDetailsImg.png'
+import SettingsWheel from '../media/routing/ResourcesImg.png'
 
 //imported components
 import NewClient from '../components/AgentComponents/NewClient'
@@ -31,6 +32,7 @@ import Notifications from '../components/AgentComponents/Notifications'
 import RetrieveData from '../components/AgentComponents/RetrieveData'
 import DisplayPolicy from '../components/AgentComponents/DisplayPolicy'
 import FileChooser from '../components/AgentComponents/FileChooser'
+import Settings from '../components/AgentComponents/Settings'
 
 //pdfs - temporary 
 import {acord25, acord125, acord126, acord131, acord125Filled, acord131Filled} from './AdobeFile'
@@ -76,17 +78,17 @@ export const agentHeaderInfo = [{
     explanation:"Choose where to upload a Document!",
     botComponent:Uploader
 },{
-    title:"Chat",
-    path:baseURL+"/Chat",
-    icon:"comment",
-    explanation:"Send Message",
-    botComponent:Uploader
-},{
     title:"Notifications",
     path:baseURL+"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
     botComponent:Notifications
+}, {
+    title: "Settings",
+    path: baseURL + "/Settings",
+    icon: "cog",
+    explanation: "Configure Settings",
+    botComponent: Settings
 }]
 
 //home page for the Agent or Broker
