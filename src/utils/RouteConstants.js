@@ -33,7 +33,7 @@ import DisplayPolicy from '../components/AgentComponents/DisplayPolicy'
 import FileChooser from '../components/AgentComponents/FileChooser'
 
 //pdfs - temporary 
-import {acord25, acord125, acord126, acord131, acord131Filled} from './AdobeFile'
+import {acord25, acord125, acord126, acord131, acord125Filled, acord131Filled} from './AdobeFile'
 
 
 //When Adding to the routing array always try and append to the end of it
@@ -226,7 +226,7 @@ export const acordTempInfo =[{
 },{
     path:filesPath+'/acord125Filled',
     name:'Acord 125',
-    pdf:acord125
+    pdf:acord125Filled
 }]
 
 //after you click on a policy number have this display
