@@ -5,9 +5,6 @@ import axios from 'axios'
 import {MaterialButton} from '../../utils/Constants'
 
 export default function Notifications() {
-    const [policies, setPolicies] = useState([])
-
-    const [clients, setClients] = useState([])
 
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -18,6 +15,7 @@ export default function Notifications() {
         'Cache-Control': 'no-cache',
     }
 
+    const [policies, setPolicies] = useState([])
     useEffect(() => {
         axios({
             method: 'get', 
@@ -28,7 +26,7 @@ export default function Notifications() {
             const filtered_response = response.data.filter((policy) => (
                 new Date(policy.expiration_date) - new Date().setDate(new Date().getDate() + 30) <= 0
             ))
-            console.log(filtered_response)
+            //console.log(filtered_response)
             setPolicies(filtered_response)
             return true
         }, (error) => {
@@ -39,15 +37,21 @@ export default function Notifications() {
 
     }, [])
 
-    //console.log(full_response)
 
+    const [clients, setClients] = useState([])
     useEffect(() => {
         axios({
             method: 'get', 
             url: ClientURL, 
             headers: headers
         }).then((response) => {
-            console.log(response)
+            //console.log(response)
+            const filtered_response = response.data.filter((client) => (
+                policies.map((policy , index) => (
+                    policy.client === client.id
+                ))        
+            ))
+            setClients(filtered_response)
             return true
         }, (error) => {
             alert("Network Request Error")
@@ -56,11 +60,12 @@ export default function Notifications() {
         })
     }, [policies])
             
+    const [finalContent, setFinalContent] = useState([])
+    useEffect(() => {
+        console.log(clients)
+        console.log(policies)
+    }, [clients])
                 
-
-
-        
-    
     const ListContent = policies.map((c, i) => {
         return(
         <li>
@@ -96,7 +101,7 @@ export default function Notifications() {
     })
 
     // console.log("here")
-    console.log(policies[0])
+    //console.log(policies[0])
 
     return (
         <ul>
