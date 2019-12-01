@@ -28,8 +28,8 @@ export default function Notifications() {
         <li>
             <div style={{margin:'2em', fontSize:'1.5rem', textAlign:'left', paddingLeft:'2em'}}>
                 <div style={{padding:'.5em'}}>Policy ID: {item.id}<br/></div>
-                <div style={{padding:'.5em'}}>Client Name: {item.client_name}<br/></div>
-                <div style={{padding:'.5em'}}>Business Name: {item.business_name}<br/></div>
+                <div style={{padding:'.5em'}}>Client Name: {item.client}<br/></div>
+                <div style={{padding:'.5em'}}>Line of Business: {item.line_of_business}<br/></div>
                 <div style={{padding:'.5em'}}>Expiration Date: {item.expiration_date}<br/></div>
                 <MaterialButton
                     style={{width:'50%', marginTop:'3em', marginBottom:'3em'}}
@@ -76,8 +76,8 @@ export default function Notifications() {
                         referral_source: policy.referral_source,
                         producer: policy.producer,
                         assigned_csr: policy.assigned_csr,
-                        client_name: '',
-                        business_name: ''
+                        client_name: null,
+                        business_name: null
                     }
                 ))
 
@@ -105,7 +105,7 @@ export default function Notifications() {
                 ))
 
                 console.log(filtered_response)
-                console.log(filtered_response[1].client_name)
+                console.log(filtered_response[0].business_name) // HOW COME THIS DOESNT PRINT??
                 
                 setPolicies(filtered_response)
                 return true
