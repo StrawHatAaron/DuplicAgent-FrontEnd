@@ -3,6 +3,7 @@ import {PolicyURL, ClientURL} from '../../utils/ApiConstants'
 import {AuthTokenKey} from '../../utils/auth'
 import axios from 'axios'
 import {MaterialButton} from '../../utils/Constants'
+import { variableDeclaration } from '@babel/types';
 
 export default function Notifications() {
 
@@ -26,7 +27,6 @@ export default function Notifications() {
             const filtered_response = response.data.filter((policy) => (
                 new Date(policy.expiration_date) - new Date().setDate(new Date().getDate() + 30) <= 0
             ))
-            //console.log(filtered_response)
             setPolicies(filtered_response)
             return true
         }, (error) => {
@@ -38,20 +38,48 @@ export default function Notifications() {
     }, [])
 
 
-    const [clients, setClients] = useState([])
+    const [finalContent, setFinalContent] = useState([{
+        policyId:0,
+        clientName:'',
+        businessName:'',
+        expirationDate:''
+    }])
     useEffect(() => {
         axios({
             method: 'get', 
             url: ClientURL, 
             headers: headers
         }).then((response) => {
-            //console.log(response)
-            const filtered_response = response.data.filter((client) => (
-                policies.map((policy , index) => (
-                    policy.client === client.id
-                ))        
+            // console.log('client info')
+            // console.log(policies)
+            // console.log(response)
+            // var clientIDs = policies.map((c) =>  c.client)
+            var clientIDs = policies.map((c) =>  c.client)
+            // console.log("policyId")
+            // clientIDs = [...new Set(clientIDs)]
+            // console.log(clientIDs)
+            const filtered_clients = response.data.filter((client) => (
+                clientIDs.includes(client.id )
             ))
-            setClients(filtered_response)
+            // console.log('filtered clients')
+            // console.log(filtered_clients)
+            // console.log('filtered policies')
+            // console.log(policies)
+            
+            // console.log('policy objects')
+            // console.log(policies[0].id)
+
+            // var i;
+            // for(i=0; i<policies.length; i++){
+            //     setFinalContent(...finalContent, [{
+            //         policyId:policies[i].id,
+            //         expirationDate:policies[i].expiration_date,
+            //         //where 
+            //         clientName:"Aaron Miller",
+            //         businessName:"CSU Sac",
+            //     }])
+            // }
+            
             return true
         }, (error) => {
             alert("Network Request Error")
@@ -60,19 +88,15 @@ export default function Notifications() {
         })
     }, [policies])
             
-    const [finalContent, setFinalContent] = useState([])
-    useEffect(() => {
-        console.log(clients)
-        console.log(policies)
-    }, [clients])
+    
                 
     const ListContent = policies.map((c, i) => {
         return(
         <li>
             <div style={{margin:'2em', fontSize:'1.5rem', textAlign:'left', paddingLeft:'2em'}}>
                 <div style={{padding:'.5em'}}>Policy ID: {c.id}<br/></div>
-                <div style={{padding:'.5em'}}>Client Name: {c.clientName}<br/></div>
-                <div style={{padding:'.5em'}}>Business Name: {c.businessName}<br/></div>
+                {/* <div style={{padding:'.5em'}}>Client Name: {c.clientName}<br/></div>
+                <div style={{padding:'.5em'}}>Business Name: {c.businessName}<br/></div> */}
                 <div style={{padding:'.5em'}}>Expiration Date: {c.expiration_date}<br/></div>
                 <MaterialButton
                     style={{width:'50%', marginTop:'3em', marginBottom:'3em'}}
