@@ -82,7 +82,7 @@ export const agentHeaderInfo = [{
     path:baseURL+"/Notifications",
     icon:"exclamation-triangle",
     explanation:"Dashboard Alerts",   
-    botComponent:Notifications
+    botComponent:() => (<Notifications/>)
 }, {
     title: "Settings",
     path: baseURL + "/Settings",
