@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/DuplicAgent-FrontEnd/precache-manifest.91f3d35b5a54baeefa4bcc9a0cdaa77a.js"
+  "/DuplicAgent-FrontEnd/precache-manifest.94a0789390a5b6870725e7b603cdf58c.js"
 );
 
 self.addEventListener('message', (event) => {
