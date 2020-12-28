@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.2.0",
     "axios": "^0.19.0",
     "dropbox": "^4.0.30",
+    "gh-pages": "^3.1.0",
     "history": "^4.10.1",
     "node-sass": "^4.13.0",
     "pdf-viewer-reactjs": "^2.0.0",
