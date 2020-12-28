@@ -1,4 +1,5 @@
 {
+  "homepage": "http://StrawHatAaron.github.io/DuplicAgent-FrontEnd",
   "name": "duplicagent",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +24,8 @@
     "typescript": "3.6.2"
   },
   "scripts": {
+    "deploy": "gh-pages -b finish-line -d build",
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

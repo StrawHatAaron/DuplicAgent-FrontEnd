@@ -119,8 +119,8 @@ export default function Home(props){
 
                 <div className="row-3">
                     <div className="elon-quote">
-                        Make America Great Again
-                        <br/>-Trumpel Frumpel
+                            
+                        <br/>-
                     </div>
                 </div>
                 
