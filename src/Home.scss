@@ -218,9 +218,10 @@
 
 @media all and (max-width: $mobile-size){
   .the-big-div{
+    width:100%;
+    overflow: hidden;
     .landing-body{
-      margin: 0 1em; 
-      .row-1{
+        .row-1{
         background: white;
         display: grid;
         grid-template-columns: 1fr ;
