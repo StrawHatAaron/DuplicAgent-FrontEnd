@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c84192daef3cb7a77e9322af97dcc0f9",
+    "revision": "a27badb0d527e292e1f40c13a81eb7cb",
     "url": "/DuplicAgent-FrontEnd/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/DuplicAgent-FrontEnd/static/css/2.b99ced01.chunk.css"
   },
   {
-    "revision": "73e2ee9baab10d8dcb4e",
-    "url": "/DuplicAgent-FrontEnd/static/css/main.b7f0073f.chunk.css"
+    "revision": "263fef4fa096570ddd8c",
+    "url": "/DuplicAgent-FrontEnd/static/css/main.e1b55099.chunk.css"
   },
   {
     "revision": "ece791a9627301cda93a",
     "url": "/DuplicAgent-FrontEnd/static/js/2.76337428.chunk.js"
   },
   {
-    "revision": "73e2ee9baab10d8dcb4e",
+    "revision": "263fef4fa096570ddd8c",
     "url": "/DuplicAgent-FrontEnd/static/js/main.5a01b94b.chunk.js"
   },
   {

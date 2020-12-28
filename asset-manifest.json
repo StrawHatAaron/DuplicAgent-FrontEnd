@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DuplicAgent-FrontEnd/static/css/main.b7f0073f.chunk.css",
+    "main.css": "/DuplicAgent-FrontEnd/static/css/main.e1b55099.chunk.css",
     "main.js": "/DuplicAgent-FrontEnd/static/js/main.5a01b94b.chunk.js",
     "main.js.map": "/DuplicAgent-FrontEnd/static/js/main.5a01b94b.chunk.js.map",
     "runtime~main.js": "/DuplicAgent-FrontEnd/static/js/runtime~main.8c6beadc.js",
@@ -9,10 +9,10 @@
     "static/js/2.76337428.chunk.js": "/DuplicAgent-FrontEnd/static/js/2.76337428.chunk.js",
     "static/js/2.76337428.chunk.js.map": "/DuplicAgent-FrontEnd/static/js/2.76337428.chunk.js.map",
     "index.html": "/DuplicAgent-FrontEnd/index.html",
-    "precache-manifest.818c546e3018db96507c96d5e85f6b81.js": "/DuplicAgent-FrontEnd/precache-manifest.818c546e3018db96507c96d5e85f6b81.js",
+    "precache-manifest.91f3d35b5a54baeefa4bcc9a0cdaa77a.js": "/DuplicAgent-FrontEnd/precache-manifest.91f3d35b5a54baeefa4bcc9a0cdaa77a.js",
     "service-worker.js": "/DuplicAgent-FrontEnd/service-worker.js",
     "static/css/2.b99ced01.chunk.css.map": "/DuplicAgent-FrontEnd/static/css/2.b99ced01.chunk.css.map",
-    "static/css/main.b7f0073f.chunk.css.map": "/DuplicAgent-FrontEnd/static/css/main.b7f0073f.chunk.css.map",
+    "static/css/main.e1b55099.chunk.css.map": "/DuplicAgent-FrontEnd/static/css/main.e1b55099.chunk.css.map",
     "static/media/CalendarImg.jpg": "/DuplicAgent-FrontEnd/static/media/CalendarImg.3b52bcd2.jpg",
     "static/media/material-icons.css": "/DuplicAgent-FrontEnd/static/media/MaterialIcons-Regular.e79bfd88.eot",
     "static/media/acord-logo.png": "/DuplicAgent-FrontEnd/static/media/acord-logo.1f550972.png",
