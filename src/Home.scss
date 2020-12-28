@@ -219,7 +219,7 @@
 @media all and (max-width: $mobile-size){
   .the-big-div{
     .landing-body{
-      
+      margin: 0 1em; 
       .row-1{
         background: white;
         display: grid;
